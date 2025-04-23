@@ -1,0 +1,30 @@
+D:\Personal\lnm\services\bin\Debug\net8.0\services.deps.json
+D:\Personal\lnm\services\bin\Debug\net8.0\services.dll
+D:\Personal\lnm\services\bin\Debug\net8.0\services.pdb
+D:\Personal\lnm\services\bin\Debug\net8.0\model.dll
+D:\Personal\lnm\services\bin\Debug\net8.0\model.pdb
+D:\Personal\lnm\services\obj\Debug\net8.0\services.csproj.AssemblyReference.cache
+D:\Personal\lnm\services\obj\Debug\net8.0\services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal\lnm\services\obj\Debug\net8.0\services.AssemblyInfoInputs.cache
+D:\Personal\lnm\services\obj\Debug\net8.0\services.AssemblyInfo.cs
+D:\Personal\lnm\services\obj\Debug\net8.0\services.csproj.CoreCompileInputs.cache
+D:\Personal\lnm\services\obj\Debug\net8.0\services.csproj.Up2Date
+D:\Personal\lnm\services\obj\Debug\net8.0\services.dll
+D:\Personal\lnm\services\obj\Debug\net8.0\refint\services.dll
+D:\Personal\lnm\services\obj\Debug\net8.0\services.pdb
+D:\Personal\lnm\services\obj\Debug\net8.0\ref\services.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.deps.json
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.pdb
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\model.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\model.pdb
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.csproj.AssemblyReference.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.AssemblyInfoInputs.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.AssemblyInfo.cs
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.csproj.CoreCompileInputs.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.csproj.Up2Date
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\refint\services.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.pdb
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\ref\services.dll

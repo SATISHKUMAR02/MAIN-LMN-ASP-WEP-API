@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lnm_asp_web_api", "lnm_asp_web_api.csproj", "{5B565F93-391C-438E-B5F2-840CC11CD7FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "model", "..\model\model.csproj", "{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "services", "..\services\services.csproj", "{47D58426-06A0-4E92-83E7-07189C6B2E3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B565F93-391C-438E-B5F2-840CC11CD7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B565F93-391C-438E-B5F2-840CC11CD7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B565F93-391C-438E-B5F2-840CC11CD7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B565F93-391C-438E-B5F2-840CC11CD7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47D58426-06A0-4E92-83E7-07189C6B2E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D58426-06A0-4E92-83E7-07189C6B2E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D58426-06A0-4E92-83E7-07189C6B2E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D58426-06A0-4E92-83E7-07189C6B2E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

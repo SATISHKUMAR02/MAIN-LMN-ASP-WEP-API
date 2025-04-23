@@ -1,0 +1,22 @@
+D:\Personal\lnm\model\bin\Debug\net8.0\model.deps.json
+D:\Personal\lnm\model\bin\Debug\net8.0\model.dll
+D:\Personal\lnm\model\bin\Debug\net8.0\model.pdb
+D:\Personal\lnm\model\obj\Debug\net8.0\model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal\lnm\model\obj\Debug\net8.0\model.AssemblyInfoInputs.cache
+D:\Personal\lnm\model\obj\Debug\net8.0\model.AssemblyInfo.cs
+D:\Personal\lnm\model\obj\Debug\net8.0\model.csproj.CoreCompileInputs.cache
+D:\Personal\lnm\model\obj\Debug\net8.0\model.dll
+D:\Personal\lnm\model\obj\Debug\net8.0\refint\model.dll
+D:\Personal\lnm\model\obj\Debug\net8.0\model.pdb
+D:\Personal\lnm\model\obj\Debug\net8.0\ref\model.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\bin\Debug\net8.0\model.deps.json
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\bin\Debug\net8.0\model.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\bin\Debug\net8.0\model.pdb
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.AssemblyInfoInputs.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.AssemblyInfo.cs
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.csproj.CoreCompileInputs.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\refint\model.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.pdb
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\ref\model.dll

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "GPAgNSserZaF11cc7PvPwLkBTmD5y5onaS7lQDqzYxI=",
+  "Source": "lnm_asp_web_api",
+  "BasePath": "_content/lnm_asp_web_api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

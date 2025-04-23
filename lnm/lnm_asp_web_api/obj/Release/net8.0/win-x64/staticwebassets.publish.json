@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "WO0pznhfr5iapnAzgo6uwQ4SRlNM+EpexwlKpYTK1+Q=",
+  "Source": "lnm_asp_web_api",
+  "BasePath": "_content/lnm_asp_web_api",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
