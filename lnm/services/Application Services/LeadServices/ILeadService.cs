@@ -22,6 +22,8 @@ namespace services.Application_Services.LeadServices
 
         Task<CommonResponse<LeadDto>> GetLeadByNameAsync(string institutionName);
 
+        Task<CommonResponse<object>> DeleteLeadAsync(int id);
+
         //Task<CommonResponse<Meetingdto>> GetAllMeetingsBySchoolIdAsync(int id);
 
 

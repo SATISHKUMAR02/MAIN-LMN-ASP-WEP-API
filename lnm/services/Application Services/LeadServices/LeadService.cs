@@ -103,6 +103,23 @@ namespace services.Application_Services.LeadServices
             return new CommonResponse<LeadDto>(true, "lead fetched successfully", 200, data);
 
         }
+        public async Task<CommonResponse<object>> DeleteLeadAsync(int id)
+        {
+
+            if(id == 0)
+            {
+                return new CommonResponse<object>(false, "invalid credentials", 404, null);
+            }
+            var lead = await _repository.GetSingleAsync(u=>u.ImInstitutionId == id);
+            if(lead == null)
+            {
+                return new CommonResponse<object>(false,"lead does not exist",404,null);
+            }
+            await _repository.DeleteAsync(lead);
+            return new CommonResponse<object>(true,"lead deleted successfully",200,null);
+        }
+
+        
 
         
     }
