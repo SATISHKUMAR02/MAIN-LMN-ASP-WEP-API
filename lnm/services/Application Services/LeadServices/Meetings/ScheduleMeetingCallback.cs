@@ -30,23 +30,94 @@ namespace services.Application_Services.LeadServices.Meetings
             {
                 return new CommonResponse<ScheduleMeetingdto>(false, "meeting fields are empty", 404, null);
             }
-            TblMeetingsMaster 
+
+            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == dto.institution_id
+            && u.MmMeetingId == dto.meeting_id && u.MmMeetingConducted == false);
+
+            if (existingMeeting != null)
+            {
+                return new CommonResponse<ScheduleMeetingdto>(false, "there is already a existing meeting scheduled", 404, null);
+
+            }
+            TblMeetingsMaster meeting = _mapper.Map<TblMeetingsMaster>(dto);
+            await _repository.CreateAsync(meeting);
+            meeting.MmMeetingStatus = "open";
+            meeting.MmmeetingOutcome = "pending";
+            meeting.MmCreatedDate = DateTime.Now;
+            meeting.MmInstitutionResponded = "yes";
+
+            var response = _mapper.Map<ScheduleMeetingdto>(meeting);
+            return new CommonResponse<ScheduleMeetingdto>(true,"meeting scheduled successfully",200,response);
         }
 
-       
+      
+        public async Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id,int institution_id)
+        {
+            if(meeting_id==0 && institution_id == 0)
+            {
+                return new CommonResponse<object>(false,"invalid inputs",404,null);
+            }
+            var existingMeeting = await _repository.GetSingleAsync(u=>u.MmMeetingId == meeting_id && u.MmInstitutionId == institution_id );
+            if(existingMeeting == null)
+            {
+                return new CommonResponse<object>(false, "meeting does not exist", 404, null);
 
-        Task<CommonResponse<object>> IScheduleMeetingCallback.DeleteMeetingAsync(int id)
-        {
-            throw new NotImplementedException();
+            }
+            await _repository.DeleteAsync(existingMeeting);
+            return new CommonResponse<object>(true,"meeting deleted successfully",200,null);
+
         }
-        Task<CommonResponse<ScheduleMeetingdto>> IScheduleMeetingCallback.UpdateMeetingAsync(ScheduleMeetingdto dto)
+
+        public async Task<CommonResponse<ScheduleMeetingdto>> UpdateMeetingAsync(ScheduleMeetingdto dto)
         {
-            throw new NotImplementedException();
+            if(dto == null)
+            {
+                return new CommonResponse<ScheduleMeetingdto>(false, "meeting fields are empty", 404, null);
+
+            }
+            var existingMeeting = await _repository.GetSingleAsync(u=> u.MmInstitutionId == dto.institution_id && u.MmMeetingId == dto.meeting_id && u.MmMeetingConducted == false);
+            if(existingMeeting == null)
+            {
+                return new CommonResponse<ScheduleMeetingdto>(false, "meeting does not exist", 404, null);
+            }
+
+            var meetingToUpdate = _mapper.Map<TblMeetingsMaster>(dto);
+
+            meetingToUpdate.MmUpdatedDate = DateTime.Now;
+
+            await _repository.UpdateAsync(meetingToUpdate);
+
+            var response = _mapper.Map<ScheduleMeetingdto>(existingMeeting);
+
+            return new CommonResponse<ScheduleMeetingdto>(true, "meeting updated successfully", 200, response);
+
+
+
         }
-        Task<CommonResponse<ScheduleMeetingdto>> IScheduleMeetingCallback.GetMeetingAsync(ScheduleMeetingdto dto)
+        public async Task<CommonResponse<MeetingCallbackdashdto>> GetMeetingAsync()
         {
-            throw new NotImplementedException();
+            var meetings = await _repository.GetAllAsync();
+            var data = _mapper.Map<MeetingCallbackdashdto>(meetings);
+            return new CommonResponse<List<MeetingCallbackdashdto>>(true,"data fetched successfully",200,data);
         }
+
+        public async Task<CommonResponse<ScheduleMeetingdto>> GetMeetingByIdAsync(int id)
+        {
+            if(id == 0)
+            {
+                return new CommonResponse<ScheduleMeetingdto>(false,"invalid input credentials",404,null);
+            }
+            var existingMeeting = await _repository.GetSingleAsync(u=>u.MmMeetingId==id);
+            if(existingMeeting == null)
+            {
+                return new CommonResponse<ScheduleMeetingdto>(false, "meeting does not exist", 404, null);
+            }
+            var data = _mapper.Map<ScheduleMeetingdto>(existingMeeting);
+            return new CommonResponse<ScheduleMeetingdto>(true,"meeting fetched successfully",200,data);
+
+        }
+
+        
 
 
 

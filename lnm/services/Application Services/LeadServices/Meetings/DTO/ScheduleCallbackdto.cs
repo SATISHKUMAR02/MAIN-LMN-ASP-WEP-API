@@ -19,5 +19,10 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
         public string descritpion { get; set; }
 
         public string created_by { get; set; }
+
+        public bool meeting_conducted { get; set; }
+
+        public string meeting_outcome { get; set; }
+        
     }
 }

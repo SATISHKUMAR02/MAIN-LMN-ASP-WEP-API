@@ -33,5 +33,11 @@ namespace model.Institution
         public string? MmMeetingType { get; set; }
         //========================================================================================
         public string? MmMeetingStatus { get; set; }
+
+        public bool MmMeetingConducted { get; set; }
+
+        public string MmmeetingOutcome {get;set;}
+
+
     }
 }

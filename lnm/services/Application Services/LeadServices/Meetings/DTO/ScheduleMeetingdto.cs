@@ -8,6 +8,8 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 {
     public class ScheduleMeetingdto
     {
+        public int meeting_id {  get; set; }
+
         public int institution_id {  get; set; }
         
         public DateOnly date {  get; set; }
@@ -20,6 +22,11 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public string created_by { get; set; }
 
-        
+        public bool meeting_conducted { get; set; }
+
+        public string meeting_outcome { get; set; }
+
+       
+
     }
 }
