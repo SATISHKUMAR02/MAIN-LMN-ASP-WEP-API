@@ -8,6 +8,8 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 {
     public class ScheduleCallbackdto
     {
+        public int meeting_id {  get; set; }
+
         public int institution_id { get; set; }
 
         public DateOnly date { get; set; }

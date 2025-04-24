@@ -28,7 +28,7 @@ namespace services.Application_Services.LeadServices.Meetings
         // for callbacks only CRUD
         Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto);
 
-        Task<CommonResponse<ScheduleCallbackdto>> GetCallbackAsync(ScheduleCallbackdto dto);
+        Task<CommonResponse<ScheduleCallbackdto>> GetCallbackAsync();
 
         Task<CommonResponse<ScheduleCallbackdto>> UpdateCallbackAsync(ScheduleCallbackdto dto);
 
