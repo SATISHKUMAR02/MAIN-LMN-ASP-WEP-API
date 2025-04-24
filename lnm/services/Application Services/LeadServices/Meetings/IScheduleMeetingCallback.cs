@@ -1,15 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using model;
+using services.Application_Services.LeadServices.Meetings.DTO;
 
-namespace model.Institution
+namespace services.Application_Services.LeadServices.Meetings
 {
-    public class TblMeetingsMaster
+    public interface IScheduleMeetingCallback
     {
-        [Key]
+        // for meetings only CRUD
+
+        Task<CommonResponse<ScheduleMeetingdto>> CreateMeetingAsync(ScheduleMeetingdto dto);
+
+        Task<CommonResponse<ScheduleMeetingdto>> GetMeetingAsync(ScheduleMeetingdto dto);
+
+        Task<CommonResponse<ScheduleMeetingdto>> UpdateMeetingAsync(ScheduleMeetingdto dto);
+
+        Task<CommonResponse<object>> DeleteMeetingAsync(int id);
+
+
+        // for callbacks only CRUD
+        Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto);
+
+        Task<CommonResponse<ScheduleCallbackdto>> GetCallbackAsync(ScheduleCallbackdto dto);
+
+        Task<CommonResponse<ScheduleCallbackdto>> UpdateCallbackAsync(ScheduleCallbackdto dto);
+
+        Task<CommonResponse<object>> DeleteCallbackAsync(int id);
+
+
+    }
+
+}
+
+/*
+ [Key]
         public int MmMeetingId { get; set; }
 
         public int MmInstitutionId { get; set; }
@@ -33,5 +60,4 @@ namespace model.Institution
         public string? MmMeetingType { get; set; }
         //========================================================================================
         public string? MmMeetingStatus { get; set; }
-    }
-}
+ * /

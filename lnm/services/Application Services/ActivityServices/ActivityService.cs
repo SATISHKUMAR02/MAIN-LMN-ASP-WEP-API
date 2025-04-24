@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Identity.Client;
+using model;
 using model.Activities;
 using model.Institution;
 using services.Application_Services.ActivityServices.DTO;
@@ -21,66 +22,76 @@ namespace services.Application_Services.ActivityServices
         {
             _repository = repository;            
         }
-        public async Task<bool> CreateNewActivityAsync(AddInstitutionActivitydto dto)
+        public async Task<CommonResponse<AddInstitutionActivitydto>> CreateNewActivityAsync(AddInstitutionActivitydto dto)
         {
             if (dto == null)
             {
-                throw new Exception("empty data");
+                return new CommonResponse<AddInstitutionActivitydto>(false, "fields are empty", 404, null);
             }
             var existingActivity = await _repository.GetSingleAsync(u => u.ImActivityId.Equals(dto.ActivityId));
-            if (existingActivity != null) { 
-                throw new ArgumentNullException(nameof(existingActivity));
-              }
+            if (existingActivity != null) {
+                return new CommonResponse<AddInstitutionActivitydto>(false, "activity already exist", 404, null);
+
+            }
             TblInstitutionActivity institutionActivity = _mapper.Map<TblInstitutionActivity>(dto);
             await _repository.CreateAsync(institutionActivity);
             institutionActivity.ImCreatedDate = DateTime.Now;
             institutionActivity.ImUpdatedDate = DateTime.Now;
+            var response = _mapper.Map<AddInstitutionActivitydto>(institutionActivity);
 
-            return true;
+            return new CommonResponse<AddInstitutionActivitydto>(true, "activity created successfully", 201, response);
 
         }
-        public async Task<bool> UpdateActivityAsync (AddInstitutionActivitydto dto)
+        public async Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync (AddInstitutionActivitydto dto)
         {
             if (dto == null)
             {
-                throw new Exception("empty data");
+                return new CommonResponse<AddInstitutionActivitydto>(false, "fields are empty", 404, null);
             }
             var existingActivity = await _repository.GetSingleAsync(u=>u.ImActivityId.Equals(dto.ActivityId));
             if (existingActivity == null)
             {
-                throw new Exception("activity not found");
+                return new CommonResponse<AddInstitutionActivitydto>(false, "activity not found", 404, null);
             }
             var activityToUpdate = _mapper.Map<TblInstitutionActivity>(dto);
             activityToUpdate.ImUpdatedDate = DateTime.Now;
             await _repository.UpdateAsync(activityToUpdate);
-            return true;
+            var response = _mapper.Map<AddInstitutionActivitydto>(activityToUpdate);
+            return new CommonResponse<AddInstitutionActivitydto>(true,"activity updated sucessfully",200,response);
+           
         }
 
-        public async Task<bool> DeleteActivityAsync(int activityId)
+        public async Task<CommonResponse<object>> DeleteActivityAsync(int activityId)
         {
             if (activityId <= 0)
             {
-                throw new ArgumentNullException(nameof(activityId));
+                return new CommonResponse<object>(false, "invalid activity", 404, null);
             }
             var existingActivity = await _repository.GetSingleAsync(i => i.ImActivityId == activityId);
             if (existingActivity == null)
             {
-                throw new Exception("activity not found");
+                return new CommonResponse<object>(false, "activity does not exist", 404, null);
             }
             await _repository.DeleteAsync(existingActivity);
-            return true;
-        }
-        public async Task<List<TblInstitutionActivity>> GetAllInstitutionActivityAsync()
-        { 
-            //================================================================= below code needs to be changed
-            var activities = await _repository.GetAllByAnyAsync(u=>u.ImInstitutionId!=1);
-            return _mapper.Map<List<TblInstitutionActivity>>(activities);
+            return new CommonResponse<object>(true, "activity removed successfully", 200, activityId);
+
         }
 
-        public async Task<List<TblActivityMaster>> GetAllActivityAsync()
+
+        public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync()
+        {
+            //=========================================================================== below code needs to be changed ===================
+            var activities = await _repository.GetAllByAnyAsync(u => u.ImInstitutionId != 1);
+            var data = _mapper.Map<List<AddInstitutionActivitydto>>(activities);
+           return new CommonResponse<List<AddInstitutionActivitydto>>(true, "Institution activities fetched successfully", 200, data);
+        }
+
+
+        public async Task<CommonResponse<List<TblActivityMaster>>> GetAllActivityAsync()
         {
             var institutiotnActivities = await _repository.GetAllAsync();
-            return _mapper.Map<List<TblActivityMaster>>(institutiotnActivities);
+            var data =  _mapper.Map<List<TblActivityMaster>>(institutiotnActivities);
+            return new CommonResponse<List<TblActivityMaster>>(true,"activity fetched successfully",200,data);
         }
     }
    

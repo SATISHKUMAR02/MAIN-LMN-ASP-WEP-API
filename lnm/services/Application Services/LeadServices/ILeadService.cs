@@ -22,5 +22,8 @@ namespace services.Application_Services.LeadServices
 
         Task<CommonResponse<LeadDto>> GetLeadByNameAsync(string institutionName);
 
+        //Task<CommonResponse<Meetingdto>> GetAllMeetingsBySchoolIdAsync(int id);
+
+
     }
 }

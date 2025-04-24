@@ -19,6 +19,8 @@ namespace services.Mapping
             CreateMap<tbl_employee_master, AddConnectordto>().ReverseMap();
             CreateMap<tbl_employee_master, AddTelecallerdto>().ReverseMap();
             CreateMap<InstitutionMou, connectorDtocs>().ReverseMap();
+            CreateMap<TblMeetingsMaster, Meetingdto>().ReverseMap();
+
 
 
         }
