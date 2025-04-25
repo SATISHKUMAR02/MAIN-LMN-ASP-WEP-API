@@ -20,3 +20,4 @@ C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\refint\model.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.pdb
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\ref\model.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\model\obj\Debug\net8.0\model.sourcelink.json

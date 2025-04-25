@@ -44,7 +44,7 @@ namespace services.Application_Services.LeadServices
             {
                 return new CommonResponse<LeadDto>(false, "fields are empty", 400, null);
             }
-            var exuser = await _repository.GetSingleAsync(u => u.ImInstitutionId.Equals(dto.institution_id), true);
+            var exuser = await _repository.GetSingleAsync(u => u.ImInstitutionId.Equals(dto.institution_id) && u.ImIsDeleted==false);
             if (exuser != null)
             {
                 return new CommonResponse<LeadDto>(false, "lead does not exist", 400, null);
@@ -77,7 +77,7 @@ namespace services.Application_Services.LeadServices
                 return new CommonResponse<LeadDto>(false, "invalid Id", 404, null);
 
             }
-            var leads = await _repository.GetAllByAnyAsync(lead => lead.ImInstitutionId == id);
+            var leads = await _repository.GetAllByAnyAsync(lead => lead.ImInstitutionId == id && lead.ImIsDeleted==false);
             if (leads == null)
             {
                 return new CommonResponse<LeadDto>(false, "lead does not exist", 404, null);
@@ -93,7 +93,7 @@ namespace services.Application_Services.LeadServices
                 return new CommonResponse<LeadDto>(false, "fields are empty", 404, null);
             }
 
-            var leads = await _repository.GetAllByAnyAsync(lead => lead.ImInstitutionName == institution);
+            var leads = await _repository.GetAllByAnyAsync(lead => lead.ImInstitutionName == institution && lead.ImIsDeleted == false);
             if (leads == null)
             {
                 return new CommonResponse<LeadDto>(false, "lead does not exist ", 404, null);
@@ -103,7 +103,7 @@ namespace services.Application_Services.LeadServices
             return new CommonResponse<LeadDto>(true, "lead fetched successfully", 200, data);
 
         }
-        public async Task<CommonResponse<object>> DeleteLeadAsync(int id)
+        public async Task<CommonResponse<object>> DeleteLeadAdminAsync(int id) //============================================ this is only for Admin for permanent deletion
         {
 
             if(id == 0)
@@ -119,8 +119,24 @@ namespace services.Application_Services.LeadServices
             return new CommonResponse<object>(true,"lead deleted successfully",200,null);
         }
 
-        
+        public async Task<CommonResponse<object>> DeleteLeadOthersAsync(int id) //============================================ this is for Others ,  ImIsDeleted flag = true
+        {
 
-        
+            if (id == 0)
+            {
+                return new CommonResponse<object>(false, "invalid credentials", 404, null);
+            }
+            var lead = await _repository.GetSingleAsync(u => u.ImInstitutionId == id);
+            if (lead == null)
+            {
+                return new CommonResponse<object>(false, "lead does not exist", 404, null);
+            }
+            lead.ImIsDeleted = true;
+            return new CommonResponse<object>(true, "lead deleted successfully", 200, null);
+        }
+
+
+
+
     }
 }

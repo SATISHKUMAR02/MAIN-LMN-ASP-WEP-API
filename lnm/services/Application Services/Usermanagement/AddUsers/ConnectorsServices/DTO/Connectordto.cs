@@ -8,7 +8,7 @@ namespace services.Application_Services.Usermanagement.Connectors.DTO
 {
     public class Connectordto
     {
-        public int connectorId { get; set; };
+        public int connectorId { get; set; }
 
         public string connectorName { get; set; }
 

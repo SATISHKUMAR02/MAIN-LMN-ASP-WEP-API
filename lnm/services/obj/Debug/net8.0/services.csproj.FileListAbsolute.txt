@@ -28,3 +28,4 @@ C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\De
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\refint\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.pdb
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\ref\services.dll
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.sourcelink.json

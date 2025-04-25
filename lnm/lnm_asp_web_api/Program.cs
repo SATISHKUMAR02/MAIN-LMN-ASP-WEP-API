@@ -10,6 +10,8 @@ using AspNetCoreRateLimit;
 using System.Text;
 using services.Mapping;
 using services.Application_Services.User_Service;
+using services.Application_Services.LeadServices;
+using services.Repository;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +26,9 @@ try
               ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."),
               sqlOptions =>sqlOptions.MigrationsAssembly("services")
               ));
+
+    builder.Services.AddScoped(typeof(IApplicationRepository<>), typeof(ApplicationRepository<>));
+
 
     // Authentication setup
     builder.Services.AddAuthentication(opt =>
@@ -123,6 +128,8 @@ try
     builder.Services.AddInMemoryRateLimiting();
     builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
     builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+    //builder.Services.AddScoped<ILeadService, LeadService>();
+  
 }
 catch (Exception ex)
 {
@@ -178,8 +185,13 @@ catch (Exception ex)
 }
 
 
-void RegisterServices(IServiceCollection services)
+ void RegisterServices(IServiceCollection services)
 {
+
+
     builder.Services.AddScoped<IUserService, UserService>();
+    builder.Services.AddTransient<ILeadService, LeadService>();
+
+
 
 }

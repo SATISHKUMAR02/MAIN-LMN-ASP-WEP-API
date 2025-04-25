@@ -45,5 +45,9 @@ namespace model.Institution
         public DateTime? ImUpdatedDate { get; set; }
 
         public string? ImMouStatus { get; set; }
+
+        public bool ImIsDeleted { get; set; }
+
+        
     }
 }

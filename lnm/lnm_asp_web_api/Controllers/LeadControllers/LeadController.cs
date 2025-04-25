@@ -26,7 +26,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<LeadDto>>> CreateLeadAsync(LeadDto dto)
+        public async Task<ActionResult<CommonResponse<LeadDto>>> CreateLead([FromBody] LeadDto dto)
         {
             try
             {
@@ -110,29 +110,68 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
             }
         }
 
-        //[HttpDelete]
-        //[Route("DeleteLead/{id:int}")]
-        //[ProducesResponseType(200)]
-        //[ProducesResponseType(400)]
-        //[ProducesResponseType(401)]
-        //[ProducesResponseType(404)]
-        //[ProducesResponseType(500)]
+        [HttpDelete] //================================================================================ for admin
+        [Route("DeleteLeadByAdmin/{id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
 
-        //public async Task<ActionResult<CommonResponse<object>>> DeleteLeadById(int id)
-        //{
-        //    try
-        //    {
-        //        var lead = _leadService.GetLeadByIdAsync(id);
+        public async Task<ActionResult<CommonResponse<object>>> DeleteLeadAdminById(int id)
+        {
+            try
+            {
+                if (id < 0)
+                {
+                    return BadRequest(new CommonResponse<object>(false,"invalid input",400,null));
+                }
+                var lead = await _leadService.GetLeadByIdAsync(id);
+                
+               
+                var result = await _leadService.DeleteLeadAdminAsync(id);
+                return StatusCode(lead.StatusCode, id);
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 400, null));
+
+            }
+        }
+
+        [HttpDelete] //================================================================================ for aOthers
+        [Route("DeleteLeadByOthers/{id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+
+        public async Task<ActionResult<CommonResponse<object>>> DeleteLeadOthersById(int id)
+        {
+            try
+            {
+                if (id < 0)
+                {
+                    return BadRequest(new CommonResponse<object>(false, "invalid input", 400, null));
+                }
+                var lead = await _leadService.GetLeadByIdAsync(id);
 
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+                var result = await _leadService.DeleteLeadOthersAsync(id);
+                return StatusCode(lead.StatusCode, id);
 
-        //        return BadRequest(new CommonResponse<object>(false, ex.Message, 400, null));
+            }
+            catch (Exception ex)
+            {
 
-        //    }
-        //}
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 400, null));
+
+            }
+        }
+
         [HttpPut]
         [Route("UpdateLead/{id:int}")]
         [ProducesResponseType(200)]
@@ -140,14 +179,27 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<LeadDto>>> UpdateLeadById(int id)
+        public async Task<ActionResult<CommonResponse<LeadDto>>> UpdateLead([FromBody] LeadDto dto)
         {
             try
             {
-                var lead = 
+                if (dto == null || dto.institution_id < 0)
+                {
+                    return BadRequest(new CommonResponse<LeadDto>(false, "invalid input credentials", 400, null));
+                }
+                var existingLead = await _leadService.UpdateLeadAsync(dto);
+                return StatusCode(existingLead.StatusCode, existingLead);
+
+            }
+            catch (Exception ex) {
+                return BadRequest(new CommonResponse<LeadDto>(false, ex.Message, 400, null));
+
             }
         }
+
        
+
+
 
 
     }
