@@ -24,7 +24,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         }
 
         [HttpPost]
-        [Route("CreateNewConnector")] // =============================================== for adding telecallers , Connectos only
+        [Route("CreateNewConnector")] // =============================================== for adding Connectos only by admin
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
