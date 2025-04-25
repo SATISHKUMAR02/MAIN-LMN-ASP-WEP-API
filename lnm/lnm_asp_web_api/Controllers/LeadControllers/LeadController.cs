@@ -44,7 +44,6 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpGet]
         [Route("GetAllLeads")]
-        [Authorize]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -110,8 +109,9 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
             }
         }
 
-        [HttpDelete] //================================================================================ for admin
+        [HttpDelete] //================================================================================ for admin  -> direct deletion of lead
         [Route("DeleteLeadByAdmin/{id:int}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -141,8 +141,9 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
             }
         }
 
-        [HttpDelete] //================================================================================ for aOthers
+        [HttpDelete] //======================================================================================for Others -> delete flag is set to true
         [Route("DeleteLeadByOthers/{id:int}")]
+        [Authorize(Roles = "Connector")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -174,16 +175,17 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpPut]
         [Route("UpdateLead/{id:int}")]
+        [Authorize(Roles = "Admin,Connector")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<LeadDto>>> UpdateLead([FromBody] LeadDto dto)
+        public async Task<ActionResult<CommonResponse<LeadDto>>> UpdateLead(int id,[FromBody] LeadDto dto)
         {
             try
             {
-                if (dto == null || dto.institution_id < 0)
+                if (dto == null || dto.institution_id !=id)
                 {
                     return BadRequest(new CommonResponse<LeadDto>(false, "invalid input credentials", 400, null));
                 }
