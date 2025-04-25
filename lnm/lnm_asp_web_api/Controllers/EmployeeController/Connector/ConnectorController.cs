@@ -68,6 +68,27 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         }
 
         [HttpGet]
+        [Route("GetConnectorMOU/{mouid:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> GetConnectorMou(int mouid)
+        {
+            try
+            {
+                var mou = await _addConnectors.GetConnectorMouByIdAsync(mouid);
+                return StatusCode(mou.StatusCode, mou);
+                
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
+            }
+        }
+
+        [HttpGet]
         [Route("GetConnectorById/{id:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -109,7 +130,8 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         //}
 
         [HttpPut]
-        [Route("UpdateConnectorById/{id:int}")]
+        [Route("UpdateConnector/{id:int}")]
+        [Authorize(Roles ="Admin")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -134,7 +156,8 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         }
 
         [HttpDelete]
-        [Route("DeleteConnectorById/{id:int}")]
+        [Route("DeleteConnector/{id:int}")]
+        [Authorize(Roles ="Admin")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -159,5 +182,6 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
 
         }
+
     }
 }

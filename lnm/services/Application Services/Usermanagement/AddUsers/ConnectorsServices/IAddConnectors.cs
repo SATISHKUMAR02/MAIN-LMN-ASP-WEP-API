@@ -24,5 +24,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         Task<CommonResponse<object>> DeleteConnectorAsync(int id);
 
+        Task<CommonResponse<object>> GetConnectorMouByIdAsync(float version);
+
     }
 }

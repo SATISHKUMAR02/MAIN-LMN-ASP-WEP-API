@@ -14,7 +14,7 @@ namespace model.MOUs
 
         public int? CmouMouId { get; set; }
 
-        public int? CmouRoleId { get; set; }
+        public int? CmouRoleId { get; set; }  // this is the connector Id which will be linked with the tbl_employee_master
 
         public int CmouCreatedBy { get; set; }
 

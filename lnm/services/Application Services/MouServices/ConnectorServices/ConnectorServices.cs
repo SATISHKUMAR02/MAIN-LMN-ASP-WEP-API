@@ -15,7 +15,7 @@ namespace services.Application_Services.MouServices.ConnectorServices
 {
     public class ConnectorServices : IConnectorServices
     {
-        private readonly IApplicationRepository<InstitutionMou> _repository;
+        private readonly IApplicationRepository<ConnectorMou> _repository;
         private readonly IMapper _mapper;
 
         public async Task<CommonResponse<List<connectorDtocs>>> GetAllConnectorsMouAsync()
@@ -25,13 +25,13 @@ namespace services.Application_Services.MouServices.ConnectorServices
             return new CommonResponse<List<connectorDtocs>>(true, "connectors mou fetched successfully", 200, data);
         }
 
-        public async Task<CommonResponse<object>> GetMouByVersion(string versionno)
+        public async Task<CommonResponse<object>> GetConnectorMouByVersion(string versionno)
         {
             if (versionno == null)
             {
                 return new CommonResponse<object>(false, "mou does not exist", 404, null);
             }
-            var mou = await _repository.GetSingleAsync(u => u.ImoMouVerionNo == versionno);
+            var mou = await _repository.GetSingleAsync(u => u.CmouMouVerionNo == versionno);
             return new CommonResponse<object>(true, "mou retireved successfully", 200, mou);
             
         }

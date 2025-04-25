@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using model;
+using model.MOUs;
 using services.Application_Services.Usermanagement.AddUsers.Connectors.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
 using services.Repository;
@@ -106,5 +108,20 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             return new CommonResponse<AddConnectordto>(true, "connector fetched successfully", 200, data);
 
         }
+
+        public async Task<CommonResponse<object>> GetConnectorMouByIdAsync(float version) //===================================== pending 
+        {//===============================================================================  NEED TO USE LINQ here ========================
+            if (version < 0) {
+                return new CommonResponse<object>(false,"invalid input credentials",404,null);
+            }
+            var mou = await _repository.GetSingleAsync(u=>u.em_id==version);
+            if (mou == null) {
+                return new CommonResponse<object>(false, "mou does not exist", 404, null);
+                }
+
+            return new CommonResponse<object>(true,"mou fetched successfully",200,mou);
+        }
+
+
     }
 }
