@@ -42,7 +42,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
             catch (Exception ex)
             {
 
-                return BadRequest(new CommonResponse<LeadDto>(false, ex.Message, 400, null));
+                return BadRequest(new CommonResponse<AddConnectordto>(false, ex.Message, 400, null));
             }
         }
 
