@@ -12,6 +12,12 @@ using services.Mapping;
 using services.Application_Services.User_Service;
 using services.Application_Services.LeadServices;
 using services.Repository;
+using services.Application_Services.MouServices.ConnectorServices;
+using services.Application_Services.MouServices.TelecallerServices;
+using services.Application_Services.MouServices.InstitutionServices;
+using services.Application_Services.ActivityServices;
+using services.Application_Services.Usermanagement.AddUsers.Connectors;
+using services.Application_Services.Usermanagement.AddUsers.TelecallersServices;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -191,6 +197,12 @@ catch (Exception ex)
 
     builder.Services.AddScoped<IUserService, UserService>();
     builder.Services.AddTransient<ILeadService, LeadService>();
+    builder.Services.AddTransient<IConnectorServices,ConnectorServices>();
+    builder.Services.AddTransient<IInstitutionService,InstitutionServicecs>();
+    builder.Services.AddTransient<IActivityService,ActivityService>();
+    builder.Services.AddTransient<IAddConnectors,AddConnectors>();
+
+
 
 
 

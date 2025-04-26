@@ -35,5 +35,16 @@ namespace services.Application_Services.MouServices.InstitutionServices
             return new CommonResponse<object>(true, "mou retireved successfully", 200, mou);
 
         }
+
+        public async Task<CommonResponse<object>> GetCurrentInstitutionMouByVersionAsync()
+        {
+            var allMous = await _repository.GetAllAsync();
+
+            var latestVersion = allMous.Max(m => m.ImoMouVerionNo);
+
+            var mou = await _repository.GetSingleAsync(u => u.ImoMouVerionNo == latestVersion);
+
+            return new CommonResponse<object>(true, "current mou fetched successfully", 200, mou);
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
     [ApiController]
     [Authorize]
     
-    public class SubConnectorController : ControllerBase
+    public class SubConnectorController : ControllerBase // ==========pending
     {
+       
     }
 }

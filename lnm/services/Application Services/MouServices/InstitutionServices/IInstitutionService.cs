@@ -15,5 +15,8 @@ namespace services.Application_Services.MouServices.TelecallerServices
 
         Task<CommonResponse<object>> GetInstitutionMouByVersion(string versionno);
 
+        Task<CommonResponse<object>> GetCurrentInstitutionMouByVersionAsync();
+
+
     }
 }

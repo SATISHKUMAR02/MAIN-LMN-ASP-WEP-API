@@ -15,6 +15,8 @@ namespace services.Application_Services.MouServices.ConnectorServices
 
         Task<CommonResponse<List<connectorDtocs>>> GetAllConnectorsMouAsync();
 
-        Task<CommonResponse<object>> GetConnectorMouByVersion(string versionno);
+        Task<CommonResponse<object>> GetConnectorMouByVersionAsync(float versionno);
+
+        Task<CommonResponse<object>> GetCurrentConnectorMouByVersionAsync();
     }
 }

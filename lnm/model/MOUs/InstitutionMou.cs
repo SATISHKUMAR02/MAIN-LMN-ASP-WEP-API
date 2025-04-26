@@ -24,7 +24,7 @@ namespace model.MOUs
 
         public DateTime? ImoUpdatedDate { get; set; }
 
-        public string? ImoMouVerionNo { get; set; }
+        public float ImoMouVerionNo { get; set; }
 
         public string? ImoMouPath { get; set; }
 
