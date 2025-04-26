@@ -23,8 +23,4 @@
     <ProjectReference Include="..\services\services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\MouControllers\InstitutionMouController\" />
-  </ItemGroup>
-
 </Project>

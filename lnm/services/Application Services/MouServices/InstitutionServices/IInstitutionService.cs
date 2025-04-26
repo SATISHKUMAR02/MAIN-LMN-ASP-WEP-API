@@ -13,7 +13,7 @@ namespace services.Application_Services.MouServices.TelecallerServices
     {
         Task<CommonResponse<List<Institutiondto>>> GetAllInstitutitionMouAsync();
 
-        Task<CommonResponse<object>> GetInstitutionMouByVersion(string versionno);
+        Task<CommonResponse<object>> GetInstitutionMouByVersion(float versionno);
 
         Task<CommonResponse<object>> GetCurrentInstitutionMouByVersionAsync();
 

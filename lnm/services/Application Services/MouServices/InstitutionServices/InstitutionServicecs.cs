@@ -25,7 +25,7 @@ namespace services.Application_Services.MouServices.InstitutionServices
             return new CommonResponse<List<Institutiondto>>(true, "institution mou fetched successfully", 200, data);
         }
 
-        public async Task<CommonResponse<object>> GetInstitutionMouByVersion(string versionno)
+        public async Task<CommonResponse<object>> GetInstitutionMouByVersion(float versionno)
         {
             if (versionno == null)
             {
@@ -46,5 +46,7 @@ namespace services.Application_Services.MouServices.InstitutionServices
 
             return new CommonResponse<object>(true, "current mou fetched successfully", 200, mou);
         }
+
+
     }
 }

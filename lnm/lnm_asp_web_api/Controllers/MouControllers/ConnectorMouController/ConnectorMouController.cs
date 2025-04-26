@@ -21,7 +21,7 @@ namespace lnm_asp_web_api.Controllers.MouControllers.ConnectorMouController
         }
 
         [HttpGet]
-        [Route("GetAllConnectorsMou")]
+        [Route("GetAllConnectorsMous")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -41,17 +41,17 @@ namespace lnm_asp_web_api.Controllers.MouControllers.ConnectorMouController
         }
 
         [HttpGet]
-        [Route("GetConnectorById/{version:alpha}")]
+        [Route("GetConnectorMouByVersion/{float:alpha}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
 
-        public async Task<ActionResult<CommonResponse<object>>> GetConnectorMouByVersion (string version)
+        public async Task<ActionResult<CommonResponse<object>>> GetConnectorMouByVersion (float version)
         {
             try
             {
-                if (version =="")
+                if (version <0)
                 {
                     return BadRequest(new CommonResponse<object>(false, "invalid credentials", 404, null));
                 }
@@ -60,6 +60,26 @@ namespace lnm_asp_web_api.Controllers.MouControllers.ConnectorMouController
             }
             catch (Exception ex) { 
                 return BadRequest(new CommonResponse<object>(false, ex.Message,404, null));
+            }
+        }
+
+        [HttpGet]
+        [Route("GetLatestConnectorMouByVersion")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> GetLatestConnectorMouByVersion()
+        {
+            try
+            {                
+                var mou = await _connectorServices.GetCurrentConnectorMouByVersionAsync();
+                return StatusCode(mou.StatusCode, mou);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
             }
         }
 
