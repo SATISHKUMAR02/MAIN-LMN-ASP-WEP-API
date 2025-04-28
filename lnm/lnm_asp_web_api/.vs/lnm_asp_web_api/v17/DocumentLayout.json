@@ -7,14 +7,17 @@
       "RelativeMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|solutionrelative:controllers\\employeecontroller\\subconnector\\subconnectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\lnm_asp_web_api\\controllers\\employeecontroller\\connector\\connectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|solutionrelative:controllers\\employeecontroller\\connector\\connectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\usermanagement\\addusers\\connectorsservices\\iaddconnectors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\usermanagement\\addusers\\connectorsservices\\addconnectors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\usermanagement\\addusers\\connectorsservices\\iaddconnectors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\leadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\lnm_asp_web_api\\controllers\\employeecontroller\\connector\\connectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|solutionrelative:controllers\\employeecontroller\\connector\\connectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\usermanagement\\addusers\\connectorsservices\\dto\\addsubconnectordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -27,9 +30,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\dto\\leaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\leadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\lnm_asp_web_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -275,21 +275,12 @@
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AddSubConnectordto.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBwAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T09:40:48.146Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SubConnectordto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\SubConnectordto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\SubConnectordto.cs",
@@ -297,18 +288,17 @@
               "RelativeToolTip": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\SubConnectordto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T09:37:51.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-28T09:37:51.46Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "IAddConnectors.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\IAddConnectors.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\IAddConnectors.cs",
               "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\IAddConnectors.cs",
               "RelativeToolTip": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\IAddConnectors.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIBFwCIAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAA8wCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-23T05:24:06.028Z",
               "EditorCaption": ""
@@ -321,14 +311,14 @@
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\AddConnectors.cs",
               "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\AddConnectors.cs",
               "RelativeToolTip": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\AddConnectors.cs",
-              "ViewState": "AgIAALYAAAAAAAAAAAAkwLMAAABkAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAA4wM0AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T11:29:07.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "tbl_employee_master.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\User\\tbl_employee_master.cs",
               "RelativeDocumentMoniker": "..\\model\\User\\tbl_employee_master.cs",
@@ -336,8 +326,7 @@
               "RelativeToolTip": "..\\model\\User\\tbl_employee_master.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T10:29:06.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T10:29:06.43Z"
             },
             {
               "$type": "Document",
@@ -347,14 +336,14 @@
               "RelativeDocumentMoniker": "Controllers\\EmployeeController\\SubConnector\\SubConnectorController.cs",
               "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\EmployeeController\\SubConnector\\SubConnectorController.cs",
               "RelativeToolTip": "Controllers\\EmployeeController\\SubConnector\\SubConnectorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG4AAAAAAAAAAAA4wIUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T08:28:18.397Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ConnectorController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\EmployeeController\\Connector\\ConnectorController.cs",
               "RelativeDocumentMoniker": "Controllers\\EmployeeController\\Connector\\ConnectorController.cs",
@@ -362,21 +351,32 @@
               "RelativeToolTip": "Controllers\\EmployeeController\\Connector\\ConnectorController.cs",
               "ViewState": "AgIAAIAAAAAAAAAAAAA6wGwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T07:59:37.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T07:59:37.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "LeadService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\LeadService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\LeadService.cs",
               "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\LeadService.cs",
               "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\LeadService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAA5wBQAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T07:39:15.717Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddSubConnectordto.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBwAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T09:40:48.146Z"
             },
             {
               "$type": "Document",
@@ -388,8 +388,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T09:40:12.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-24T09:40:12.995Z"
             },
             {
               "$type": "Document",
@@ -417,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "LeadDto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
@@ -425,8 +424,7 @@
               "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T06:50:58.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T06:50:58.447Z"
             },
             {
               "$type": "Document",
@@ -474,12 +472,7 @@
               "RelativeToolTip": "Controllers\\LeadControllers\\History\\HistoryController.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAA5wB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T08:18:01.824Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2025-04-28T08:18:01.824Z"
             },
             {
               "$type": "Document",
