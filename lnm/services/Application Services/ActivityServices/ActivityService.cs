@@ -42,11 +42,11 @@ namespace services.Application_Services.ActivityServices
             return new CommonResponse<AddInstitutionActivitydto>(true, "activity created successfully", 201, response);
 
         }
-        public async Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync (AddInstitutionActivitydto dto)
+        public async Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(int id, AddInstitutionActivitydto dto)
         {
-            if (dto == null)
+            if (dto == null||dto.ActivityId==id)
             {
-                return new CommonResponse<AddInstitutionActivitydto>(false, "fields are empty", 404, null);
+                return new CommonResponse<AddInstitutionActivitydto>(false, "invalid input credentials", 404, null);
             }
             var existingActivity = await _repository.GetSingleAsync(u=>u.ImActivityId.Equals(dto.ActivityId));
             if (existingActivity == null)
@@ -87,7 +87,7 @@ namespace services.Application_Services.ActivityServices
         }
 
 
-        public async Task<CommonResponse<List<TblActivityMaster>>> GetAllActivityAsync()
+        public async Task<CommonResponse<List<TblActivityMaster>>> GetAllActivityAsync() //===================== this is for first box display all activities
         {
             var institutiotnActivities = await _repository.GetAllAsync();
             var data =  _mapper.Map<List<TblActivityMaster>>(institutiotnActivities);

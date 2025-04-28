@@ -18,5 +18,10 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public string status { get; set; }
 
+        public bool meeting_conducted { get; set; } 
+
+        public string meeting_outcome { get; set; }
+
+
     }
 }

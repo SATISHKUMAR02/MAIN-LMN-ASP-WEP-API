@@ -15,7 +15,7 @@ namespace services.Application_Services.ActivityServices
     {
         Task<CommonResponse<AddInstitutionActivitydto>> CreateNewActivityAsync(AddInstitutionActivitydto dto);
 
-        Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(AddInstitutionActivitydto dto);
+        Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(int id, AddInstitutionActivitydto dto);
 
         Task<CommonResponse<object>> DeleteActivityAsync(int activityId);
 

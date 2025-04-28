@@ -41,9 +41,10 @@ namespace services.Application_Services.LeadServices.Meetings
             }
             TblMeetingsMaster meeting = _mapper.Map<TblMeetingsMaster>(dto);
             meeting.MmMeetingStatus = "open";
-            meeting.MmmeetingOutcome = "pending";
+            //meeting.MmmeetingOutcome = "pending";
             meeting.MmCreatedDate = DateTime.Now;
             meeting.MmInstitutionResponded = "yes";
+            //meeting.MmMeetingConducted = false;
             await _repository.CreateAsync(meeting);
 
 
@@ -103,6 +104,28 @@ namespace services.Application_Services.LeadServices.Meetings
             return new CommonResponse<List<MeetingCallbackdashdto>>(true,"data fetched successfully",200,data);
         }
 
+        //===================================================================== for adding new  status update 
+
+
+        public async Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto)
+        {
+            if(dto == null)
+            {
+                return new CommonResponse<StatusUpdatedto>(false,"invalid input credentilas",404,null);
+            }
+
+            TblMeetingsMaster statusUpdate = _mapper.Map<TblMeetingsMaster>(dto);
+            statusUpdate.MmCreatedDate = DateTime.Now;
+            statusUpdate.MmUpdatedDate = DateTime.Now;
+            
+            await _repository.CreateAsync(statusUpdate);
+            var response = _mapper.Map<StatusUpdatedto>(dto);
+            return new CommonResponse<StatusUpdatedto>(true,"Added Status Updated",201,response);
+
+            
+        }
+
+
         //==================================================================== common for both meetings and callbacks
 
         public async Task<CommonResponse<ScheduleMeetingdto>> GetMeetingByIdAsync(int id)
@@ -118,6 +141,14 @@ namespace services.Application_Services.LeadServices.Meetings
             }
             var data = _mapper.Map<ScheduleMeetingdto>(existingMeeting);
             return new CommonResponse<ScheduleMeetingdto>(true,"meeting fetched successfully",200,data);
+
+        }
+
+        public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync()
+        {
+            var events = await _repository.GetAllAsync();
+            var data= _mapper.Map<List<MeetingCallbackdashdto>>(events);
+            return new CommonResponse<List<MeetingCallbackdashdto>>(true, "all events fetched successfully", 200, data);
 
         }
 

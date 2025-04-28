@@ -22,9 +22,9 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public string created_by { get; set; }
 
-        public bool meeting_conducted { get; set; }
+        public bool meeting_conducted { get; set; } = false; // yes or no
 
-        public string meeting_outcome { get; set; }
+        public string meeting_outcome { get; set; } = "pending"; // interested / not interest / pending
 
        
 

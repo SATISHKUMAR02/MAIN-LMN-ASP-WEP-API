@@ -22,8 +22,11 @@ namespace services.Application_Services.LeadServices.Meetings
 
         Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id, int institution_id);
         // this is common
+        Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync();
 
         Task<CommonResponse<ScheduleMeetingdto>> GetMeetingByIdAsync(int id);
+
+        Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto);
 
         // for callbacks only CRUD
         Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto);
