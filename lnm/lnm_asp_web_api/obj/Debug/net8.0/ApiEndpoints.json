@@ -71,6 +71,117 @@
     ]
   },
   {
+    "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.MeetingCallbackController.CallbackController",
+    "Method": "CreateNewCallback",
+    "RelativePath": "api/Callback/CreateNewCallback",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.MeetingCallbackController.CallbackController",
+    "Method": "CreateNewCallback",
+    "RelativePath": "api/Callback/UpdateCallback/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
     "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Connector.ConnectorController",
     "Method": "CreateUser",
     "RelativePath": "api/Connector/CreateNewConnector",
@@ -536,6 +647,58 @@
           "text/json"
         ],
         "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.History.HistoryController",
+    "Method": "GetAllLeads",
+    "RelativePath": "api/History/GetAllHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.Historydto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
     ]
   },
@@ -1298,9 +1461,9 @@
     ]
   },
   {
-    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerConnector",
+    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerController",
     "Method": "CreateUser",
-    "RelativePath": "api/TelecallerConnector/CreateNewTelecaller",
+    "RelativePath": "api/Telecaller/CreateNewTelecaller",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1351,9 +1514,9 @@
     ]
   },
   {
-    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerConnector",
+    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerController",
     "Method": "DeleteTelecaller",
-    "RelativePath": "api/TelecallerConnector/DeleteTelecaller/{id}",
+    "RelativePath": "api/Telecaller/DeleteTelecaller/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1404,9 +1567,9 @@
     ]
   },
   {
-    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerConnector",
+    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerController",
     "Method": "GetAllTelecallers",
-    "RelativePath": "api/TelecallerConnector/GetAllTelecaller",
+    "RelativePath": "api/Telecaller/GetAllTelecaller",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1451,9 +1614,9 @@
     ]
   },
   {
-    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerConnector",
+    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerController",
     "Method": "GetTelecallersById",
-    "RelativePath": "api/TelecallerConnector/GetTelecallerById/{id}",
+    "RelativePath": "api/Telecaller/GetTelecallerById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1504,9 +1667,9 @@
     ]
   },
   {
-    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerConnector",
+    "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Telecaller.TelecallerController",
     "Method": "UpdateTelecaller",
-    "RelativePath": "api/TelecallerConnector/UpdateTelecaller/{id}",
+    "RelativePath": "api/Telecaller/UpdateTelecaller/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

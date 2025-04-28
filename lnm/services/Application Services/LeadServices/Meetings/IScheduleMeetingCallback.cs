@@ -21,7 +21,9 @@ namespace services.Application_Services.LeadServices.Meetings
         Task<CommonResponse<ScheduleMeetingdto>> UpdateMeetingAsync(ScheduleMeetingdto dto);
 
         Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id, int institution_id);
-        // this is common
+
+        // this is common  for history dashboard  only get operation
+
         Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync();
 
         Task<CommonResponse<ScheduleMeetingdto>> GetMeetingByIdAsync(int id);
@@ -36,6 +38,9 @@ namespace services.Application_Services.LeadServices.Meetings
         Task<CommonResponse<ScheduleCallbackdto>> UpdateCallbackAsync(ScheduleCallbackdto dto);
 
         Task<CommonResponse<object>> DeleteCallbackAsync(int id);
+
+
+
 
 
     }

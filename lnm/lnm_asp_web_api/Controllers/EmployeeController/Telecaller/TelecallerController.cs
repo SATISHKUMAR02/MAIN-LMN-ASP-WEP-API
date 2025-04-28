@@ -13,10 +13,10 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Telecaller
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class TelecallerConnector : ControllerBase
+    public class TelecallerController : ControllerBase
     {
         private readonly IAddTelecaller _addTelecaller;
-        public TelecallerConnector(IAddTelecaller addTelecaller)
+        public TelecallerController(IAddTelecaller addTelecaller)
         {
             _addTelecaller = addTelecaller;
         }

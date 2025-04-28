@@ -61,7 +61,7 @@ namespace services.Application_Services.LeadServices
         {
             var leads = await _repository.GetAllAsync();
             var data = _mapper.Map<List<DashboardLeadDto>>(leads);
-            return new CommonResponse<List<DashboardLeadDto>>(true, "leads fetched successfully", 200, null);
+            return new CommonResponse<List<DashboardLeadDto>>(true, "leads fetched successfully", 200, data);
         }
 
         public async Task<CommonResponse<List<LeadDto>>> GetleadAsync() // just created ========= use it when needed

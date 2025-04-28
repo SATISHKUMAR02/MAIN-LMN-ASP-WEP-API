@@ -25,7 +25,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
 
-        public async Task<ActionResult<CommonResponse<StatusUpdatedto>>> CreateNewStatusUpdate(StatusUpdatedto dto)
+        public async Task<ActionResult<CommonResponse<StatusUpdatedto>>> CreateNewStatusUpdate([FromBody] StatusUpdatedto dto)
         {
             try
             {

@@ -144,7 +144,7 @@ namespace services.Application_Services.LeadServices.Meetings
 
         }
 
-        public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync()
+        public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync() //=====for meeting and callback dashboard
         {
             var events = await _repository.GetAllAsync();
             var data= _mapper.Map<List<MeetingCallbackdashdto>>(events);
@@ -190,7 +190,9 @@ namespace services.Application_Services.LeadServices.Meetings
         public async Task<CommonResponse<ScheduleCallbackdto>> GetCallbackAsync()
         {
             var callbacks = await _repository.GetAllAsync();
+
             var data = _mapper.Map<ScheduleCallbackdto>(callbacks);
+
             if(data == null)
             {
                 return new CommonResponse<ScheduleCallbackdto>(false,"no data retrieved",404,null);
@@ -224,6 +226,7 @@ namespace services.Application_Services.LeadServices.Meetings
                 return new CommonResponse<ScheduleCallbackdto>(false,"callback credentials empty",400,null);
             }
             var existingCallback = await _repository.GetSingleAsync(u=>u.MmMeetingId == dto.meeting_id);
+
             if (existingCallback == null)
             {
                 return new CommonResponse<ScheduleCallbackdto>(false, "callback does not exist", 404);
@@ -233,6 +236,7 @@ namespace services.Application_Services.LeadServices.Meetings
             await _repository.UpdateAsync(existingCallback);
 
             var response = _mapper.Map<ScheduleCallbackdto>(existingCallback);
+
             return new CommonResponse<ScheduleCallbackdto>(true, "callback updated successfully", 200, response);
 
         }
