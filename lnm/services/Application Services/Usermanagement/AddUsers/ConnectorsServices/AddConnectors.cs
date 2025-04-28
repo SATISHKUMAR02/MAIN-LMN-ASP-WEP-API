@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using model;
 using model.MOUs;
 using services.Application_Services.Usermanagement.AddUsers.Connectors.DTO;
+using services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
 using services.Repository;
 using services.User;
@@ -58,10 +59,11 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             {
                 return new CommonResponse<AddConnectordto>(false, "connnector does not exist", 404, null);
             }
-            var connectorToUpdate = _mapper.Map<tbl_employee_master>(dto);
-            connectorToUpdate.em_updated_date = DateTime.Now;
 
-            await _repository.UpdateAsync(connectorToUpdate);
+            _mapper.Map(dto,existingConnector);
+            existingConnector.em_updated_date = DateTime.Now;
+
+            await _repository.UpdateAsync(existingConnector);
             return new CommonResponse<AddConnectordto>(true, "connector details updated successfully", 201, dto);
 
         }
@@ -121,6 +123,101 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
             return new CommonResponse<object>(true,"mou fetched successfully",200,mou);
         }
+        //========================================================================================================================== |
+        //   sub connector CRUD operations by Connector                                                                                                                          V
+        //
+        //                                                                               
+
+        public async Task<CommonResponse<AddSubConnectordto>> CreateSubConnectorAsync(AddSubConnectordto dto)
+        {
+            if (dto == null)
+            {
+                return new CommonResponse<AddSubConnectordto>(false,"invalid input credentials",404,null);
+            }
+            var existingSubConnector = await _repository.GetSingleAsync(u=>u.em_id == dto.employee_id);
+
+            if (existingSubConnector != null)
+            {
+                return new CommonResponse<AddSubConnectordto>(false, "sub connector already exist", 400, null);
+            }
+            tbl_employee_master subconnector = _mapper.Map<tbl_employee_master>(dto);
+
+            subconnector.em_created_date = DateTime.Now;
+
+            subconnector.em_updated_date = DateTime.Now;
+            
+            subconnector.em_created_by = dto.created_emp_id;
+
+            return new CommonResponse<AddSubConnectordto>(true,"sub connector created successfully",201,dto);
+
+        }
+
+        public async Task<CommonResponse<AddSubConnectordto>> UpdateSubConnectorAsync(AddSubConnectordto dto)
+        {
+            if(dto == null)
+            {
+                return new CommonResponse<AddSubConnectordto>(false,"invalid input credentials",404,null);
+            }
+            var existingSubConnector = await _repository.GetSingleAsync(u=>u.em_id == dto.employee_id);
+
+            if(existingSubConnector == null)
+            {
+                return new CommonResponse<AddSubConnectordto>(false,"sub connector does not exist",400,null);
+            }
+            _mapper.Map(dto,existingSubConnector);
+            
+            existingSubConnector.em_updated_date = DateTime.Now;
+
+            await _repository.UpdateAsync(existingSubConnector);
+            
+            return new CommonResponse<AddSubConnectordto>(true, "sub connector updated successfully", 203, dto);
+        }
+
+        public async Task<CommonResponse<AddSubConnectordto>> DeleteSubConnectorAsync(int id)
+        {
+            if (id < 0)
+            {
+                return new CommonResponse<AddSubConnectordto>(false, "invalid input id", 404, null);
+            }
+            var existingSubConnector = await _repository.GetSingleAsync(u=>u.em_id==id);
+
+            if(existingSubConnector == null)
+            {
+                return new CommonResponse<AddSubConnectordto>(false,"user not found",400,null);
+            }
+            await _repository.DeleteAsync(existingSubConnector);
+
+            return new CommonResponse<AddSubConnectordto>(true,"sub connector deleted successfully",200,null);
+        }
+
+        public async Task<CommonResponse<List<SubConnectordto>>> GetAllSubConnectorsAsync()
+        {
+            var subconnectors = await _repository.GetAllAsync();
+            
+            var data = _mapper.Map<List<SubConnectordto>>(subconnectors);
+            
+            return new CommonResponse<List<SubConnectordto>>(true,"subconnectors fetched successfully",200,data);
+        }
+
+        public async Task<CommonResponse<SubConnectordto>> GetSubConnectorAsync(int id)
+        {
+            if(id < 0){
+
+                return new CommonResponse<SubConnectordto>(false,"invalid id",404,null);
+            }
+            var existingSubconnector = await _repository.GetSingleAsync(u=>u.em_id==id);
+            
+            if (existingSubconnector == null) {
+
+                return new CommonResponse<SubConnectordto>(false,"sub connector does not exist",400,null);
+            }
+            var data = _mapper.Map<SubConnectordto>(existingSubconnector);
+
+            return new CommonResponse<SubConnectordto>(true, "sub connector fetched succesfully", 200, data);
+        }
+
+       
+
 
 
     }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using model;
 using services.Application_Services.LeadServices.DTO;
 using services.Application_Services.Usermanagement.AddUsers.Connectors.DTO;
+using services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
 
 namespace services.Application_Services.Usermanagement.AddUsers.Connectors
@@ -25,6 +26,19 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
         Task<CommonResponse<object>> DeleteConnectorAsync(int id);
 
         Task<CommonResponse<object>> GetConnectorMouByIdAsync(float version);
+        // =============================================================================== Sub Connector CRUD operations for Connector
 
+        Task<CommonResponse<AddSubConnectordto>> CreateSubConnectorAsync(AddSubConnectordto dto);
+
+        Task<CommonResponse<AddSubConnectordto>> UpdateSubConnectorAsync(AddSubConnectordto dto);
+
+        Task<CommonResponse<AddSubConnectordto>> DeleteSubConnectorAsync(int id);
+
+        Task<CommonResponse<List<SubConnectordto>>> GetAllSubConnectorsAsync(); ///for displaying in dashboard
+
+        Task<CommonResponse<SubConnectordto>> GetSubConnectorAsync(int id); /// 
+
+
+        
     }
 }
