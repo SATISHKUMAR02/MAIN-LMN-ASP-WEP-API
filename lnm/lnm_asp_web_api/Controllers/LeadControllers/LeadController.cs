@@ -10,7 +10,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class LeadController : ControllerBase
     {
         private readonly ILeadService _leadService;
@@ -21,7 +21,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpPost]
         [Route("CreateLeads")]
-        [Authorize(Roles = "Admin,Connector")]
+        //[Authorize(Roles = "Admin,Connector")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -190,10 +190,12 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
                     return BadRequest(new CommonResponse<LeadDto>(false, "invalid input credentials", 400, null));
                 }
                 var existingLead = await _leadService.UpdateLeadAsync(dto);
+                
                 return StatusCode(existingLead.StatusCode, existingLead);
 
             }
             catch (Exception ex) {
+                
                 return BadRequest(new CommonResponse<LeadDto>(false, ex.Message, 400, null));
 
             }

@@ -1728,8 +1728,9 @@
           "AutoMapper": "14.0.0",
           "FluentAssertions": "8.1.1",
           "Microsoft.Data.SqlClient": "5.1.6",
-          "Microsoft.EntityFrameworkCore": "8.0.13",
-          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.4",
           "System.IdentityModel.Tokens.Jwt": "7.1.2",
           "model": "1.0.0"
         },

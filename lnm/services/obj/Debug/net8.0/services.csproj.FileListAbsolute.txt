@@ -23,9 +23,11 @@ C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\De
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.AssemblyInfoInputs.cache
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.AssemblyInfo.cs
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.csproj.CoreCompileInputs.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.sourcelink.json
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.csproj.Up2Date
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\refint\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.pdb
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\ref\services.dll
-C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.sourcelink.json
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.runtimeconfig.json
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.genruntimeconfig.cache

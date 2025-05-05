@@ -33,11 +33,8 @@ namespace services.Repository
         }
         public async Task<List<T>> GetAllAsync()
         {
-           
             return await _dbSet.ToListAsync();
-
         }
-
 
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false)
       
@@ -45,15 +42,11 @@ namespace services.Repository
             if (useNoTracking)
             {
                 return await _dbSet.AsNoTracking().Where(filter).FirstOrDefaultAsync();
-
             }
             else
             {
                 return await _dbSet.Where(filter).FirstOrDefaultAsync();
-
             }
-
-
         }
         public async Task<List<T>> GetAllByAnyAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false)
         {
@@ -67,8 +60,6 @@ namespace services.Repository
                 return await _dbSet.Where(filter).ToListAsync();
 
             }
-
-
         }
 
         //public async Task<T> GetByNameAsync(Expression<Func<T, bool>> filter)
@@ -83,10 +74,8 @@ namespace services.Repository
             _dbContext.Update(dbRecord);
             await _dbContext.SaveChangesAsync();
             return dbRecord;
-
             throw new ArgumentNullException("No student found");
         }
 
-       
     }
 }

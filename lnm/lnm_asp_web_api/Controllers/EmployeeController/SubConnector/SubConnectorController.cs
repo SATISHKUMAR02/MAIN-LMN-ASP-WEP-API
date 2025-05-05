@@ -11,7 +11,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
     [ApiController]
     [Authorize(Roles = "Connector")]
 
-    public class SubConnectorController : ControllerBase // ==========pending
+    public class SubConnectorController : ControllerBase 
     {
         private readonly IAddConnectors _addConnectors;
         public SubConnectorController(IAddConnectors addConnectors)
