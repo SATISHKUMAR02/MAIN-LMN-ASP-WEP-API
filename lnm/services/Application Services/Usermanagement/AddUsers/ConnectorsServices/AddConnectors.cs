@@ -11,43 +11,57 @@ using services.Application_Services.Usermanagement.AddUsers.Connectors.DTO;
 using services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
 using services.Repository;
-using services.User;
+using model.User;
 
 namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 {
     public class AddConnectors : IAddConnectors
     {
         private readonly IApplicationRepository<tbl_employee_master> _repository;
+        private readonly IApplicationRepository<tbl_user_login_details> _loginrepository;
+
+
         private readonly IMapper _mapper;
 
-        public AddConnectors(IApplicationRepository<tbl_employee_master> repository, IMapper mapper)
+        public AddConnectors(IApplicationRepository<tbl_employee_master> repository,IApplicationRepository<tbl_user_login_details> loginrepository ,IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
+            _loginrepository = loginrepository;
         }
         public async Task<CommonResponse<AddConnectordto>> CreateConnectorAsync(AddConnectordto dto)
         {
             if (dto == null)
             {
-
-                //throw new Exception("no body");
                 return new CommonResponse<AddConnectordto>(false, "Error", 404, null);
-
             }
+
             var existingConnector = await _repository.GetSingleAsync(u => u.em_id == dto.connector_id);
             if (existingConnector != null)
             {
                 return new CommonResponse<AddConnectordto>(false, "user already exist", 400, null);
-
             }
+
             tbl_employee_master user = _mapper.Map<tbl_employee_master>(dto);
             user.em_created_date = DateTime.Now;
             user.em_is_active = true;
 
+            await _repository.CreateAsync(user); 
+
+            tbl_user_login_details loginDetails = new tbl_user_login_details
+            {
+                uld_contact_number = user.em_contact_number,
+                uld_created_date = DateTime.Now,
+                uld_otp_time = DateTime.Now.AddMinutes(5),
+                uld_employee_id = user.em_id, 
+                uld_is_active = true,
+            };
+
+            await _loginrepository.CreateAsync(loginDetails); 
+
             return new CommonResponse<AddConnectordto>(true, "Connector created successfully", 200, dto);
-
-
         }
+
         public async Task<CommonResponse<AddConnectordto>> UpdateConnectorAsync(AddConnectordto dto)
         {
             if (dto == null)

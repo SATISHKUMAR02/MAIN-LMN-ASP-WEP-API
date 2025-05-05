@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace services.User
+namespace model.User
 {
     public class tbl_role_master
     {

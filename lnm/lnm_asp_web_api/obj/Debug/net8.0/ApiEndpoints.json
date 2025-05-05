@@ -20,7 +20,7 @@
   {
     "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.AllUsers.AllUserController",
     "Method": "GetEmployeeById",
-    "RelativePath": "api/AllUser",
+    "RelativePath": "api/AllUser/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1616,7 +1616,7 @@
   {
     "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.SubConnector.SubConnectorController",
     "Method": "GetSubConnectorById",
-    "RelativePath": "api/SubConnector/GetSubConnectorById/{int}",
+    "RelativePath": "api/SubConnector/GetSubConnectorById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1624,11 +1624,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "int",
-        "Type": "",
         "IsRequired": true
       }
     ],

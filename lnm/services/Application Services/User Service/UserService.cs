@@ -2,6 +2,7 @@
 using AutoMapper.Configuration.Annotations;
 using FluentAssertions.Common;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using model;
@@ -31,16 +32,29 @@ namespace services.Application_Services.User_Service
 
         public async Task<CommonResponse<UserDetails>> Login(string contact_number, string otp)
         {
-
             try
             {
-                var valid_user = _context.tbl_user_login_details.Where(x => x.uld_contact_number == contact_number && x.uld_is_active == true).FirstOrDefault();
-                if (valid_user == null)
-                    return new CommonResponse<UserDetails>(false, "User not found", 404);
+                Console.WriteLine($"Searching for user with contact number: {contact_number}");
+                var valid_user = await _context.tbl_user_login_details
+                    .FirstOrDefaultAsync(x => x.uld_contact_number == contact_number);
 
-                var valid_otp = _context.tbl_user_login_details.Where(x => x.uld_id == valid_user.uld_id && x.uld_is_active == true && x.uld_otp == otp).FirstOrDefault();
+                if (valid_user == null)
+                {
+                    return new CommonResponse<UserDetails>(false, "User not found", 404);
+                }
+
+                var userId = valid_user.uld_id;
+
+                var valid_otp = await _context.tbl_user_login_details
+                .FirstOrDefaultAsync(x => x.uld_id == userId && x.uld_is_active == true && x.uld_otp == otp);
+
+
                 if (valid_otp == null)
-                    return new CommonResponse<UserDetails>(false, "Invalid otp", 404);
+                {
+                    return new CommonResponse<UserDetails>(false, "Invalid OTP", 404);
+                }
+
+                //return new CommonResponse<UserDetails>(true, "valid_otp", 200, null);
 
                 var token = CreateJwtSecurityToken(valid_otp.uld_id.ToString());
 
@@ -57,10 +71,9 @@ namespace services.Application_Services.User_Service
                                     user_role = c.rm_name_e,
                                     token = token,
                                 }).FirstOrDefault();
-
                 return new CommonResponse<UserDetails>(true, "Success", 200, response);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -68,24 +81,30 @@ namespace services.Application_Services.User_Service
 
         public async Task<CommonResponse<object>> SendOTP(string registered_mnumber)
         {
-
             try
             {
-                
-                var valid_user = _context.tbl_user_login_details.Where(x => x.uld_contact_number == registered_mnumber && x.uld_is_active == true).FirstOrDefault();
+                Console.WriteLine("checking valid user");
+                var valid_user = await _context.tbl_user_login_details
+                    .FirstOrDefaultAsync(x => x.uld_contact_number == registered_mnumber);
+                Console.WriteLine("checked valid user");
+
                 if (valid_user == null)
-                    return new CommonResponse<object>(false, "User not found", 404);
+                {
+                    return new CommonResponse<object>(false,"User not found",404,null);
+                }
+                Console.WriteLine("verified valid user");
+
+
 
                 valid_user.uld_otp = "1234";
                 valid_user.uld_otp_time = DateTime.Now;
-                _context.SaveChanges();
 
+                await _context.SaveChangesAsync();
                 return new CommonResponse<object>(true, "OTP sent successfully", 200);
-
-
             }catch(Exception ex)
             {
-                throw ex;
+                return new CommonResponse<object>(false, $"Internal error: {ex.Message}", 500, null);
+
             }
         }
 
@@ -112,7 +131,7 @@ namespace services.Application_Services.User_Service
             }
             catch (Exception ex)
             {               
-                throw ex;
+                throw ;
             }
         }
     }

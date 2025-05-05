@@ -18,7 +18,9 @@ using services.Application_Services.MouServices.InstitutionServices;
 using services.Application_Services.ActivityServices;
 using services.Application_Services.Usermanagement.AddUsers.Connectors;
 using services.Application_Services.Usermanagement.AddUsers.TelecallersServices;
-
+using services.Application_Services.LeadServices.History;
+using services.Application_Services.LeadServices.Meetings;
+using services.Application_Services.Usermanagement.AllUsers;
 
 var builder = WebApplication.CreateBuilder(args);
 var lmn_specification = "lmn";
@@ -105,7 +107,8 @@ try
                 },
                 new string[] { }
             }
-        });
+        }
+        );
     });
     builder.Services.AddMvc(x => x.EnableEndpointRouting = false);
     //cache control
@@ -120,9 +123,10 @@ try
     {
         options.AddPolicy(lmn_specification, policy =>
         {
-            policy.WithOrigins("*")
+            policy.WithOrigins("http://localhost:7150/")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
+                                
 
         });
     });
@@ -161,7 +165,7 @@ try
     app.UseAuthentication();
     app.UseAuthorization();
     app.UseIpRateLimiting();
-
+    app.UseDeveloperExceptionPage();
     if (app.Environment.IsDevelopment())
     {
         app.UseEndpoints(endpoints =>
@@ -193,18 +197,16 @@ catch (Exception ex)
 
 
  void RegisterServices(IServiceCollection services)
-{
-
-
+{   
     builder.Services.AddScoped<IUserService, UserService>();
     builder.Services.AddTransient<ILeadService, LeadService>();
     builder.Services.AddTransient<IConnectorServices,ConnectorServices>();
     builder.Services.AddTransient<IInstitutionService,InstitutionServicecs>();
     builder.Services.AddTransient<IActivityService,ActivityService>();
     builder.Services.AddTransient<IAddConnectors,AddConnectors>();
-
-
-
-
-
+    builder.Services.AddTransient<IActivityService, ActivityService>();
+    builder.Services.AddTransient<IAddTelecaller, AddTelecaller>();
+    builder.Services.AddTransient<IHistoryServices, HistoryServices>();
+    builder.Services.AddTransient<IScheduleMeetingCallback,ScheduleMeetingCallback>();
+    builder.Services.AddTransient<IAllUser,AllUser>();
 }

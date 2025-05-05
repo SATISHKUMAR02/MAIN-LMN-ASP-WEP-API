@@ -18,13 +18,13 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.AllUsers
         {
             _user = user;
         }
-        [HttpGet]
-        //[Authorize(Roles = "Admin,Connector")]
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Connector")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<AllUserdto>>> GetEmployeeById([FromBody] int id)
+        public async Task<ActionResult<CommonResponse<AllUserdto>>> GetEmployeeById(int id)
         {
             try
             {

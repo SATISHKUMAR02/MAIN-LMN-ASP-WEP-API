@@ -14,6 +14,7 @@ D:\Personal\lnm\services\obj\Debug\net8.0\refint\services.dll
 D:\Personal\lnm\services\obj\Debug\net8.0\services.pdb
 D:\Personal\lnm\services\obj\Debug\net8.0\ref\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.deps.json
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.runtimeconfig.json
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.pdb
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\model.dll
@@ -28,6 +29,5 @@ C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\De
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\refint\services.dll
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.pdb
-C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\ref\services.dll
-C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\bin\Debug\net8.0\services.runtimeconfig.json
 C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\services.genruntimeconfig.cache
+C:\Users\satis\OneDrive\Desktop\SATISH\ASP .net learning\lnm\lnm\services\obj\Debug\net8.0\ref\services.dll

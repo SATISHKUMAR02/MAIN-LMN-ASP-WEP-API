@@ -110,7 +110,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         }
 
         [HttpGet]
-        [Route("GetSubConnectorById/{int:id}")]
+        [Route("GetSubConnectorById/{id:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]

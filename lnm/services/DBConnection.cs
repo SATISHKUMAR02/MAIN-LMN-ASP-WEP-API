@@ -2,7 +2,8 @@
 using model.Activities;
 using model.Institution;
 using model.MOUs;
-using services.User;
+using model.User;
+
 
 namespace services
 {
@@ -16,7 +17,7 @@ namespace services
         #region User
 
         public DbSet<tbl_employee_master> tbl_employee_master { get; set; }
-        public DbSet<tbl_role_master> tbl_role_master { get; set; }
+        public DbSet<tbl_role_master> tbl_role_master  { get; set; }
         public DbSet<tbl_user_login_details> tbl_user_login_details { get; set; }
 
         #endregion

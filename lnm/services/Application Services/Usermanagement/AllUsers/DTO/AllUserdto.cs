@@ -24,10 +24,10 @@ namespace services.Application_Services.Usermanagement.AllUsers.DTO
 
         public DateTime hireDate { get; set; }
 
-        public string role { get; set; }
+        public string role { get; set; } = "";
 
-        public DateTime updated_date { get; set; }
+        public DateTime updated_date { get; set; } 
 
-        public string? ViewMou { get; set; }
+        public string? ViewMou { get; set; } = "";
     }
 }

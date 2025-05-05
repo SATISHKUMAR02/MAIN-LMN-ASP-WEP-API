@@ -14,33 +14,22 @@
     "version": "v1"
   },
   "paths": {
-    "/api/AllUser": {
+    "/api/AllUser/{id}": {
       "get": {
         "tags": [
           "AllUser"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3216,7 +3205,7 @@
         }
       }
     },
-    "/api/SubConnector/GetSubConnectorById/{int}": {
+    "/api/SubConnector/GetSubConnectorById/{id}": {
       "get": {
         "tags": [
           "SubConnector"
@@ -3224,18 +3213,11 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "int",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],

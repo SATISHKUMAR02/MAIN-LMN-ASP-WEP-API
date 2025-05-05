@@ -16,7 +16,7 @@ namespace lnm_asp_web_api.Controllers
         }
 
         [HttpGet("UserLogin")]
-        public async Task<IActionResult> UserLogin(string contact_number, string otp)
+        public async Task<ActionResult> UserLogin(string contact_number, string otp)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace lnm_asp_web_api.Controllers
         }
 
         [HttpGet("SendOTP")]
-        public async Task<IActionResult> SendOTP(string registered_mnumber)
+        public async Task<ActionResult> SendOTP(string registered_mnumber)
         {
             try
             {

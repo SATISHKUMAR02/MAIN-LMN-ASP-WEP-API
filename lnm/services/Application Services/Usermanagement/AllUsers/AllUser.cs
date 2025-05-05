@@ -7,7 +7,7 @@ using AutoMapper;
 using model;
 using services.Application_Services.Usermanagement.AllUsers.DTO;
 using services.Repository;
-using services.User;
+using model.User;
 
 namespace services.Application_Services.Usermanagement.AllUsers
 {

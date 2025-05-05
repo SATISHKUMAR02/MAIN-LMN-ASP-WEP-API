@@ -9,11 +9,11 @@ using services.Application_Services.Usermanagement.AddUsers.Connectors.DTO;
 using services.Application_Services.Usermanagement.AddUsers.TelecallersServices.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
 using services.Repository;
-using services.User;
+using model.User;
 
 namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServices
 {
-    public class AddTelecaller
+    public class AddTelecaller : IAddTelecaller
     {
         private readonly IApplicationRepository<tbl_employee_master> _repository;
         private readonly IMapper _mapper;
@@ -46,7 +46,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
 
 
         }
-        public async Task<CommonResponse<AddTelecallerdto>> UpdateConnectorAsync(AddTelecallerdto dto)
+        public async Task<CommonResponse<AddTelecallerdto>> UpdateTelecallerAsync(AddTelecallerdto dto)
         {
             if (dto == null)
             {
@@ -83,7 +83,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
         }
 
 
-        public async Task<CommonResponse<List<Telecallerdto>>> GetAllConnectorAsync()
+        public async Task<CommonResponse<List<Telecallerdto>>> GetAllTelecallerAsync()
         {
             var telecaller = await _repository.GetAllAsync();
             var data = _mapper.Map<List<Telecallerdto>>(telecaller);
