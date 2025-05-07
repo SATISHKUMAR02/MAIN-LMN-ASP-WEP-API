@@ -230,7 +230,7 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 404
+        "StatusCode": 403
       }
     ]
   },

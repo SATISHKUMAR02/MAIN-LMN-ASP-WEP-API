@@ -36,7 +36,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 return new CommonResponse<AddConnectordto>(false, "Error", 404, null);
             }
 
-            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == dto.connector_id);
+            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == dto.connector_id || u.em_contact_number == dto.phonenumber);
             if (existingConnector != null)
             {
                 return new CommonResponse<AddConnectordto>(false, "user already exist", 400, null);
@@ -102,7 +102,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         public async Task<CommonResponse<List<Connectordto>>> GetAllConnectorAsync()
         {
-            var connectors = await _repository.GetAllAsync();
+            var connectors = await _repository.GetAllByAnyAsync(u=>u.em_is_active==true && u.em_role_id == 1);
             var data = _mapper.Map<List<Connectordto>>(connectors);
             return new CommonResponse<List<Connectordto>>(true, "connectors fetched successfully", 200, data);
 
@@ -114,7 +114,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             {
                 return new CommonResponse<AddConnectordto>(false, "invalid id", 404, null);
             }
-            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id);
+            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_role_id==1);
             if (existingConnector == null)
             {
                 return new CommonResponse<AddConnectordto>(false, "user does not exist", 404, null);

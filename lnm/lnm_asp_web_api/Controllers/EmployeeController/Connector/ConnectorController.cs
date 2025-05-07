@@ -22,26 +22,22 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
             _addConnectors = connectors;
 
         }
-
         [HttpPost]
-        [Route("CreateNewConnector")] // =============================================== for adding Connectos only by admin
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles ="3")]
+        [Route("CreateNewConnector")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        [ProducesResponseType(404)]
+        [ProducesResponseType(403)]
         public async Task<ActionResult<CommonResponse<AddConnectordto>>> CreateUser([FromBody] AddConnectordto dto)
         {
             try
             {
                 var connector = await _addConnectors.CreateConnectorAsync(dto);
-
                 return StatusCode(connector.StatusCode, connector);
-
             }
             catch (Exception ex)
             {
-
                 return BadRequest(new CommonResponse<AddConnectordto>(false, ex.Message, 400, null));
             }
         }
@@ -56,6 +52,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         {
             try
             {
+                //var roleid = 2;
                 var connectors = await _addConnectors.GetAllConnectorAsync();
                 return StatusCode(connectors.StatusCode, connectors);
             }

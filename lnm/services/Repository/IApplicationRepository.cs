@@ -11,6 +11,7 @@ namespace services.Repository
     {
         Task<List<T>> GetAllAsync();
         // the parameter can take any lambda expression as a parameter
+        // this function is used to retrieve a list of data based on a condition ======================= important
         Task<List<T>> GetAllByAnyAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false);
         // for all list of entities
 
@@ -23,6 +24,7 @@ namespace services.Repository
 
         Task<bool> DeleteAsync(T dbRecord);
 
+        // from now on use this .. to retrieve a list of specific datas using parameters
 
 
     }

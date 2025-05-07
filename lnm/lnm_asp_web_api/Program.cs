@@ -170,7 +170,8 @@ try
     {
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapControllers().AllowAnonymous();
+            endpoints.MapControllers();
+            //.allowAnonymous
         });
     }
     else

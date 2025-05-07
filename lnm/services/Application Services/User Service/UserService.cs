@@ -9,6 +9,7 @@ using model;
 using services.Application_Services.User_Service.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -56,7 +57,8 @@ namespace services.Application_Services.User_Service
 
                 //return new CommonResponse<UserDetails>(true, "valid_otp", 200, null);
 
-                var token = CreateJwtSecurityToken(valid_otp.uld_id.ToString());
+                var rolename = "3";// default for Admins admin=3 <====================================================================================================================== need to write a LINQ here
+                var token = CreateJwtSecurityToken(valid_otp.uld_id.ToString(),rolename);
 
                 var response = (from a in _context.tbl_user_login_details
                                 join b in _context.tbl_employee_master on a.uld_employee_id equals b.em_id
@@ -108,13 +110,14 @@ namespace services.Application_Services.User_Service
             }
         }
 
-        public string CreateJwtSecurityToken(string post_id)
+        public string CreateJwtSecurityToken(string post_id,string role_name)
         {
             try
             {
                 var authClaims = new List<Claim>
                 {
                 new Claim(ClaimTypes.NameIdentifier, post_id),
+                new Claim(ClaimTypes.Role,role_name),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 
