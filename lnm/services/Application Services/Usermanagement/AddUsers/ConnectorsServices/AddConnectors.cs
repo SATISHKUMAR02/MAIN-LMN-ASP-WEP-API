@@ -111,6 +111,15 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
 
             existingConnector.em_is_active = false;
+            await _repository.UpdateAsync(existingConnector);
+
+            var logindetails = await _loginrepository.GetSingleAsync(u => u.uld_employee_id == id);
+            if (logindetails == null)
+            {
+                return new CommonResponse<object>(false, "connnector does not exist", 404, null);
+            }
+            logindetails.uld_is_active = false;
+            await _loginrepository.UpdateAsync(logindetails);
             return new CommonResponse<object>(true, "connector details deleted successfully", 200, null);
 
         }

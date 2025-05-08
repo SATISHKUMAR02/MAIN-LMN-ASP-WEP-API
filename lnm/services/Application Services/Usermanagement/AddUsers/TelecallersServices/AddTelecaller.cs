@@ -101,7 +101,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
                 return new CommonResponse<object>(false, "fields are empty", 404, null);
             }
 
-            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == id && u.em_is_active == true);
+            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == id && u.em_role_id == 2 && u.em_is_active == true);
             if (existingTelecaller == null)
             {
                 return new CommonResponse<object>(false, "Telecaller does not exist", 404, null);
@@ -110,7 +110,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
             existingTelecaller.em_is_active = false;
             await _repository.UpdateAsync(existingTelecaller);
 
-            var logindetails = await _loginrepository.GetSingleAsync(u => u.uld_employee_id == id && u.uld_is_active==true);
+            var logindetails = await _loginrepository.GetSingleAsync(u => u.uld_employee_id == id );
             if (logindetails == null)
             {
                 return new CommonResponse<object>(false, "Login details not found", 404, null);
