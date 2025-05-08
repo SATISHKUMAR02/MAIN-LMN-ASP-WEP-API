@@ -110,7 +110,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Telecaller
             }
 
         }
-
+        // deleted from both UI and DB
         [HttpDelete]
         [Route("DeleteTelecaller/{id:int}")]
         [Authorize(Roles = "3")]
@@ -128,6 +128,33 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Telecaller
                     return BadRequest(new CommonResponse<object>(false, "invalid credentials", 404, null));
                 }
                 var telecaller = await _addTelecaller.DeleteTelecallerAsync(id);
+                return StatusCode(telecaller.StatusCode, telecaller);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
+            }
+
+        }
+
+        // deleted from UI not from DB
+        [HttpDelete]
+        [Route("DeleteTempTelecaller/{id:int}")]
+        [Authorize(Roles = "3")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempTelecaller(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    return BadRequest(new CommonResponse<object>(false, "invalid credentials", 404, null));
+                }
+                var telecaller = await _addTelecaller.DeleteTempTelecallerAsync(id);
                 return StatusCode(telecaller.StatusCode, telecaller);
             }
             catch (Exception ex)

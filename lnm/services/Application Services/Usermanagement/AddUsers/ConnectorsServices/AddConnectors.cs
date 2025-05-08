@@ -103,7 +103,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             {
                 return new CommonResponse<object>(false, "fields are empty", 404, null);
             }
-            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id);
+            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_is_active==true);
             if (existingConnector == null)
             {
                 return new CommonResponse<object>(false, "connnector does not exist", 404, null);

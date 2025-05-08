@@ -151,7 +151,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
             }
         }
-
+        // deleted from UI and DB
         [HttpDelete]
         [Route("DeleteConnector/{id:int}")]
         [Authorize(Roles ="3")]
@@ -182,5 +182,35 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
         }
 
+        // deleted from UI not from Database
+        [HttpDelete]
+        [Route("DeleteTempConnector/{id:int}")]
+        [Authorize(Roles = "3")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempConnector(int id)
+        {
+            try
+            {
+                if (id < 0)
+                {
+                    return BadRequest(new CommonResponse<object>(false, "invalild id of connector", 404, null));
+                }
+                var connector = await _addConnectors.DeleteTempConnectorAsync(id);
+                return StatusCode(connector.StatusCode, connector);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
+
+            }
+
+
+        }
     }
 }

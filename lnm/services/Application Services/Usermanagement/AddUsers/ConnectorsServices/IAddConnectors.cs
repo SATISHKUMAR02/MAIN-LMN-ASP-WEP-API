@@ -20,11 +20,9 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         Task<CommonResponse<AddConnectordto>> GetConnectorByIdAsync(int id); // this is for the getting the details for updation
 
-
         Task<CommonResponse<AddConnectordto>> UpdateConnectorAsync(AddConnectordto dto);
 
         Task<CommonResponse<object>> DeleteTempConnectorAsync(int id);
-
 
         Task<CommonResponse<object>> DeleteConnectorAsync(int id);
 

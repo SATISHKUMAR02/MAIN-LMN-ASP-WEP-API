@@ -22,7 +22,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
         Task<CommonResponse<AddTelecallerdto>> UpdateTelecallerAsync(AddTelecallerdto dto);
 
         Task<CommonResponse<object>> DeleteTelecallerAsync(int id);
-        Task<CommonResponse<object>> DeleteTempTelecallerAsync(int id);
 
+        Task<CommonResponse<object>> DeleteTempTelecallerAsync(int id);
     }
 }
