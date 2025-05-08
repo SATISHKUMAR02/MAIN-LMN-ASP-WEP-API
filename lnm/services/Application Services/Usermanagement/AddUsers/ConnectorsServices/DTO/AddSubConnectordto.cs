@@ -22,12 +22,11 @@ namespace services.Application_Services.Usermanagement.AddUsers.ConnectorsServic
 
         public string phoneNo { get; set; }
 
-        public string role { get; set; } = "Sub-Connector";
 
-        public string created_by { get; set; } // by which connector the sub connector works 
+        public int created_by { get; set; } // by which connector the sub connector works 
 
         public DateTime updated_date { get; set; } // updated date and time
 
-        public int created_emp_id { get; set; } // and the connector's emp_id
+        //public int created_emp_id { get; set; } // and the connector's emp_id
     }
 }

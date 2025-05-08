@@ -58,7 +58,16 @@ namespace services.Application_Services.User_Service
                 //return new CommonResponse<UserDetails>(true, "valid_otp", 200, null);
 
                 var rolename = "3";// default for Admins admin=3 <====================================================================================================================== need to write a LINQ here
-                var token = CreateJwtSecurityToken(valid_otp.uld_id.ToString(),rolename);
+
+                 var roleId = (from a in _context.tbl_user_login_details 
+                               join b in _context.tbl_employee_master on a.uld_employee_id equals b.em_id
+                               join c in _context.tbl_role_master on b.em_role_id equals c.rm_id
+                               where b.em_id == userId
+                               select c.rm_id
+                                ).FirstOrDefault();
+                                 
+                               
+                var token = CreateJwtSecurityToken(valid_otp.uld_id.ToString(),roleId.ToString());
 
                 var response = (from a in _context.tbl_user_login_details
                                 join b in _context.tbl_employee_master on a.uld_employee_id equals b.em_id
@@ -66,7 +75,7 @@ namespace services.Application_Services.User_Service
                                 where a.uld_id == valid_otp.uld_id
                                 select new UserDetails
                                 {
-                                    user_id = b.em_id,
+                                     user_id = b.em_id,
                                     user_name = b.em_name_e,
                                     user_contact_number = b.em_contact_number,
                                     user_role_id = (int)b.em_role_id,
@@ -110,14 +119,14 @@ namespace services.Application_Services.User_Service
             }
         }
 
-        public string CreateJwtSecurityToken(string post_id,string role_name)
+        public string CreateJwtSecurityToken(string post_id,string role_id)
         {
             try
             {
                 var authClaims = new List<Claim>
                 {
                 new Claim(ClaimTypes.NameIdentifier, post_id),
-                new Claim(ClaimTypes.Role,role_name),
+                new Claim(ClaimTypes.Role,role_id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 

@@ -10,6 +10,7 @@ using model.User;
 using System.Reflection;
 using services.Application_Services.Usermanagement.AllUsers.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
+using services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO;
 
 namespace services.Mapping
 {
@@ -60,6 +61,17 @@ namespace services.Mapping
                 .ForMember(dest => dest.em_updated_date, opt => opt.MapFrom(src => src.updated_date))
                 .ForMember(dest => dest.em_gender, opt => opt.MapFrom(src => src.gender))                
                 .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
+
+            CreateMap<AddSubConnectordto, tbl_employee_master>()
+                .ForMember(dest => dest.em_id, opt => opt.MapFrom(src => src.employee_id))
+                .ForMember(dest => dest.em_name_e, opt => opt.MapFrom(src => src.FirstName))
+                .ForMember(dest => dest.em_contact_number, opt => opt.MapFrom(src => src.phoneNo))
+                .ForMember(dest => dest.em_email_address, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.HireDate))
+                .ForMember(dest => dest.em_updated_date, opt => opt.MapFrom(src => src.updated_date))
+                .ForMember(dest => dest.em_gender, opt => opt.MapFrom(src => src.Gender))
+                .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
+
 
 
 

@@ -9,7 +9,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "1")]
+    [Authorize]
 
     public class SubConnectorController : ControllerBase 
     {
@@ -19,6 +19,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
             _addConnectors = addConnectors;
         }
         [HttpPost]
+        [Authorize(Roles = "1")]
         [Route("CreateNewSubConnector")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -40,6 +41,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         }
 
         [HttpPut]
+        [Authorize(Roles = "1")]
         [Route("UpdateSubConnector/{id:int}")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -65,6 +67,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         }
 
         [HttpDelete]
+        [Authorize(Roles = "1")]
         [Route("DeleteSubConnector/{id:int}")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -89,7 +92,38 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
             }
         }
 
+        [HttpDelete]
+        [Authorize(Roles = "1")]
+        [Route("DeleteTempSubConnector/{id:int}")]
+        [Authorize(Roles = "1")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempSubConnector(int id)
+        {
+            try
+            {
+                if (id < 0)
+                {
+                    return BadRequest(new CommonResponse<object>(false, "invalild id of sub connector", 404, null));
+                }
+                var connector = await _addConnectors.DeleteTempSubConnectorAsync(id);
+                return StatusCode(connector.StatusCode, connector);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
+
+            }
+
+
+        }
+
         [HttpGet]
+        [Authorize(Roles = "1")]
         [Route("GetAllSubConnector")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -110,6 +144,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         }
 
         [HttpGet]
+        [Authorize(Roles = "1")]
         [Route("GetSubConnectorById/{id:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]

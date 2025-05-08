@@ -35,6 +35,8 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         Task<CommonResponse<AddSubConnectordto>> DeleteSubConnectorAsync(int id);
 
+        Task<CommonResponse<object>> DeleteTempSubConnectorAsync(int id);
+
         Task<CommonResponse<List<SubConnectordto>>> GetAllSubConnectorsAsync(); ///for displaying in dashboard
 
         Task<CommonResponse<SubConnectordto>> GetSubConnectorAsync(int id); 
