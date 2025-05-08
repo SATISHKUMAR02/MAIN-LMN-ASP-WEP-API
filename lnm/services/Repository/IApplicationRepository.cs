@@ -24,6 +24,9 @@ namespace services.Repository
 
         Task<bool> DeleteAsync(T dbRecord);
 
+        //Task<bool> DeleteTempAsync(T dbRecord);
+
+
         // from now on use this .. to retrieve a list of specific datas using parameters
 
 

@@ -97,6 +97,28 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         }
 
+        public async Task<CommonResponse<object>> DeleteTempConnectorAsync(int id)
+        {
+            if (id <= 0)
+            {
+                return new CommonResponse<object>(false, "fields are empty", 404, null);
+            }
+            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id);
+            if (existingConnector == null)
+            {
+                return new CommonResponse<object>(false, "connnector does not exist", 404, null);
+            }
+
+
+            existingConnector.em_is_active = false;
+            return new CommonResponse<object>(true, "connector details deleted successfully", 200, null);
+
+        }
+
+
+
+
+
         public async Task<CommonResponse<object>> DeleteConnectorAsync(int id)
         {
             if (id <= 0)
@@ -104,14 +126,25 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 return new CommonResponse<object>(false, "Enter a valid employee ID", 404, null);
             }
 
-            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id);
+            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_is_active ==true);
             if (existingConnector == null)
             {
                 return new CommonResponse<object>(false, "Cannot find user", 404, null);
             }
 
             await _repository.DeleteAsync(existingConnector);
+            //await _loginrepository.DeleteAsync(existingConnector);
+
+            var loginrecord = await _repository.GetSingleAsync(u=>u.em_id==id && u.em_is_active == true);
+            
+            if (loginrecord == null)
+            {
+                return new CommonResponse<object>(false, "Cannot find user", 404, null);
+            }
+
+            await _repository.DeleteAsync(loginrecord);
             return new CommonResponse<object>(true, "Connector deleted successfully", 200, null);
+
         }
 
 

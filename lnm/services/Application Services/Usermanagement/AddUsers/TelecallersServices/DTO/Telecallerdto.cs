@@ -17,5 +17,7 @@ namespace services.Application_Services.Usermanagement.Connectors.DTO
         public string phonenumber { get; set; }
 
         public string email { get; set; }
+
+        public bool status { get; set; }
     }
 }
