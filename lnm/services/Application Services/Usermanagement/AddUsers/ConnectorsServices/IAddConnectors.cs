@@ -39,7 +39,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         Task<CommonResponse<List<SubConnectordto>>> GetAllSubConnectorsAsync(); ///for displaying in dashboard
 
-        Task<CommonResponse<SubConnectordto>> GetSubConnectorAsync(int id); 
+        Task<CommonResponse<AddSubConnectordto>> GetSubConnectorAsync(int id); 
 
 
         

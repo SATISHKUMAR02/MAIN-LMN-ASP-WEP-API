@@ -63,15 +63,25 @@ namespace services.Mapping
                 .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
 
             CreateMap<AddSubConnectordto, tbl_employee_master>()
-                .ForMember(dest => dest.em_id, opt => opt.MapFrom(src => src.employee_id))
-                .ForMember(dest => dest.em_name_e, opt => opt.MapFrom(src => src.FirstName))
-                .ForMember(dest => dest.em_contact_number, opt => opt.MapFrom(src => src.phoneNo))
-                .ForMember(dest => dest.em_email_address, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.HireDate))
-                .ForMember(dest => dest.em_updated_date, opt => opt.MapFrom(src => src.updated_date))
-                .ForMember(dest => dest.em_gender, opt => opt.MapFrom(src => src.Gender))
-                .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
+               .ForMember(dest => dest.em_id, opt => opt.MapFrom(src => src.employee_id))
+               .ForMember(dest => dest.em_name_e, opt => opt.MapFrom(src => src.FirstName))
+               .ForMember(dest => dest.em_name_k, opt => opt.MapFrom(src => src.LastName))
+               .ForMember(dest => dest.em_contact_number, opt => opt.MapFrom(src => src.phoneNo))
+               .ForMember(dest => dest.em_email_address, opt => opt.MapFrom(src => src.Email))
+               .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.HireDate))
+               .ForMember(dest => dest.em_updated_date, opt => opt.MapFrom(src => src.updated_date))
+               .ForMember(dest => dest.em_gender, opt => opt.MapFrom(src => src.Gender))
+               .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
 
+
+
+            CreateMap<SubConnectordto, tbl_employee_master>()
+              .ForMember(dest => dest.em_id, opt => opt.MapFrom(src => src.sub_connector_id))
+              .ForMember(dest => dest.em_name_e, opt => opt.MapFrom(src => src.sub_connector_name))
+              .ForMember(dest => dest.em_contact_number, opt => opt.MapFrom(src => src.Contact))
+              .ForMember(dest => dest.em_email_address, opt => opt.MapFrom(src => src.email))
+              .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.hire_Date))
+             .ReverseMap();
 
 
 

@@ -287,7 +287,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             {
                 return new CommonResponse<object>(false, "fields are empty", 404, null);
             }
-            var existingSubConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_is_active == true && u.em_role_id == 4);
+            var existingSubConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_role_id == 4);
             if (existingSubConnector == null)
             {
                 return new CommonResponse<object>(false, "subconnnector does not exist", 404, null);
@@ -295,6 +295,18 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
 
             existingSubConnector.em_is_active = false;
+            await _repository.UpdateAsync(existingSubConnector);
+
+            var logindetails = await _loginrepository.GetSingleAsync(u => u.uld_employee_id == id);
+            if (logindetails == null)
+            {
+                return new CommonResponse<object>(false, "subconnnector does not exist", 404, null);
+            }
+            logindetails.uld_is_active=false;
+            await _loginrepository.UpdateAsync(logindetails);
+
+
+
             return new CommonResponse<object>(true, "subconnector details deleted successfully", 200, null);
 
         }
@@ -310,21 +322,21 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             return new CommonResponse<List<SubConnectordto>>(true,"subconnectors fetched successfully",200,data);
         }
 
-        public async Task<CommonResponse<SubConnectordto>> GetSubConnectorAsync(int id)
+        public async Task<CommonResponse<AddSubConnectordto>> GetSubConnectorAsync(int id)
         {
             if(id < 0){
 
-                return new CommonResponse<SubConnectordto>(false,"invalid id",404,null);
+                return new CommonResponse<AddSubConnectordto>(false,"invalid id",404,null);
             }
             var existingSubconnector = await _repository.GetSingleAsync(u=>u.em_id==id);
             
             if (existingSubconnector == null) {
 
-                return new CommonResponse<SubConnectordto>(false,"sub connector does not exist",400,null);
+                return new CommonResponse<AddSubConnectordto>(false,"sub connector does not exist",400,null);
             }
-            var data = _mapper.Map<SubConnectordto>(existingSubconnector);
+            var data = _mapper.Map<AddSubConnectordto>(existingSubconnector);
 
-            return new CommonResponse<SubConnectordto>(true, "sub connector fetched succesfully", 200, data);
+            return new CommonResponse<AddSubConnectordto>(true, "sub connector fetched succesfully", 200, data);
         }
 
        

@@ -62,7 +62,7 @@ namespace services.Application_Services.User_Service
                  var roleId = (from a in _context.tbl_user_login_details 
                                join b in _context.tbl_employee_master on a.uld_employee_id equals b.em_id
                                join c in _context.tbl_role_master on b.em_role_id equals c.rm_id
-                               where b.em_id == userId
+                               where a.uld_id == userId
                                select c.rm_id
                                 ).FirstOrDefault();
                                  

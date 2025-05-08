@@ -133,7 +133,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         {
             try
             {
-                var subconnectors = await _addConnectors.GetAllConnectorAsync();
+                var subconnectors = await _addConnectors.GetAllSubConnectorsAsync();
                
                 return StatusCode(subconnectors.StatusCode,subconnectors);
             }
@@ -154,7 +154,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         {
             try
             {
-                var subconnector = await _addConnectors.GetConnectorByIdAsync(id);
+                var subconnector = await _addConnectors.GetSubConnectorAsync(id);
 
                 return StatusCode(subconnector.StatusCode, subconnector);
             }
