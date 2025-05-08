@@ -21,7 +21,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpPost]
         [Route("CreateLeads")]
-        //[Authorize(Roles = "Admin,Connector")]
+        [Authorize(Roles = "1,3")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -111,7 +111,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpDelete] //================================================================================ for admin  -> direct deletion of lead
         [Route("DeleteLeadByAdmin/{id:int}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "3")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -143,7 +143,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpDelete] //======================================================================================for Others -> delete flag is set to true
         [Route("DeleteLeadByOthers/{id:int}")]
-        [Authorize(Roles = "Connector")]
+        [Authorize(Roles = "1")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -175,7 +175,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpPut]
         [Route("UpdateLead/{id:int}")]
-        [Authorize(Roles = "Admin,Connector")]
+        [Authorize(Roles = "1,3")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]

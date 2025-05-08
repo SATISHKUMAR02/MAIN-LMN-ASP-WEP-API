@@ -9,7 +9,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Connector")]
+    [Authorize(Roles = "1")]
 
     public class SubConnectorController : ControllerBase 
     {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Newtonsoft.Json;
+
 using Microsoft.EntityFrameworkCore;
 using model;
 using model.MOUs;
@@ -42,25 +44,38 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 return new CommonResponse<AddConnectordto>(false, "user already exist", 400, null);
             }
 
-            tbl_employee_master user = _mapper.Map<tbl_employee_master>(dto);
-            user.em_created_date = DateTime.Now;
-            user.em_is_active = true;
+            // Manual mapping
+            tbl_employee_master user = new tbl_employee_master
+            {
+                em_id = dto.connector_id,
+                em_name_e = dto.Firstname + " " + dto.Lastname,
+                em_contact_number = dto.phonenumber,
+                em_email_address = dto.Email,
+                em_joining_date = dto.hireDate,
+                em_updated_date = dto.updated_date,
+                em_gender = dto.gender,
+                //dob = DateOnly.FromDateTime(dto.dateOfbirth),
+                em_created_date = DateTime.Now,
+                em_role_id = 1,
+                em_is_active = true
+            };
 
-            await _repository.CreateAsync(user); 
+            await _repository.CreateAsync(user);
 
             tbl_user_login_details loginDetails = new tbl_user_login_details
             {
                 uld_contact_number = user.em_contact_number,
                 uld_created_date = DateTime.Now,
                 uld_otp_time = DateTime.Now.AddMinutes(5),
-                uld_employee_id = user.em_id, 
+                uld_employee_id = user.em_id,
                 uld_is_active = true,
             };
 
-            await _loginrepository.CreateAsync(loginDetails); 
+            await _loginrepository.CreateAsync(loginDetails);
 
             return new CommonResponse<AddConnectordto>(true, "Connector created successfully", 200, dto);
         }
+
 
         public async Task<CommonResponse<AddConnectordto>> UpdateConnectorAsync(AddConnectordto dto)
         {
@@ -115,6 +130,8 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 return new CommonResponse<AddConnectordto>(false, "invalid id", 404, null);
             }
             var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_role_id==1);
+            Console.WriteLine(JsonConvert.SerializeObject(existingConnector));
+
             if (existingConnector == null)
             {
                 return new CommonResponse<AddConnectordto>(false, "user does not exist", 404, null);

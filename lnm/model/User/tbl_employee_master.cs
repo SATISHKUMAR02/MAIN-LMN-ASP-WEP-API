@@ -24,6 +24,11 @@ namespace model.User
         public int? em_updated_by { get; set; }
         public DateTime? em_created_date { get; set; }
         public DateTime? em_updated_date { get; set; }
+
+        public string em_gender { get; set; }
+
+        public DateOnly dob { get; set; }
+
         
     }
 }

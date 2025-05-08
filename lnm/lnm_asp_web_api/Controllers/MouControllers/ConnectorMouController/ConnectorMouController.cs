@@ -10,7 +10,7 @@ namespace lnm_asp_web_api.Controllers.MouControllers.ConnectorMouController
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles ="3")]
     public class ConnectorMouController : ControllerBase
 
     {

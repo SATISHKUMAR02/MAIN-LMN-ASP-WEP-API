@@ -22,7 +22,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Telecaller
         }
         [HttpPost]
         [Route("CreateNewTelecaller")] // =============================================== for adding telecallers only by Admin
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "3")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -113,6 +113,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Telecaller
 
         [HttpDelete]
         [Route("DeleteTelecaller/{id:int}")]
+        [Authorize(Roles = "3")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]

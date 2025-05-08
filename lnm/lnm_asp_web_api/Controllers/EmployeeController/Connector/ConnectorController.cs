@@ -128,7 +128,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
         [HttpPut]
         [Route("UpdateConnector/{id:int}")]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles ="3")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -154,10 +154,12 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
         [HttpDelete]
         [Route("DeleteConnector/{id:int}")]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles ="3")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+
         [ProducesResponseType(404)]
 
         public async Task<ActionResult<CommonResponse<object>>> DeleteConnector(int id)

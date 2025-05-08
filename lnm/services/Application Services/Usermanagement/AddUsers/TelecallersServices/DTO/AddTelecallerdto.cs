@@ -16,7 +16,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
 
         public string gender { get; set; }
 
-        public DateTime dateOfbirth { get; set; }
+        public DateOnly dateOfbirth { get; set; }
 
         public string phonenumber { get; set; }
 
@@ -24,7 +24,6 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
 
         public DateTime hireDate { get; set; }
 
-        public string role { get; set; }
 
         public DateTime updated_date { get; set; }
     }

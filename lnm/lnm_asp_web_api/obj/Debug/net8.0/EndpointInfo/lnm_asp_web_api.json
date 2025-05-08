@@ -934,6 +934,26 @@
               }
             }
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Not Found",
             "content": {
@@ -3894,7 +3914,7 @@
           },
           "dateOfbirth": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "phonenumber": {
             "type": "string",
@@ -3907,10 +3927,6 @@
           "hireDate": {
             "type": "string",
             "format": "date-time"
-          },
-          "role": {
-            "type": "string",
-            "nullable": true
           },
           "updated_date": {
             "type": "string",
@@ -4034,7 +4050,7 @@
           },
           "dateOfbirth": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "phonenumber": {
             "type": "string",
@@ -4047,10 +4063,6 @@
           "hireDate": {
             "type": "string",
             "format": "date-time"
-          },
-          "role": {
-            "type": "string",
-            "nullable": true
           },
           "updated_date": {
             "type": "string",

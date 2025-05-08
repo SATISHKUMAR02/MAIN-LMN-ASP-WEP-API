@@ -369,6 +369,9 @@ namespace services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("em_id"));
 
+                    b.Property<DateOnly>("dob")
+                        .HasColumnType("date");
+
                     b.Property<string>("em_contact_number")
                         .HasColumnType("nvarchar(max)");
 
@@ -383,6 +386,10 @@ namespace services.Migrations
 
                     b.Property<DateTime?>("em_end_date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("em_gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("em_is_active")
                         .HasColumnType("bit");

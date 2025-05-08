@@ -32,7 +32,8 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
                 return new CommonResponse<AddTelecallerdto>(false, "Error", 404, null);
 
             }
-            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == dto.telecaller_id);
+            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == dto.telecaller_id || u.em_role_id == 2 ||
+            u.em_contact_number == dto.phonenumber);
             if (existingTelecaller != null)
             {
                 return new CommonResponse<AddTelecallerdto>(false, "user already exist", 400, null);
@@ -40,7 +41,9 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
             }
             tbl_employee_master user = _mapper.Map<tbl_employee_master>(dto);
             user.em_created_date = DateTime.Now;
+            user.em_role_id = 2;
             user.em_is_active = true;
+            _repository.CreateAsync(user);
 
             return new CommonResponse<AddTelecallerdto>(true, "Telecaller created successfully", 200, dto);
 
@@ -85,7 +88,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
 
         public async Task<CommonResponse<List<Telecallerdto>>> GetAllTelecallerAsync()
         {
-            var telecaller = await _repository.GetAllAsync();
+            var telecaller = await _repository.GetAllByAnyAsync(u=>u.em_is_active ==true && u.em_role_id==2);
             var data = _mapper.Map<List<Telecallerdto>>(telecaller);
             return new CommonResponse<List<Telecallerdto>>(true, "Telecaller fetched successfully", 200, data);
 
