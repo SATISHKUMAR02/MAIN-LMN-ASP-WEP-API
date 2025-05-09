@@ -4971,8 +4971,8 @@
             "nullable": true
           },
           "created_by": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "meeting_conducted": {
             "type": "boolean"

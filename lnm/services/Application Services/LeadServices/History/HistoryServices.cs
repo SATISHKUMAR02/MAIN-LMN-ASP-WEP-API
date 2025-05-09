@@ -17,6 +17,12 @@ namespace services.Application_Services.LeadServices.History
 
         private readonly IMapper _mapper;
 
+        public HistoryServices(IApplicationRepository<TblMeetingsMaster> repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         public async Task<CommonResponse<List<Historydto>>> GetAllHistoryAsync()
         {
             var events = await _repository.GetAllAsync();

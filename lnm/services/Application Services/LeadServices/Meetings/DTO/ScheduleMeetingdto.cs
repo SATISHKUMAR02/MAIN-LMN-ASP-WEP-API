@@ -16,15 +16,15 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public TimeOnly time { get; set; }
 
-        public string type { get; set; } = "meeting";
+        public string type { get; set; } 
 
         public string descritpion { get; set; } 
 
-        public string created_by { get; set; }
+        public int created_by { get; set; } // gives the user id of the user who created it
 
-        public bool meeting_conducted { get; set; } = false; // yes or no
+        public bool meeting_conducted { get; set; }  // yes or no
 
-        public string meeting_outcome { get; set; } = "pending"; // interested / not interest / pending
+        public string meeting_outcome { get; set; }  // interested / not interest / pending
 
        
 

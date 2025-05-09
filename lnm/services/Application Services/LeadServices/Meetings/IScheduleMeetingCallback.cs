@@ -22,6 +22,8 @@ namespace services.Application_Services.LeadServices.Meetings
 
         Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id, int institution_id);
 
+        Task<CommonResponse<object>> DeleteTempMeetingAsync(int meeting_id, int institution_id);
+
         // this is common  for history dashboard  only get operation
 
         Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync();

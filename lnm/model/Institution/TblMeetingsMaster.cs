@@ -20,6 +20,8 @@ namespace model.Institution
 
         public DateTime? MmCreatedDate { get; set; }
 
+        public DateOnly? MmMeetingScheduleDate {  get; set; }
+
         public int? MmUpdatedBy { get; set; }
 
         public string? MmInstitutionResponded { get; set; }
@@ -37,6 +39,8 @@ namespace model.Institution
         public bool MmMeetingConducted { get; set; }
 
         public string MmmeetingOutcome {get;set;}
+
+        public bool MmIsDeleted { get; set; }
 
 
     }

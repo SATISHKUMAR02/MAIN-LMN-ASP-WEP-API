@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using services;
 
@@ -11,9 +12,11 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    partial class DBConnectionModelSnapshot : ModelSnapshot
+    [Migration("20250509073337_schedule date added to meeting master")]
+    partial class scheduledateaddedtomeetingmaster
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -213,9 +216,6 @@ namespace services.Migrations
 
                     b.Property<string>("MmInstitutionResponded")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("MmIsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("MmMeetingConducted")
                         .HasColumnType("bit");

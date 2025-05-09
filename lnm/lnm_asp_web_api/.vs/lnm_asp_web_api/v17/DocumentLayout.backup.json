@@ -3,17 +3,47 @@
   "WorkspaceRootPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\lnm_asp_web_api\\controllers\\leadcontrollers\\leadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|solutionrelative:controllers\\leadcontrollers\\leadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\history\\historyservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\mapping\\mappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\history\\dto\\historydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\history\\ihistoryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}|..\\model\\model.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\model\\institution\\tblmeetingsmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\dto\\meetingcallbackdashdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\schedulemeetingcallback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509101204_is deleted added  added to meeting master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\dto\\schedulemeetingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509073337_schedule date added to meeting master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\dto\\meetingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\leadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\ileadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\lnm_asp_web_api\\controllers\\leadcontrollers\\leadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B565F93-391C-438E-B5F2-840CC11CD7FD}|lnm_asp_web_api.csproj|solutionrelative:controllers\\leadcontrollers\\leadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\mapping\\mappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\ileadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\dto\\dashboardleaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -38,9 +68,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}|..\\model\\model.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\model\\institution\\tblinstitutionactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F0A18D1-7ABA-49F0-A116-DB18A1DE0483}|..\\model\\model.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\model\\institution\\tblmeetingsmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\user service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -77,9 +104,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\usermanagement\\addusers\\telecallersservices\\iaddtelecaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\schedulemeetingcallback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\repository\\applicationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -176,21 +200,6 @@
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\ischedulemeetingcallback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\history\\historyservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\history\\ihistoryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\history\\dto\\historydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\dto\\meetingcallbackdashdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\dto\\schedulemeetingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\usermanagement\\allusers\\ialluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -225,9 +234,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\meetings\\dto\\schedulecallbackdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47D58426-06A0-4E92-83E7-07189C6B2E3F}|..\\services\\services.csproj|c:\\users\\satis\\onedrive\\desktop\\satish\\asp .net learning\\lnm\\lnm\\services\\application services\\leadservices\\dto\\meetingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Personal\\lnm\\model\\CommonResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -298,11 +304,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1794,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\User Service\\UserService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\User Service\\UserService.cs",
@@ -347,44 +353,185 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LeadDto.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA9wBQAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T06:50:58.447Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MappingConfig.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Mapping\\MappingConfig.cs",
               "RelativeDocumentMoniker": "..\\services\\Mapping\\MappingConfig.cs",
               "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Mapping\\MappingConfig.cs",
               "RelativeToolTip": "..\\services\\Mapping\\MappingConfig.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAACcAAABTAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAADwv4AAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T07:42:33.695Z"
+              "WhenOpened": "2025-04-22T07:42:33.695Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "ScheduleMeetingdto.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAIBFwBQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T09:19:41.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MeetingCallbackdashdto.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T07:39:42.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HistoryServices.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T07:59:45.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IHistoryServices.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T07:57:05.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Historydto.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T07:47:38.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ScheduleMeetingCallback.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAqwCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T09:47:32.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20250509101204_is deleted added  added to meeting master.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509101204_is deleted added  added to meeting master.cs",
+              "RelativeDocumentMoniker": "..\\services\\Migrations\\20250509101204_is deleted added  added to meeting master.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509101204_is deleted added  added to meeting master.cs",
+              "RelativeToolTip": "..\\services\\Migrations\\20250509101204_is deleted added  added to meeting master.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T10:12:04.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Meetingdto.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T09:36:07.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TblMeetingsMaster.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Institution\\TblMeetingsMaster.cs",
+              "RelativeDocumentMoniker": "..\\model\\Institution\\TblMeetingsMaster.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Institution\\TblMeetingsMaster.cs",
+              "RelativeToolTip": "..\\model\\Institution\\TblMeetingsMaster.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAABFwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T08:34:16.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250509073337_schedule date added to meeting master.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509073337_schedule date added to meeting master.cs",
+              "RelativeDocumentMoniker": "..\\services\\Migrations\\20250509073337_schedule date added to meeting master.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509073337_schedule date added to meeting master.cs",
+              "RelativeToolTip": "..\\services\\Migrations\\20250509073337_schedule date added to meeting master.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T07:33:37.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LeadController.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\LeadController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LeadControllers\\LeadController.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\LeadController.cs",
+              "RelativeToolTip": "Controllers\\LeadControllers\\LeadController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAA6wJMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T10:45:14.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ILeadService.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\ILeadService.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\ILeadService.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\ILeadService.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\ILeadService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA0wBgAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T07:41:34.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "LeadService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\LeadService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\LeadService.cs",
               "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\LeadService.cs",
               "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\LeadService.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAA5wJQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAkwJEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T07:39:15.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T07:39:15.717Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "DashboardLeadDto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\DashboardLeadDto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\DTO\\DashboardLeadDto.cs",
@@ -396,45 +543,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ILeadService.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\ILeadService.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\ILeadService.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\ILeadService.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\ILeadService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAA0wBgAAABCAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "LeadDto.cs",
+              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
+              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
+              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
+              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\DTO\\LeadDto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA9wBQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T07:41:34.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T06:50:58.447Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LeadController.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\LeadController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LeadControllers\\LeadController.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\LeadController.cs",
-              "RelativeToolTip": "Controllers\\LeadControllers\\LeadController.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAA6wJMAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T10:45:14.513Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TblMeetingsMaster.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Institution\\TblMeetingsMaster.cs",
-              "RelativeDocumentMoniker": "..\\model\\Institution\\TblMeetingsMaster.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Institution\\TblMeetingsMaster.cs",
-              "RelativeToolTip": "..\\model\\Institution\\TblMeetingsMaster.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwCIAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T08:34:16.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 17,
               "Title": "DBConnection.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\DBConnection.cs",
               "RelativeDocumentMoniker": "..\\services\\DBConnection.cs",
@@ -446,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 20,
               "Title": "ConnectorMou.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\MOUs\\ConnectorMou.cs",
               "RelativeDocumentMoniker": "..\\model\\MOUs\\ConnectorMou.cs",
@@ -458,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "TblInstitutionActivity.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Institution\\TblInstitutionActivity.cs",
               "RelativeDocumentMoniker": "..\\model\\Institution\\TblInstitutionActivity.cs",
@@ -470,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 19,
               "Title": "TblInstitutionMaster.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Institution\\TblInstitutionMaster.cs",
               "RelativeDocumentMoniker": "..\\model\\Institution\\TblInstitutionMaster.cs",
@@ -482,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "IApplicationRepository.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Repository\\IApplicationRepository.cs",
               "RelativeDocumentMoniker": "..\\services\\Repository\\IApplicationRepository.cs",
@@ -494,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 18,
               "Title": "20250509045310_changed name of the tables .cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250509045310_changed name of the tables .cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250509045310_changed name of the tables .cs",
@@ -506,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "AllUser.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AllUsers\\AllUser.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AllUsers\\AllUser.cs",
@@ -518,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 91,
               "Title": "20250508120446_changed column type in institution .cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250508120446_changed column type in institution .cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250508120446_changed column type in institution .cs",
@@ -530,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 92,
               "Title": "20250508114700_add other_contact.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250508114700_add other_contact.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250508114700_add other_contact.cs",
@@ -542,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "AddTelecaller.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\AddTelecaller.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\AddTelecaller.cs",
@@ -554,7 +675,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 30,
               "Title": "SubConnectordto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\SubConnectordto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\SubConnectordto.cs",
@@ -566,7 +687,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "IAddConnectors.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\IAddConnectors.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\IAddConnectors.cs",
@@ -578,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "AddConnectors.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\AddConnectors.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\AddConnectors.cs",
@@ -590,7 +711,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "SubConnectorController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\EmployeeController\\SubConnector\\SubConnectorController.cs",
               "RelativeDocumentMoniker": "Controllers\\EmployeeController\\SubConnector\\SubConnectorController.cs",
@@ -602,7 +723,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "TelecallerController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\EmployeeController\\Telecaller\\TelecallerController.cs",
               "RelativeDocumentMoniker": "Controllers\\EmployeeController\\Telecaller\\TelecallerController.cs",
@@ -614,7 +735,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "AddSubConnectordto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddSubConnectordto.cs",
@@ -626,7 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 28,
               "Title": "ConnectorController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\EmployeeController\\Connector\\ConnectorController.cs",
               "RelativeDocumentMoniker": "Controllers\\EmployeeController\\Connector\\ConnectorController.cs",
@@ -638,7 +759,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "IAddTelecaller.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\IAddTelecaller.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\IAddTelecaller.cs",
@@ -650,19 +771,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ScheduleMeetingCallback.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\Meetings\\ScheduleMeetingCallback.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAowEsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:47:32.835Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "ApplicationRepository.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Repository\\ApplicationRepository.cs",
               "RelativeDocumentMoniker": "..\\services\\Repository\\ApplicationRepository.cs",
@@ -674,7 +783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 36,
               "Title": "Telecallerdto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\DTO\\Telecallerdto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\DTO\\Telecallerdto.cs",
@@ -686,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "AddTelecallerdto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\DTO\\AddTelecallerdto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\TelecallersServices\\DTO\\AddTelecallerdto.cs",
@@ -698,7 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 86,
               "Title": "20250507124508_telecaller updated .cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250507124508_telecaller updated .cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250507124508_telecaller updated .cs",
@@ -710,7 +819,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 35,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -722,7 +831,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 38,
               "Title": "tbl_employee_master.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\User\\tbl_employee_master.cs",
               "RelativeDocumentMoniker": "..\\model\\User\\tbl_employee_master.cs",
@@ -734,7 +843,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 37,
               "Title": "AddConnectordto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddConnectordto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\AddConnectordto.cs",
@@ -746,7 +855,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 39,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -758,7 +867,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 87,
               "Title": "20250507122206_solved error related to DOB.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250507122206_solved error related to DOB.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250507122206_solved error related to DOB.cs",
@@ -770,7 +879,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 40,
               "Title": "InstitutionMouController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\MouControllers\\InstitutionMouController\\InstitutionMouController.cs",
               "RelativeDocumentMoniker": "Controllers\\MouControllers\\InstitutionMouController\\InstitutionMouController.cs",
@@ -782,7 +891,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 41,
               "Title": "ConnectorMouController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\MouControllers\\ConnectorMouController\\ConnectorMouController.cs",
               "RelativeDocumentMoniker": "Controllers\\MouControllers\\ConnectorMouController\\ConnectorMouController.cs",
@@ -794,7 +903,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 88,
               "Title": "20250507120010_corrected .cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250507120010_corrected .cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250507120010_corrected .cs",
@@ -806,7 +915,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 42,
               "Title": "MeetingController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\MeetingCallbackController\\MeetingController.cs",
               "RelativeDocumentMoniker": "Controllers\\LeadControllers\\MeetingCallbackController\\MeetingController.cs",
@@ -818,7 +927,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 43,
               "Title": "CallbackController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\MeetingCallbackController\\CallbackController.cs",
               "RelativeDocumentMoniker": "Controllers\\LeadControllers\\MeetingCallbackController\\CallbackController.cs",
@@ -830,7 +939,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 44,
               "Title": "HistoryController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\LeadControllers\\History\\HistoryController.cs",
               "RelativeDocumentMoniker": "Controllers\\LeadControllers\\History\\HistoryController.cs",
@@ -842,7 +951,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 89,
               "Title": "20250507102827_added date of birth.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250507102827_added date of birth.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250507102827_added date of birth.cs",
@@ -854,7 +963,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 90,
               "Title": "20250507101805_added gender.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250507101805_added gender.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250507101805_added gender.cs",
@@ -866,7 +975,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 45,
               "Title": "ActivityService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\ActivityServices\\ActivityService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\ActivityServices\\ActivityService.cs",
@@ -878,7 +987,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 46,
               "Title": "IActivityService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\ActivityServices\\IActivityService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\ActivityServices\\IActivityService.cs",
@@ -890,7 +999,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 47,
               "Title": "Connectordto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\Connectordto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AddUsers\\ConnectorsServices\\DTO\\Connectordto.cs",
@@ -902,7 +1011,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 48,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -914,7 +1023,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 49,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\User Service\\IUserService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\User Service\\IUserService.cs",
@@ -926,7 +1035,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 52,
               "Title": "AllUserController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\EmployeeController\\AllUsers\\AllUserController.cs",
               "RelativeDocumentMoniker": "Controllers\\EmployeeController\\AllUsers\\AllUserController.cs",
@@ -938,7 +1047,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 84,
               "Title": "20250505111102_third migration.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250505111102_third migration.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250505111102_third migration.cs",
@@ -950,7 +1059,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 50,
               "Title": "UserDetails.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\User Service\\DTO\\UserDetails.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\User Service\\DTO\\UserDetails.cs",
@@ -962,7 +1071,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 51,
               "Title": "AllUserdto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AllUsers\\DTO\\AllUserdto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AllUsers\\DTO\\AllUserdto.cs",
@@ -974,7 +1083,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 85,
               "Title": "20250505074900_second migration.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250505074900_second migration.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250505074900_second migration.cs",
@@ -986,7 +1095,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 53,
               "Title": "tbl_user_login_details.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\User\\tbl_user_login_details.cs",
               "RelativeDocumentMoniker": "..\\model\\User\\tbl_user_login_details.cs",
@@ -998,7 +1107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 54,
               "Title": "tbl_role_master.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\User\\tbl_role_master.cs",
               "RelativeDocumentMoniker": "..\\model\\User\\tbl_role_master.cs",
@@ -1010,7 +1119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 55,
               "Title": "ActivityController.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\Controllers\\ActivitiesController\\ActivityController.cs",
               "RelativeDocumentMoniker": "Controllers\\ActivitiesController\\ActivityController.cs",
@@ -1022,7 +1131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 58,
               "Title": "DBConnection.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\services\\DBConnection.cs",
               "ToolTip": "D:\\Personal\\lnm\\services\\DBConnection.cs",
@@ -1031,7 +1140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 59,
               "Title": "services.csproj",
               "DocumentMoniker": "D:\\Personal\\lnm\\services\\services.csproj",
               "ToolTip": "D:\\Personal\\lnm\\services\\services.csproj",
@@ -1040,7 +1149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 57,
               "Title": "20250505051454_init migration.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250505051454_init migration.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250505051454_init migration.cs",
@@ -1052,7 +1161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 56,
               "Title": "20250505051703_init migration.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250505051703_init migration.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250505051703_init migration.cs",
@@ -1064,7 +1173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 83,
               "Title": "20250505052436_first  migration.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Migrations\\20250505052436_first  migration.cs",
               "RelativeDocumentMoniker": "..\\services\\Migrations\\20250505052436_first  migration.cs",
@@ -1076,7 +1185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 60,
               "Title": "IScheduleMeetingCallback.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\IScheduleMeetingCallback.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\IScheduleMeetingCallback.cs",
@@ -1088,67 +1197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "MeetingCallbackdashdto.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\MeetingCallbackdashdto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:39:42.696Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "Historydto.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\History\\DTO\\Historydto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T07:47:38.171Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "IHistoryServices.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\History\\IHistoryServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T07:57:05.938Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "HistoryServices.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\History\\HistoryServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T07:59:45.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "ScheduleMeetingdto.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleMeetingdto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T09:19:41.666Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 61,
               "Title": "IAllUser.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\Usermanagement\\AllUsers\\IAllUser.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\Usermanagement\\AllUsers\\IAllUser.cs",
@@ -1160,7 +1209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 62,
               "Title": "StatusUpdatedto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\StatusUpdatedto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\StatusUpdatedto.cs",
@@ -1172,7 +1221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 63,
               "Title": "AddInstitutionActivitydto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\ActivityServices\\DTO\\AddInstitutionActivitydto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\ActivityServices\\DTO\\AddInstitutionActivitydto.cs",
@@ -1184,7 +1233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 68,
               "Title": "InstitutionMou.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\MOUs\\InstitutionMou.cs",
               "RelativeDocumentMoniker": "..\\model\\MOUs\\InstitutionMou.cs",
@@ -1196,7 +1245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 66,
               "Title": "InstitutionServicecs.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\MouServices\\InstitutionServices\\InstitutionServicecs.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\MouServices\\InstitutionServices\\InstitutionServicecs.cs",
@@ -1208,7 +1257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 65,
               "Title": "IInstitutionService.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\MouServices\\InstitutionServices\\IInstitutionService.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\MouServices\\InstitutionServices\\IInstitutionService.cs",
@@ -1220,7 +1269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 64,
               "Title": "ConnectorServices.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\MouServices\\ConnectorServices\\ConnectorServices.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\MouServices\\ConnectorServices\\ConnectorServices.cs",
@@ -1232,7 +1281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 67,
               "Title": "IConnectorServices.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\MouServices\\ConnectorServices\\IConnectorServices.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\MouServices\\ConnectorServices\\IConnectorServices.cs",
@@ -1244,7 +1293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 69,
               "Title": "connectorDtocs.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\MouServices\\DTO\\connectorDtocs.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\MouServices\\DTO\\connectorDtocs.cs",
@@ -1256,7 +1305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 70,
               "Title": "MouMaster.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\MOUs\\MouMaster.cs",
               "RelativeDocumentMoniker": "..\\model\\MOUs\\MouMaster.cs",
@@ -1268,7 +1317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 71,
               "Title": "Institutiondto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\MouServices\\DTO\\Institutiondto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\MouServices\\DTO\\Institutiondto.cs",
@@ -1280,7 +1329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 72,
               "Title": "ScheduleCallbackdto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleCallbackdto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\Meetings\\DTO\\ScheduleCallbackdto.cs",
@@ -1292,19 +1341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "Meetingdto.cs",
-              "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
-              "RelativeDocumentMoniker": "..\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
-              "ToolTip": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
-              "RelativeToolTip": "..\\services\\Application Services\\LeadServices\\DTO\\Meetingdto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:36:07.026Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 79,
               "Title": "CommonResponse.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\CommonResponse.cs",
               "RelativeDocumentMoniker": "..\\model\\CommonResponse.cs",
@@ -1316,7 +1353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 80,
               "Title": "TblActivityMaster.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\model\\Activities\\TblActivityMaster.cs",
               "RelativeDocumentMoniker": "..\\model\\Activities\\TblActivityMaster.cs",
@@ -1328,7 +1365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 81,
               "Title": "InstitutionActivitydto.cs",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\services\\Application Services\\ActivityServices\\DTO\\InstitutionActivitydto.cs",
               "RelativeDocumentMoniker": "..\\services\\Application Services\\ActivityServices\\DTO\\InstitutionActivitydto.cs",
@@ -1340,7 +1377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 73,
               "Title": "CommonResponse.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\model\\CommonResponse.cs",
               "ToolTip": "D:\\Personal\\lnm\\model\\CommonResponse.cs",
@@ -1349,7 +1386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 74,
               "Title": "tbl_user_login_details.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\model\\User\\tbl_user_login_details.cs",
               "ToolTip": "D:\\Personal\\lnm\\model\\User\\tbl_user_login_details.cs",
@@ -1358,7 +1395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 75,
               "Title": "UserDetails.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\services\\Application Services\\User Service\\DTO\\UserDetails.cs",
               "ToolTip": "D:\\Personal\\lnm\\services\\Application Services\\User Service\\DTO\\UserDetails.cs",
@@ -1367,7 +1404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 76,
               "Title": "IUserService.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\services\\Application Services\\User Service\\IUserService.cs",
               "ToolTip": "D:\\Personal\\lnm\\services\\Application Services\\User Service\\IUserService.cs",
@@ -1376,7 +1413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 82,
               "Title": "lnm_asp_web_api.csproj",
               "DocumentMoniker": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
               "RelativeDocumentMoniker": "lnm_asp_web_api.csproj",
@@ -1388,7 +1425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 77,
               "Title": "MappingConfig.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\services\\Mapping\\MappingConfig.cs",
               "ToolTip": "D:\\Personal\\lnm\\services\\Mapping\\MappingConfig.cs",
@@ -1397,7 +1434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 78,
               "Title": "AESDecryptionHelper.cs",
               "DocumentMoniker": "D:\\Personal\\lnm\\services\\Common\\Encryption\\AESDecryptionHelper.cs",
               "ToolTip": "D:\\Personal\\lnm\\services\\Common\\Encryption\\AESDecryptionHelper.cs",

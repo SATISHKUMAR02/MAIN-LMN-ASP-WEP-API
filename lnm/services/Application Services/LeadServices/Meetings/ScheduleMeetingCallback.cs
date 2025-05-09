@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using model;
 using model.Institution;
 using services.Application_Services.LeadServices.Meetings.DTO;
@@ -15,13 +16,16 @@ namespace services.Application_Services.LeadServices.Meetings
     {
 
         private readonly IApplicationRepository<TblMeetingsMaster> _repository;
-       
+        private readonly DBConnection _context;
         private readonly IMapper _mapper;
 
-        public ScheduleMeetingCallback(IApplicationRepository<TblMeetingsMaster> repository,IMapper mapper)
+        public ScheduleMeetingCallback(IApplicationRepository<TblMeetingsMaster> repository,
+            IMapper mapper,DBConnection context
+            )
         {
             _repository = repository;
             _mapper = mapper;
+            _context = context;
             
         }
 
@@ -32,8 +36,10 @@ namespace services.Application_Services.LeadServices.Meetings
                 return new CommonResponse<ScheduleMeetingdto>(false, "meeting fields are empty", 404, null);
             }
 
-            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == dto.institution_id
-            && u.MmMeetingId == dto.meeting_id && u.MmMeetingConducted == false);
+            //var institutionid = await (from a in _context.institutionMaster join b in _context.meetingsMaster on a.ImInstitutionId equals b.MmInstitutionId 
+            //                                                                   select a.ImInstitutionId).FirstOrDefaultAsync();
+
+            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == dto.institution_id && u.MmMeetingConducted == false);
 
             if (existingMeeting != null)
             {
@@ -43,22 +49,20 @@ namespace services.Application_Services.LeadServices.Meetings
             TblMeetingsMaster meeting = _mapper.Map<TblMeetingsMaster>(dto);
             
             meeting.MmMeetingStatus = "open";
-            //meeting.MmmeetingOutcome = "pending";
+            meeting.MmmeetingOutcome = "pending";
             meeting.MmCreatedDate = DateTime.Now;
-            
             meeting.MmInstitutionResponded = "yes";
-            //meeting.MmMeetingConducted = false;
+            meeting.MmIsDeleted = false;
+            meeting.MmMeetingConducted = false;
             await _repository.CreateAsync(meeting);
-
-
 
             var response = _mapper.Map<ScheduleMeetingdto>(meeting);
             
             return new CommonResponse<ScheduleMeetingdto>(true,"meeting scheduled successfully",200,response);
         }
 
-      
-        public async Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id,int institution_id)
+      // ===============================================================================DELETED FFROM UI NOT FROM DB
+        public async Task<CommonResponse<object>> DeleteTempMeetingAsync(int meeting_id,int institution_id) // temperary deleted 
         {
             if(meeting_id==0 && institution_id == 0)
             {
@@ -76,10 +80,38 @@ namespace services.Application_Services.LeadServices.Meetings
             existingMeeting.MmMeetingConducted = false;
             
             existingMeeting.MmmeetingOutcome = "pending";
+            await _repository.UpdateAsync(existingMeeting);
             
             return new CommonResponse<object>(true,"meeting deleted successfully",200,null);
 
         }
+
+        // =========================================================================== DELETED FROM UI AND DB
+        public async Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id, int institution_id) // temperary deleted 
+        {
+            if (meeting_id == 0 && institution_id == 0)
+            {
+                return new CommonResponse<object>(false, "invalid inputs", 404, null);
+            }
+            var existingMeeting = await _repository.GetSingleAsync(u => u.MmMeetingId == meeting_id && u.MmInstitutionId == institution_id);
+
+            if (existingMeeting == null)
+            {
+                return new CommonResponse<object>(false, "meeting does not exist", 404, null);
+
+            }
+            //existingMeeting.MmMeetingStatus = "close";
+
+            //existingMeeting.MmMeetingConducted = false;
+
+            //existingMeeting.MmmeetingOutcome = "pending";
+            await _repository.DeleteAsync(existingMeeting);
+
+            return new CommonResponse<object>(true, "meeting deleted successfully", 200, null);
+
+        }
+
+
 
         public async Task<CommonResponse<ScheduleMeetingdto>> UpdateMeetingAsync(ScheduleMeetingdto dto)
         {

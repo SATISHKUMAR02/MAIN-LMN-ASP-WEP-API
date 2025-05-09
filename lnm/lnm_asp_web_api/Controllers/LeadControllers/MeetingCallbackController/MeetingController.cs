@@ -117,5 +117,57 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
             }
 
         }
+
+        [HttpGet]
+        [Route("DeleteTempmeeting")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempMeeting(int institutionid,int meetingid)
+        {
+            try
+            {
+                if (institutionid < 0 && meetingid<0)
+                {
+                    return BadRequest(new CommonResponse<object>(false, "invalild input credentials", 404, null));
+                }
+                var meeting = await _services.DeleteTempMeetingAsync(institutionid,meetingid);
+                return StatusCode(meeting.StatusCode, meeting);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
+
+            }
+
+        }
+
+        [HttpGet]
+        [Route("Deletemeeting")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+
+        public async Task<ActionResult<CommonResponse<object>>> DeleteMeeting(int institutionid, int meetingid)
+        {
+            try
+            {
+                if (institutionid < 0 && meetingid < 0)
+                {
+                    return BadRequest(new CommonResponse<object>(false, "invalild credentials", 404, null));
+                }
+                var meeting = await _services.DeleteMeetingAsync(institutionid, meetingid);
+                return StatusCode(meeting.StatusCode, meeting);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<object>(false, ex.Message, 404, null));
+
+            }
+
+        }
     }
 }
