@@ -140,7 +140,7 @@ namespace services.Application_Services.LeadServices
             return new CommonResponse<object>(true,"lead deleted successfully",200,null);
         }
 
-        public async Task<CommonResponse<object>> DeleteLeadOthersAsync(int id) //============================================ this is for Others ,  ImIsDeleted flag = true
+        public async Task<CommonResponse<object>> DeleteLeadTempByIdAsync(int id) //============================================ this is for Others ,  ImIsDeleted flag = true
         {
 
             if (id == 0)

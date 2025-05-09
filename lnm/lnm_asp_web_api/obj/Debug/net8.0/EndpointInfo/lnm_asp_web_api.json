@@ -2261,7 +2261,7 @@
         }
       }
     },
-    "/api/Lead/DeleteLeadByOthers/{id}": {
+    "/api/Lead/DeleteTempLeadById/{id}": {
       "delete": {
         "tags": [
           "Lead"

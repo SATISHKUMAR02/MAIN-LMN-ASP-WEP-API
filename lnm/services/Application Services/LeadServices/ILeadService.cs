@@ -24,7 +24,7 @@ namespace services.Application_Services.LeadServices
 
         Task<CommonResponse<object>> DeleteLeadAdminAsync(int id);
 
-        Task<CommonResponse<object>> DeleteLeadOthersAsync(int id);
+        Task<CommonResponse<object>> DeleteLeadTempByIdAsync(int id);
 
         //Task<CommonResponse<Meetingdto>> GetAllMeetingsBySchoolIdAsync(int id);
 

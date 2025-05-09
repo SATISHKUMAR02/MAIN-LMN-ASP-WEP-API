@@ -142,15 +142,15 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
         }
 
         [HttpDelete] //======================================================================================for Others -> delete flag is set to true
-        [Route("DeleteLeadByOthers/{id:int}")]
-        [Authorize(Roles = "1")]
+        [Route("DeleteTempLeadById/{id:int}")]
+        [Authorize(Roles = "3")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
 
-        public async Task<ActionResult<CommonResponse<object>>> DeleteLeadOthersById(int id)
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempLeadById(int id)
         {
             try
             {
@@ -161,7 +161,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
                 var lead = await _leadService.GetLeadByIdAsync(id);
 
 
-                var result = await _leadService.DeleteLeadOthersAsync(id);
+                var result = await _leadService.DeleteLeadTempByIdAsync(id);
                 return StatusCode(lead.StatusCode, id);
 
             }

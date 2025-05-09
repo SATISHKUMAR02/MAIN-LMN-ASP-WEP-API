@@ -1033,8 +1033,8 @@
   },
   {
     "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.LeadController",
-    "Method": "DeleteLeadOthersById",
-    "RelativePath": "api/Lead/DeleteLeadByOthers/{id}",
+    "Method": "DeleteTempLeadById",
+    "RelativePath": "api/Lead/DeleteTempLeadById/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
