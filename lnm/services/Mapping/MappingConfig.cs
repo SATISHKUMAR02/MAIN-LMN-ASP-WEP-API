@@ -112,6 +112,16 @@ namespace services.Mapping
                  .ForMember(dest => dest.created_by, opt => opt.MapFrom(src => src.MmCreatedBy))
                 .ReverseMap();
 
+            CreateMap<TblMeetingsMaster, ScheduleCallbackdto>()
+                 .ForMember(dest => dest.meeting_id, opt => opt.MapFrom(src => src.MmMeetingId))
+                 .ForMember(dest => dest.institution_id, opt => opt.MapFrom(src => src.MmInstitutionId))
+                 .ForMember(dest => dest.date, opt => opt.MapFrom(src => src.MmMeetingScheduleDate))
+                 .ForMember(dest => dest.time, opt => opt.MapFrom(src => src.MmMeetingTime))
+                 .ForMember(dest => dest.type, opt => opt.MapFrom(src => src.MmMeetingType))
+                 .ForMember(dest => dest.descritpion, opt => opt.MapFrom(src => src.MmMeetingDescritpion))
+                 .ForMember(dest => dest.created_by, opt => opt.MapFrom(src => src.MmCreatedBy))
+                .ReverseMap();
+
             CreateMap<TblMeetingsMaster, MeetingCallbackdashdto>()
                  .ForMember(dest => dest.date, opt => opt.MapFrom(src => src.MmMeetingScheduleDate))
                  .ForMember(dest => dest.time, opt => opt.MapFrom(src => src.MmMeetingTime))

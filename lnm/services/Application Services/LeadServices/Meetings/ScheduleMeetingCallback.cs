@@ -217,9 +217,7 @@ namespace services.Application_Services.LeadServices.Meetings
             }
 
             var existingCallback = await _repository.GetSingleAsync(u =>
-                u.MmInstitutionId == dto.institution_id &&
-                u.MmMeetingId == dto.meeting_id &&
-                u.MmMeetingConducted == false);
+                u.MmInstitutionId == dto.institution_id && u.MmMeetingConducted == false);
 
             if (existingCallback != null)
             {
@@ -229,9 +227,10 @@ namespace services.Application_Services.LeadServices.Meetings
             TblMeetingsMaster callback = _mapper.Map<TblMeetingsMaster>(dto);
             
             callback.MmMeetingStatus = "open";
-            
+            callback.MmInstitutionResponded = "yes";
             callback.MmCreatedDate = DateTime.Now;
-            
+            callback.MmIsDeleted = false;
+            callback.MmMeetingConducted = false;
             callback.MmmeetingOutcome = "pending";
 
             await _repository.CreateAsync(callback);
@@ -274,6 +273,26 @@ namespace services.Application_Services.LeadServices.Meetings
             return new CommonResponse<object>(true,"callback deleted Successfully",200,id);   
 
         }
+
+        public async Task<CommonResponse<object>> DeleteTempCallbackAsync(int id)
+        {
+            if (id == 0)
+            {
+                return new CommonResponse<object>(false, "invalid credentials", 400, null);
+            }
+            var callToDelete = await _repository.GetSingleAsync(u => u.MmMeetingId == id);
+
+            if (callToDelete == null)
+            {
+                return new CommonResponse<object>(false, "callback does not exist", 404, null);
+            }
+            callToDelete.MmIsDeleted = true;
+            await _repository.UpdateAsync(callToDelete);
+
+            return new CommonResponse<object>(true, "callback deleted Successfully", 200, id);
+
+        }
+
 
         public async Task<CommonResponse<ScheduleCallbackdto>> UpdateCallbackAsync(ScheduleCallbackdto dto)
         {

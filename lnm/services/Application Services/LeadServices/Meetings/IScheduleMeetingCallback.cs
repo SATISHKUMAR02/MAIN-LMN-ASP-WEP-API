@@ -41,6 +41,8 @@ namespace services.Application_Services.LeadServices.Meetings
 
         Task<CommonResponse<object>> DeleteCallbackAsync(int id);
 
+        Task<CommonResponse<object>> DeleteTempCallbackAsync(int id);
+
 
 
 
