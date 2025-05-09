@@ -20,7 +20,29 @@ namespace services.Mapping
             CreateMap<tbl_employee_master, AllUserdto>().ReverseMap();
 
 
-            CreateMap<TblInstitutionMaster,LeadDto>().ReverseMap();
+            CreateMap<TblInstitutionMaster, LeadDto>()
+                .ForMember(dest => dest.institution_id, opt => opt.MapFrom(src => src.ImInstitutionId))
+                .ForMember(dest => dest.institution_type, opt => opt.MapFrom(src => src.ImInstitutionType))
+                .ForMember(dest => dest.institution_name, opt => opt.MapFrom(src => src.ImInstitutionName))
+                .ForMember(dest => dest.assigned_connector, opt => opt.MapFrom(src => src.ImAssignConnector))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.ImInstitutionAddress))
+                .ForMember(dest => dest.principal_name, opt => opt.MapFrom(src => src.ImPrincipalName))
+                .ForMember(dest => dest.principal_email, opt => opt.MapFrom(src => src.ImPrincipalEmail))
+                .ForMember(dest => dest.principal_contact, opt => opt.MapFrom(src => src.ImPrincipalContact))
+                .ForMember(dest => dest.other_name, opt => opt.MapFrom(src => src.ImOtherName))
+                .ForMember(dest => dest.other_designation, opt => opt.MapFrom(src => src.ImOtherDesignation))
+                .ForMember(dest => dest.other_email, opt => opt.MapFrom(src => src.ImOtherEmail))
+                .ForMember(dest => dest.other_contact, opt => opt.MapFrom(src => src.ImOtherContact))
+                .ForMember(dest => dest.student_strength, opt => opt.MapFrom(src => src.ImStudentStrength))
+                .ReverseMap();
+
+            CreateMap<TblInstitutionMaster, DashboardLeadDto>()
+                .ForMember(dest => dest.institutiton_id, opt => opt.MapFrom(src => src.ImInstitutionId))
+                .ForMember(dest => dest.institutiton_name, opt => opt.MapFrom(src => src.ImInstitutionName))
+                .ForMember(dest => dest.institution_type, opt => opt.MapFrom(src => src.ImInstitutionType))
+                .ForMember(dest => dest.institution_status, opt => opt.MapFrom(src => src.ImInstitutionStatus))
+                .ForMember(dest => dest.mou_status, opt => opt.MapFrom(src => src.ImMouStatus))
+                .ForMember(dest => dest.assign_connector, opt => opt.MapFrom(src => src.ImAssignConnector)).ReverseMap();
 
             CreateMap<tbl_employee_master,Connectordto>()
                 .ForMember(dest=>dest.connectorId,opt=>opt.MapFrom(src=>src.em_id))

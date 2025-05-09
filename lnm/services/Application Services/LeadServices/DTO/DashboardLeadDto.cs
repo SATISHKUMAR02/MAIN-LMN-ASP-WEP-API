@@ -10,13 +10,13 @@ namespace services.Application_Services.LeadServices.DTO
     {
         public int institutiton_id { get; set; }
 
-        public int institutiton_name { get; set; }
+        public string institutiton_name { get; set; }
 
         public string institution_type { get; set; }
 
         public string assign_connector { get; set; }
 
-        public bool institution_status { get; set; }
+        public string institution_status { get; set; }
 
         public string mou_status { get; set; }
     }

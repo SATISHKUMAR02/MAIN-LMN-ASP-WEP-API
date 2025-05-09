@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using services;
 
@@ -11,9 +12,11 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    partial class DBConnectionModelSnapshot : ModelSnapshot
+    [Migration("20250508114700_add other_contact")]
+    partial class addother_contact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,7 +38,7 @@ namespace services.Migrations
 
                     b.HasKey("AmActivityId");
 
-                    b.ToTable("activityMaster", (string)null);
+                    b.ToTable("activityMaster");
                 });
 
             modelBuilder.Entity("model.Institution.TblInstitutionActivity", b =>
@@ -110,7 +113,7 @@ namespace services.Migrations
 
                     b.HasKey("ImInstitutionId");
 
-                    b.ToTable("institutionActivity", (string)null);
+                    b.ToTable("institutionActivity");
                 });
 
             modelBuilder.Entity("model.Institution.TblInstitutionMaster", b =>
@@ -138,8 +141,8 @@ namespace services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImInstitutionStatus")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("ImInstitutionStatus")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ImInstitutionType")
                         .IsRequired()
@@ -188,7 +191,7 @@ namespace services.Migrations
 
                     b.HasKey("ImInstitutionId");
 
-                    b.ToTable("institutionMaster", (string)null);
+                    b.ToTable("institutionMaster");
                 });
 
             modelBuilder.Entity("model.Institution.TblMeetingsMaster", b =>
@@ -241,7 +244,7 @@ namespace services.Migrations
 
                     b.HasKey("MmMeetingId");
 
-                    b.ToTable("meetingsMaster", (string)null);
+                    b.ToTable("meetingsMaster");
                 });
 
             modelBuilder.Entity("model.MOUs.ConnectorMou", b =>
@@ -281,7 +284,7 @@ namespace services.Migrations
 
                     b.HasKey("CmouMouNo");
 
-                    b.ToTable("connectorMou", (string)null);
+                    b.ToTable("connectorMou");
                 });
 
             modelBuilder.Entity("model.MOUs.InstitutionMou", b =>
@@ -327,7 +330,7 @@ namespace services.Migrations
 
                     b.HasKey("ImoMouNo");
 
-                    b.ToTable("institutionMou", (string)null);
+                    b.ToTable("institutionMou");
                 });
 
             modelBuilder.Entity("model.MOUs.MouMaster", b =>
@@ -361,7 +364,7 @@ namespace services.Migrations
 
                     b.HasKey("MoumMouId");
 
-                    b.ToTable("mouMaster", (string)null);
+                    b.ToTable("mouMaster");
                 });
 
             modelBuilder.Entity("model.User.tbl_employee_master", b =>
@@ -420,7 +423,7 @@ namespace services.Migrations
 
                     b.HasKey("em_id");
 
-                    b.ToTable("tbl_employee_master", (string)null);
+                    b.ToTable("tbl_employee_master");
                 });
 
             modelBuilder.Entity("model.User.tbl_role_master", b =>
@@ -454,7 +457,7 @@ namespace services.Migrations
 
                     b.HasKey("rm_id");
 
-                    b.ToTable("tbl_role_master", (string)null);
+                    b.ToTable("tbl_role_master");
                 });
 
             modelBuilder.Entity("model.User.tbl_user_login_details", b =>
@@ -497,7 +500,7 @@ namespace services.Migrations
 
                     b.HasKey("uld_id");
 
-                    b.ToTable("tbl_user_login_details", (string)null);
+                    b.ToTable("tbl_user_login_details");
                 });
 #pragma warning restore 612, 618
         }

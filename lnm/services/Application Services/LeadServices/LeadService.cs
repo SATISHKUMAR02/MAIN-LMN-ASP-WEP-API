@@ -18,13 +18,19 @@ namespace services.Application_Services.LeadServices
         private readonly IApplicationRepository<TblInstitutionMaster> _repository;
         private readonly IMapper _mapper;
 
+        public LeadService(IApplicationRepository<TblInstitutionMaster> repository,IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         public async Task<CommonResponse<LeadDto>> CreateLeadAsync(LeadDto dto)
         {
             if (dto == null)
             {
                 return new CommonResponse<LeadDto>(false, "fields are empty", 400, null);
             }
-            var existingLead = await _repository.GetSingleAsync(u => u.ImInstitutionId.Equals(dto.institution_id));
+            var existingLead = await _repository.GetSingleAsync(u=>u.ImInstitutionName == dto.institution_name);
            
             if (existingLead != null)
             {
@@ -33,12 +39,16 @@ namespace services.Application_Services.LeadServices
             TblInstitutionMaster institution = _mapper.Map<TblInstitutionMaster>(dto);
             
             institution.ImCreatedDate = DateTime.Now;
+            institution.ImIsDeleted = false;
+            institution.ImUpdatedDate = DateTime.Now;
+            institution.ImInstitutionStatus = "pending";
+            institution.ImMouStatus = "pending";
             
             var data =  await _repository.CreateAsync(institution);
             
             var response = _mapper.Map<LeadDto>(dto);
             
-            return new CommonResponse<LeadDto>(true, "Telecaller created successfully", 200, response);
+            return new CommonResponse<LeadDto>(true, "Lead created successfully", 200, response);
 
         }
 
@@ -67,7 +77,7 @@ namespace services.Application_Services.LeadServices
         // DashBoardLeadDto is being used here 
         public async Task<CommonResponse<List<DashboardLeadDto>>> GetAllLeadAsync()
         {
-            var leads = await _repository.GetAllAsync();
+            var leads = await _repository.GetAllByAnyAsync(u=>u.ImIsDeleted==false);
             
             var data = _mapper.Map<List<DashboardLeadDto>>(leads);
             
@@ -87,12 +97,13 @@ namespace services.Application_Services.LeadServices
                 return new CommonResponse<LeadDto>(false, "invalid Id", 404, null);
 
             }
-            var leads = await _repository.GetAllByAnyAsync(lead => lead.ImInstitutionId == id && lead.ImIsDeleted==false);
+            var leads = await _repository.GetSingleAsync(lead => lead.ImInstitutionId == id && lead.ImIsDeleted==false);
             if (leads == null)
             {
                 return new CommonResponse<LeadDto>(false, "lead does not exist", 404, null);
             }
             var data = _mapper.Map<LeadDto>(leads);
+
             return new CommonResponse<LeadDto>(true, "single lead fetched successfully", 200, data);
 
         }
@@ -103,7 +114,7 @@ namespace services.Application_Services.LeadServices
                 return new CommonResponse<LeadDto>(false, "fields are empty", 404, null);
             }
 
-            var leads = await _repository.GetAllByAnyAsync(lead => lead.ImInstitutionName == institution && lead.ImIsDeleted == false);
+            var leads = await _repository.GetSingleAsync(lead => lead.ImInstitutionName == institution && lead.ImIsDeleted == false);
             if (leads == null)
             {
                 return new CommonResponse<LeadDto>(false, "lead does not exist ", 404, null);
@@ -142,6 +153,7 @@ namespace services.Application_Services.LeadServices
                 return new CommonResponse<object>(false, "lead does not exist", 404, null);
             }
             lead.ImIsDeleted = true;
+            await _repository.UpdateAsync(lead);
             return new CommonResponse<object>(true, "lead deleted successfully", 200, null);
         }
 

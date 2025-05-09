@@ -4554,8 +4554,8 @@
             "format": "int32"
           },
           "institutiton_name": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "institution_type": {
             "type": "string",
@@ -4566,7 +4566,8 @@
             "nullable": true
           },
           "institution_status": {
-            "type": "boolean"
+            "type": "string",
+            "nullable": true
           },
           "mou_status": {
             "type": "string",
@@ -4718,9 +4719,6 @@
             "type": "string",
             "nullable": true
           },
-          "institution_status": {
-            "type": "boolean"
-          },
           "principal_contact": {
             "type": "string",
             "nullable": true
@@ -4729,7 +4727,15 @@
             "type": "string",
             "nullable": true
           },
+          "student_strength": {
+            "type": "integer",
+            "format": "int32"
+          },
           "other_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "other_designation": {
             "type": "string",
             "nullable": true
           },
@@ -4741,11 +4747,11 @@
             "type": "string",
             "nullable": true
           },
-          "mou_status": {
+          "assigned_connector": {
             "type": "string",
             "nullable": true
           },
-          "assigned_connector": {
+          "created_by": {
             "type": "string",
             "nullable": true
           }

@@ -20,7 +20,7 @@ namespace model.Institution
 
         public int ImStudentStrength { get; set; }
 
-        public bool? ImInstitutionStatus { get; set; }
+        public string? ImInstitutionStatus { get; set; } // pending interested not-intersted
 
         public string ImPrincipalName { get; set; } = null!;
 
@@ -34,6 +34,8 @@ namespace model.Institution
 
         public string? ImOtherEmail { get; set; }
 
+        public string? ImOtherContact { get; set; }
+
         public string? ImAssignConnector { get; set; }
 
         public int ImCreatedBy { get; set; }
@@ -44,7 +46,7 @@ namespace model.Institution
 
         public DateTime? ImUpdatedDate { get; set; }
 
-        public string? ImMouStatus { get; set; }
+        public string? ImMouStatus { get; set; } // pending approved rejected
 
         public bool ImIsDeleted { get; set; }
 
