@@ -14,25 +14,21 @@ namespace model.Institution
 
         public int ImActivityId { get; set; } 
 
-        public string ImInstitutionType { get; set; } = null!;
+        public string ImInstitutionType { get; set; } 
 
-        public string ImInstitutionAddress { get; set; } = null!;
+        public string ImInstitutionAddress { get; set; }
 
-        public string ImInstitutionName { get; set; } = null!;
+        public string ImInstitutionName { get; set; } 
 
         public int ImStudentStrength { get; set; }
 
-        public bool? ImInstitutionStatus { get; set; }
+        public string ImActivityName { get; set; }
 
-        public string ImPrincipalName { get; set; } = null!;
+        public string ImPrincipalName { get; set; } 
 
-        public string ImPrincipalContact { get; set; } = null!;
+        public string ImPrincipalEmail { get; set; }
 
-        public string ImPrincipalEmail { get; set; } = null!;
-
-        public string ImOtherName { get; set; } = null!;
-
-        public string ImOtherDesignation { get; set; } = null!;
+        public string ImOtherName { get; set; } 
 
         public string? ImOtherEmail { get; set; }
 
@@ -46,6 +42,12 @@ namespace model.Institution
 
         public DateTime? ImUpdatedDate { get; set; }
 
-        public string? ImMouStatus { get; set; }
+        public DateOnly ImScheduleDate { get; set; }
+
+        public int ImStudentParticipating {  get; set; }
+        
+        public int NoOfDaysEvent { get; set; }
+
+        public string ImEventVenue { get; set; }
     }
 }

@@ -118,7 +118,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
 
         }
 
-        [HttpGet]
+        [HttpDelete]
         [Route("DeleteTempmeeting")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -144,7 +144,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
 
         }
 
-        [HttpGet]
+        [HttpDelete]
         [Route("Deletemeeting")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]

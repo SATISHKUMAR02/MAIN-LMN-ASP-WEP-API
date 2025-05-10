@@ -207,7 +207,7 @@ namespace services.Application_Services.LeadServices.Meetings
         //==============================================================================================================================================
 
 
-        //============================================================================///======================== for callbacks
+        //=============================================================================///======================== for callbacks
 
         public async Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto)
         {
@@ -217,7 +217,7 @@ namespace services.Application_Services.LeadServices.Meetings
             }
 
             var existingCallback = await _repository.GetSingleAsync(u =>
-                u.MmInstitutionId == dto.institution_id && u.MmMeetingConducted == false);
+                u.MmInstitutionId == dto.institution_id && u.MmMeetingConducted == false && u.MmMeetingType =="Callback" );
 
             if (existingCallback != null)
             {
@@ -232,6 +232,7 @@ namespace services.Application_Services.LeadServices.Meetings
             callback.MmIsDeleted = false;
             callback.MmMeetingConducted = false;
             callback.MmmeetingOutcome = "pending";
+            callback.MmMeetingType = "Callback";
 
             await _repository.CreateAsync(callback);
 

@@ -50,6 +50,7 @@ namespace model.Institution
 
         public bool ImIsDeleted { get; set; }
 
+      
         
     }
 }

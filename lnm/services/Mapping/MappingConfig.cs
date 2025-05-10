@@ -12,6 +12,7 @@ using services.Application_Services.Usermanagement.AllUsers.DTO;
 using services.Application_Services.Usermanagement.Connectors.DTO;
 using services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO;
 using services.Application_Services.LeadServices.Meetings.DTO;
+using services.Application_Services.ActivityServices.DTO;
 
 namespace services.Mapping
 {
@@ -19,6 +20,29 @@ namespace services.Mapping
     {
         public MappingConfig() {
             CreateMap<tbl_employee_master, AllUserdto>().ReverseMap();
+
+            CreateMap<TblInstitutionActivity, AddInstitutionActivitydto>()
+                  .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.ImActivityId))
+                  .ForMember(dest => dest.InstitutionId, opt => opt.MapFrom(src => src.ImInstitutionId))
+                  .ForMember(dest => dest.ActivityName, opt => opt.MapFrom(src => src.ImActivityName))
+                  .ForMember(dest => dest.studentStrrength, opt => opt.MapFrom(src => src.ImStudentStrength))
+                  .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.ImScheduleDate))
+                  .ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.ImEventVenue))
+                  .ForMember(dest => dest.studentParticipating, opt => opt.MapFrom(src => src.ImStudentParticipating))
+                  .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.NoOfDaysEvent))
+                  //.ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.))
+                .ReverseMap();
+
+            CreateMap<ScheduleCallbackdto,TblMeetingsMaster>()
+                .ForMember(dest=>dest.MmMeetingId,opt=>opt.MapFrom(src=>src.meeting_id))
+                .ForMember(dest=>dest.MmInstitutionId,opt=>opt.MapFrom(src=>src.institution_id))
+                .ForMember(dest=>dest.MmMeetingScheduleDate,opt=>opt.MapFrom(src=>src.date))
+                .ForMember(dest=>dest.MmMeetingTime,opt=>opt.MapFrom(src=>src.time))
+                .ForMember(dest=>dest.MmMeetingDescritpion,opt=>opt.MapFrom(src=>src.descritpion))
+                .ForMember(dest=>dest.MmCreatedBy,opt=>opt.MapFrom(src=>src.created_by))
+                .ForMember(dest=>dest.MmMeetingConducted,opt=>opt.MapFrom(src=>src.meeting_conducted))
+                .ForMember(dest=>dest.MmmeetingOutcome,opt=>opt.MapFrom(src=>src.meeting_outcome))
+                .ReverseMap();
 
 
             CreateMap<TblInstitutionMaster, LeadDto>()
@@ -138,7 +162,20 @@ namespace services.Mapping
                 .ForMember(dest=>dest.description,opt=>opt.MapFrom(src=>src.MmMeetingDescritpion))
                 .ReverseMap();
 
-                
+            CreateMap<AddInstitutionActivitydto,TblInstitutionActivity>()
+               //.ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImInstitutionId, opt => opt.MapFrom(src => src.InstitutionId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImStudentStrength, opt => opt.MapFrom(src => src.studentStrrength))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
+               .ReverseMap();
 
             CreateMap<InstitutionMou, connectorDtocs>().ReverseMap();
             CreateMap<tbl_employee_master, AllUserdto>();

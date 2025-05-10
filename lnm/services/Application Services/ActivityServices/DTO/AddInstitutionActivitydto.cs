@@ -16,7 +16,7 @@ namespace services.Application_Services.ActivityServices.DTO
 
         public int studentStrrength { get; set; }
 
-        public DateTime DateOfEvent { get; set; }
+        public DateOnly DateOfEvent { get; set; }
 
         public string eventVenue { get; set; }
 

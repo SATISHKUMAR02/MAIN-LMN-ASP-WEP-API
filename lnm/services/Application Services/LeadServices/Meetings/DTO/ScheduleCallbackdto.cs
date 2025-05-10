@@ -16,7 +16,7 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public TimeOnly time { get; set; }
 
-        public string type { get; set; } = "callback";
+        public string type { get; set; } 
 
         public string descritpion { get; set; }
 
