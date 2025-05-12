@@ -43,6 +43,29 @@ namespace lnm_asp_web_api.Controllers.ActivitiesController
             }
         }
 
+        [HttpGet]
+        [Route("GetAllInstitutionActivities")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<CommonResponse<AddInstitutionActivitydto>>> GetAllInstitutionActivities(int activityId,int institutionId)
+        {
+            try
+
+            {
+                var activities = await _activityService.GetAllInstitutionActivityAsync(activityId,institutionId);
+
+                return StatusCode(activities.StatusCode, activities);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new CommonResponse<TblActivityMaster>(false, ex.Message, 400, null));
+            }
+        }
+
         [HttpPost]
         [Route("CreateNewSchoolActivity")]
         [ProducesResponseType(201)]

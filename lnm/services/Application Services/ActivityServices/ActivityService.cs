@@ -41,14 +41,14 @@ namespace services.Application_Services.ActivityServices
             }
 
             var existingActivity = await _repository.GetSingleAsync(u =>
-                u.ImInstitutionId == dto.InstitutionId && u.ImActivityId == dto.ActivityId);
+                u.ImInstitutionName == "MVJ" && u.ImActivityId == dto.ActivityId);
 
             if (existingActivity != null)
             {
                 return new CommonResponse<AddInstitutionActivitydto>(false, "Activity already exists", 409, null);
             }
 
-            var data = await _institution.GetSingleAsync(u => u.ImInstitutionId == dto.InstitutionId);
+            var data = await _institution.GetSingleAsync(u => u.ImInstitutionName.Contains("MVJ"));
 
             if (data == null)
             {
@@ -56,7 +56,13 @@ namespace services.Application_Services.ActivityServices
             }
             TblInstitutionActivity institutionActivity = _mapper.Map<TblInstitutionActivity>(dto);
             institutionActivity.ImCreatedDate = DateTime.Now;
+            institutionActivity.ImUpdatedDate = DateTime.Now;
             institutionActivity.ImInstitutionAddress = data.ImInstitutionAddress;
+            institutionActivity.ImCreatedBy = 1;
+            institutionActivity.ImInstitutionName = data.ImInstitutionName;
+            institutionActivity.ImInstitutionId = data.ImInstitutionId;
+            institutionActivity.ImUpdatedBy = 1;
+            institutionActivity.ImInstitutionType = data.ImInstitutionType;
             institutionActivity.ImAssignConnector = data.ImAssignConnector;
             institutionActivity.ImUpdatedDate = DateTime.Now;
 
@@ -110,10 +116,10 @@ namespace services.Application_Services.ActivityServices
         }
 
 
-        public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync()
+        public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int activityId,int institutionId)
         {
             //=========================================================================== below code needs to be changed ===================
-            var activities = await _repository.GetAllByAnyAsync(u => u.ImInstitutionId != 1);
+            var activities = await _repository.GetAllByAnyAsync(u=>u.ImActivityId==activityId && u.ImInstitutionId==institutionId);
 
             var data = _mapper.Map<List<AddInstitutionActivitydto>>(activities);
 

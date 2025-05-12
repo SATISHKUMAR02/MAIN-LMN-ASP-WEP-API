@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pt68fwjAO/8=",
+  "dgSpecHash": "scBIa8+BbzQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\lnm\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
+  "projectFilePath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\satis\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\satis\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",

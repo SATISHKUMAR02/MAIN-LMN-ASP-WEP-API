@@ -29,7 +29,7 @@ namespace services.Mapping
                   .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.ImScheduleDate))
                   .ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.ImEventVenue))
                   .ForMember(dest => dest.studentParticipating, opt => opt.MapFrom(src => src.ImStudentParticipating))
-                  .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.NoOfDaysEvent))
+                  .ForMember(dest => dest.NoOfDaysEvent, opt => opt.MapFrom(src => src.NoOfDaysEvent))
                   //.ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.))
                 .ReverseMap();
 
@@ -162,20 +162,7 @@ namespace services.Mapping
                 .ForMember(dest=>dest.description,opt=>opt.MapFrom(src=>src.MmMeetingDescritpion))
                 .ReverseMap();
 
-            CreateMap<AddInstitutionActivitydto,TblInstitutionActivity>()
-               //.ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImInstitutionId, opt => opt.MapFrom(src => src.InstitutionId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImStudentStrength, opt => opt.MapFrom(src => src.studentStrrength))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ForMember(dest => dest.ImActivityId, opt => opt.MapFrom(src => src.ActivityId))
-               .ReverseMap();
+            
 
             CreateMap<InstitutionMou, connectorDtocs>().ReverseMap();
             CreateMap<tbl_employee_master, AllUserdto>();

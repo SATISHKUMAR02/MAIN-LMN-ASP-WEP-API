@@ -40,17 +40,16 @@ namespace services.Migrations
 
             modelBuilder.Entity("model.Institution.TblInstitutionActivity", b =>
                 {
-                    b.Property<int>("ImInstitutionId")
+                    b.Property<int>("ImSlno")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImInstitutionId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImSlno"));
 
                     b.Property<int>("ImActivityId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImActivityName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImAssignConnector")
@@ -63,19 +62,18 @@ namespace services.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImEventVenue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImInstitutionAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ImInstitutionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImInstitutionName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImInstitutionType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateOnly>("ImScheduleDate")
@@ -96,7 +94,7 @@ namespace services.Migrations
                     b.Property<int>("NoOfDaysEvent")
                         .HasColumnType("int");
 
-                    b.HasKey("ImInstitutionId");
+                    b.HasKey("ImSlno");
 
                     b.ToTable("institutionActivity");
                 });
