@@ -57,10 +57,6 @@ namespace services.Application_Services.ActivityServices
             TblInstitutionActivity institutionActivity = _mapper.Map<TblInstitutionActivity>(dto);
             institutionActivity.ImCreatedDate = DateTime.Now;
             institutionActivity.ImInstitutionAddress = data.ImInstitutionAddress;
-            institutionActivity.ImPrincipalName = data.ImPrincipalName;
-            institutionActivity.ImPrincipalEmail = data.ImPrincipalEmail;
-            institutionActivity.ImOtherName = data.ImOtherName;
-            institutionActivity.ImOtherEmail = data.ImOtherEmail;
             institutionActivity.ImAssignConnector = data.ImAssignConnector;
             institutionActivity.ImUpdatedDate = DateTime.Now;
 

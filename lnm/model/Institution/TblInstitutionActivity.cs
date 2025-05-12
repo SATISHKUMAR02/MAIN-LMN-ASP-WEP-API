@@ -24,15 +24,7 @@ namespace model.Institution
 
         public string ImActivityName { get; set; }
 
-        public string ImPrincipalName { get; set; } 
-
-        public string ImPrincipalEmail { get; set; }
-
-        public string ImOtherName { get; set; } 
-
-        public string? ImOtherEmail { get; set; }
-
-        public string? ImAssignConnector { get; set; }
+       public string? ImAssignConnector { get; set; }
 
         public int ImCreatedBy { get; set; }
 
