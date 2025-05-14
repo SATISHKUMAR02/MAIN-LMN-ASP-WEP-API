@@ -12,8 +12,8 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    [Migration("20250505111102_third migration")]
-    partial class thirdmigration
+    [Migration("20250514062803_with institutionAtivity")]
+    partial class withinstitutionAtivity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,14 +43,17 @@ namespace services.Migrations
 
             modelBuilder.Entity("model.Institution.TblInstitutionActivity", b =>
                 {
-                    b.Property<int>("ImInstitutionId")
+                    b.Property<int>("ImSlno")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImInstitutionId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImSlno"));
 
                     b.Property<int>("ImActivityId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImActivityName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImAssignConnector")
                         .HasColumnType("nvarchar(max)");
@@ -61,46 +64,29 @@ namespace services.Migrations
                     b.Property<DateTime>("ImCreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ImInstitutionAddress")
-                        .IsRequired()
+                    b.Property<string>("ImEventVenue")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImInstitutionAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ImInstitutionId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImInstitutionName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("ImInstitutionStatus")
-                        .HasColumnType("bit");
 
                     b.Property<string>("ImInstitutionType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImMouStatus")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("ImIsCompleted")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("ImOtherDesignation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateOnly>("ImScheduleDate")
+                        .HasColumnType("date");
 
-                    b.Property<string>("ImOtherEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImOtherName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImPrincipalContact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImPrincipalEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImPrincipalName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ImStudentParticipating")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImStudentStrength")
                         .HasColumnType("int");
@@ -111,7 +97,10 @@ namespace services.Migrations
                     b.Property<DateTime?>("ImUpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ImInstitutionId");
+                    b.Property<int>("NoOfDaysEvent")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImSlno");
 
                     b.ToTable("institutionActivity");
                 });
@@ -141,8 +130,8 @@ namespace services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("ImInstitutionStatus")
-                        .HasColumnType("bit");
+                    b.Property<string>("ImInstitutionStatus")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImInstitutionType")
                         .IsRequired()
@@ -152,6 +141,9 @@ namespace services.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ImMouStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImOtherContact")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImOtherDesignation")
@@ -214,11 +206,17 @@ namespace services.Migrations
                     b.Property<string>("MmInstitutionResponded")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("MmIsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("MmMeetingConducted")
                         .HasColumnType("bit");
 
                     b.Property<string>("MmMeetingDescritpion")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateOnly?>("MmMeetingScheduleDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("MmMeetingStatus")
                         .HasColumnType("nvarchar(max)");
@@ -372,6 +370,9 @@ namespace services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("em_id"));
 
+                    b.Property<DateOnly>("dob")
+                        .HasColumnType("date");
+
                     b.Property<string>("em_contact_number")
                         .HasColumnType("nvarchar(max)");
 
@@ -386,6 +387,10 @@ namespace services.Migrations
 
                     b.Property<DateTime?>("em_end_date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("em_gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("em_is_active")
                         .HasColumnType("bit");

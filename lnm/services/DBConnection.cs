@@ -11,8 +11,16 @@ namespace services
     {
         public DBConnection(DbContextOptions<DBConnection> options) : base(options)
         {
+            
 
         }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<TblInstitutionActivity>()
+        //        .HasKey(e => new { e.ImInstitutionId, e.ImActivityId });
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
         #region User
 

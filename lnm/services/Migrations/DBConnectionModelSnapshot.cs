@@ -76,6 +76,9 @@ namespace services.Migrations
                     b.Property<string>("ImInstitutionType")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ImIsCompleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateOnly>("ImScheduleDate")
                         .HasColumnType("date");
 

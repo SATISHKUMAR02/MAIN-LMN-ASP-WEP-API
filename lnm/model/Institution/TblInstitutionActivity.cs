@@ -23,5 +23,6 @@ namespace model.Institution
         public int ImStudentParticipating { get; set; }
         public int NoOfDaysEvent { get; set; }
         public string? ImEventVenue { get; set; }
+        public bool ImIsCompleted { get; set; }
     }
 }

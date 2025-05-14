@@ -41,14 +41,14 @@ namespace services.Application_Services.ActivityServices
             }
 
             var existingActivity = await _repository.GetSingleAsync(u =>
-                u.ImInstitutionName == "MVJ" && u.ImActivityId == dto.ActivityId);
+                u.ImInstitutionId==dto.InstitutionId && u.ImActivityId == dto.ActivityId);
 
             if (existingActivity != null)
             {
                 return new CommonResponse<AddInstitutionActivitydto>(false, "Activity already exists", 409, null);
             }
 
-            var data = await _institution.GetSingleAsync(u => u.ImInstitutionName.Contains("MVJ"));
+            var data = await _institution.GetSingleAsync(u => u.ImInstitutionId==dto.InstitutionId);
 
             if (data == null)
             {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DghxmOAP/Y0=",
+  "dgSpecHash": "aLduz6jbjCM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\services\\services.csproj",
+  "projectFilePath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\services\\services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\satis\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\satis\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

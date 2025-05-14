@@ -5070,11 +5070,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
+      "projectUniqueName": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
       "projectName": "lnm_asp_web_api",
-      "projectPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
+      "projectPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\lnm_asp_web_api.csproj",
       "packagesPath": "C:\\Users\\satis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\obj\\",
+      "outputPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\lnm_asp_web_api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5095,11 +5095,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\model\\model.csproj": {
-              "projectPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\model\\model.csproj"
+            "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\model\\model.csproj": {
+              "projectPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\model\\model.csproj"
             },
-            "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\services\\services.csproj": {
-              "projectPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\UPDATED LMN\\MAIN-LMN-ASP-WEP-API\\lnm\\services\\services.csproj"
+            "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\services\\services.csproj": {
+              "projectPath": "C:\\Users\\satis\\OneDrive\\Desktop\\SATISH\\ASP .net learning\\ERROR SOLVING\\MAIN-LMN-ASP-WEP-API\\lnm\\services\\services.csproj"
             }
           }
         }

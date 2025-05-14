@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace services.Migrations
 {
     /// <inheritdoc />
-    public partial class initmigration : Migration
+    public partial class withoutinstitutionactivity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,36 +46,6 @@ namespace services.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "institutionActivity",
-                columns: table => new
-                {
-                    ImInstitutionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ImActivityId = table.Column<int>(type: "int", nullable: false),
-                    ImInstitutionType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImInstitutionAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImInstitutionName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImStudentStrength = table.Column<int>(type: "int", nullable: false),
-                    ImInstitutionStatus = table.Column<bool>(type: "bit", nullable: true),
-                    ImPrincipalName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImPrincipalContact = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImPrincipalEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImOtherName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImOtherDesignation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImOtherEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImAssignConnector = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImCreatedBy = table.Column<int>(type: "int", nullable: false),
-                    ImUpdatedBy = table.Column<int>(type: "int", nullable: true),
-                    ImCreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ImUpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ImMouStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_institutionActivity", x => x.ImInstitutionId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "institutionMaster",
                 columns: table => new
                 {
@@ -85,13 +55,14 @@ namespace services.Migrations
                     ImInstitutionAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImInstitutionName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImStudentStrength = table.Column<int>(type: "int", nullable: false),
-                    ImInstitutionStatus = table.Column<bool>(type: "bit", nullable: true),
+                    ImInstitutionStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImPrincipalName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImPrincipalContact = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImPrincipalEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImOtherName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImOtherDesignation = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImOtherEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImOtherContact = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImAssignConnector = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImCreatedBy = table.Column<int>(type: "int", nullable: false),
                     ImUpdatedBy = table.Column<int>(type: "int", nullable: true),
@@ -138,6 +109,7 @@ namespace services.Migrations
                     MmMeetingDescritpion = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MmCreatedBy = table.Column<int>(type: "int", nullable: false),
                     MmCreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    MmMeetingScheduleDate = table.Column<DateOnly>(type: "date", nullable: true),
                     MmUpdatedBy = table.Column<int>(type: "int", nullable: true),
                     MmInstitutionResponded = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MmUpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -146,7 +118,8 @@ namespace services.Migrations
                     MmMeetingType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MmMeetingStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MmMeetingConducted = table.Column<bool>(type: "bit", nullable: false),
-                    MmmeetingOutcome = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MmmeetingOutcome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MmIsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,7 +163,9 @@ namespace services.Migrations
                     em_created_by = table.Column<int>(type: "int", nullable: true),
                     em_updated_by = table.Column<int>(type: "int", nullable: true),
                     em_created_date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    em_updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    em_updated_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    em_gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    dob = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -237,6 +212,34 @@ namespace services.Migrations
                 {
                     table.PrimaryKey("PK_tbl_user_login_details", x => x.uld_id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "TblInstitutionActivity",
+                columns: table => new
+                {
+                    ImInstitutionId = table.Column<int>(type: "int", nullable: false),
+                    ImActivityId = table.Column<int>(type: "int", nullable: false),
+                    ImSlno = table.Column<int>(type: "int", nullable: false),
+                    ImInstitutionType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImInstitutionAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImInstitutionName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImStudentStrength = table.Column<int>(type: "int", nullable: false),
+                    ImActivityName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImAssignConnector = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImCreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ImUpdatedBy = table.Column<int>(type: "int", nullable: true),
+                    ImCreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ImUpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ImScheduleDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    ImStudentParticipating = table.Column<int>(type: "int", nullable: false),
+                    NoOfDaysEvent = table.Column<int>(type: "int", nullable: false),
+                    ImEventVenue = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImIsCompleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TblInstitutionActivity", x => new { x.ImInstitutionId, x.ImActivityId });
+                });
         }
 
         /// <inheritdoc />
@@ -247,9 +250,6 @@ namespace services.Migrations
 
             migrationBuilder.DropTable(
                 name: "connectorMou");
-
-            migrationBuilder.DropTable(
-                name: "institutionActivity");
 
             migrationBuilder.DropTable(
                 name: "institutionMaster");
@@ -271,6 +271,9 @@ namespace services.Migrations
 
             migrationBuilder.DropTable(
                 name: "tbl_user_login_details");
+
+            migrationBuilder.DropTable(
+                name: "TblInstitutionActivity");
         }
     }
 }

@@ -12,8 +12,8 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    [Migration("20250512081836_primary key changed")]
-    partial class primarykeychanged
+    [Migration("20250514062510_without institutionactivity 2")]
+    partial class withoutinstitutionactivity2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,72 +39,6 @@ namespace services.Migrations
                     b.HasKey("AmActivityId");
 
                     b.ToTable("activityMaster");
-                });
-
-            modelBuilder.Entity("model.Institution.TblInstitutionActivity", b =>
-                {
-                    b.Property<int>("ImSlno")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImSlno"));
-
-                    b.Property<int>("ImActivityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImActivityName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImAssignConnector")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ImCreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ImCreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImEventVenue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImInstitutionAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ImInstitutionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImInstitutionName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImInstitutionType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateOnly>("ImScheduleDate")
-                        .HasColumnType("date");
-
-                    b.Property<int>("ImStudentParticipating")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ImStudentStrength")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ImUpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ImUpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("NoOfDaysEvent")
-                        .HasColumnType("int");
-
-                    b.HasKey("ImSlno");
-
-                    b.ToTable("institutionActivity");
                 });
 
             modelBuilder.Entity("model.Institution.TblInstitutionMaster", b =>

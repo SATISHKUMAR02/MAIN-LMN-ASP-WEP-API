@@ -12,8 +12,8 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    [Migration("20250510110012_updated ")]
-    partial class updated
+    [Migration("20250514062327_without institutionactivity")]
+    partial class withoutinstitutionactivity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,16 +44,12 @@ namespace services.Migrations
             modelBuilder.Entity("model.Institution.TblInstitutionActivity", b =>
                 {
                     b.Property<int>("ImInstitutionId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImInstitutionId"));
 
                     b.Property<int>("ImActivityId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImActivityName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImAssignConnector")
@@ -66,38 +62,25 @@ namespace services.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImEventVenue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImInstitutionAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImInstitutionName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImInstitutionType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImOtherEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImOtherName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImPrincipalEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImPrincipalName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("ImIsCompleted")
+                        .HasColumnType("bit");
 
                     b.Property<DateOnly>("ImScheduleDate")
                         .HasColumnType("date");
+
+                    b.Property<int>("ImSlno")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImStudentParticipating")
                         .HasColumnType("int");
@@ -114,9 +97,9 @@ namespace services.Migrations
                     b.Property<int>("NoOfDaysEvent")
                         .HasColumnType("int");
 
-                    b.HasKey("ImInstitutionId");
+                    b.HasKey("ImInstitutionId", "ImActivityId");
 
-                    b.ToTable("institutionActivity");
+                    b.ToTable("TblInstitutionActivity");
                 });
 
             modelBuilder.Entity("model.Institution.TblInstitutionMaster", b =>
