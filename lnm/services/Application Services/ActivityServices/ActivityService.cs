@@ -116,10 +116,10 @@ namespace services.Application_Services.ActivityServices
         }
 
 
-        public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int activityId,int institutionId)
+        public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int institutionId)
         {
             //=========================================================================== below code needs to be changed ===================
-            var activities = await _repository.GetAllByAnyAsync(u=>u.ImActivityId==activityId && u.ImInstitutionId==institutionId);
+            var activities = await _repository.GetAllByAnyAsync(u=> u.ImInstitutionId==institutionId);
 
             var data = _mapper.Map<List<AddInstitutionActivitydto>>(activities);
 

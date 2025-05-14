@@ -113,14 +113,6 @@
         ],
         "parameters": [
           {
-            "name": "activityId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "institutionId",
             "in": "query",
             "schema": {

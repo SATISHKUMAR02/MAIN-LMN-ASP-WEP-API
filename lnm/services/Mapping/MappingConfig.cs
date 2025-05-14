@@ -22,16 +22,15 @@ namespace services.Mapping
             CreateMap<tbl_employee_master, AllUserdto>().ReverseMap();
 
             CreateMap<TblInstitutionActivity, AddInstitutionActivitydto>()
-                  .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.ImActivityId))
-                  .ForMember(dest => dest.InstitutionId, opt => opt.MapFrom(src => src.ImInstitutionId))
-                  .ForMember(dest => dest.ActivityName, opt => opt.MapFrom(src => src.ImActivityName))
-                  .ForMember(dest => dest.studentStrrength, opt => opt.MapFrom(src => src.ImStudentStrength))
-                  .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.ImScheduleDate))
-                  .ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.ImEventVenue))
-                  .ForMember(dest => dest.studentParticipating, opt => opt.MapFrom(src => src.ImStudentParticipating))
-                  .ForMember(dest => dest.NoOfDaysEvent, opt => opt.MapFrom(src => src.NoOfDaysEvent))
-                  //.ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.))
-                .ReverseMap();
+                 .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.ImActivityId))
+                 .ForMember(dest => dest.InstitutionId, opt => opt.MapFrom(src => src.ImInstitutionId))
+                 .ForMember(dest => dest.ActivityName, opt => opt.MapFrom(src => src.ImActivityName))
+                 .ForMember(dest => dest.studentStrrength, opt => opt.MapFrom(src => src.ImStudentStrength))
+                 .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.ImScheduleDate))
+                 .ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.ImEventVenue))
+                 .ForMember(dest => dest.studentParticipating, opt => opt.MapFrom(src => src.ImStudentParticipating))
+                 .ForMember(dest => dest.NoOfDaysEvent, opt => opt.MapFrom(src => src.NoOfDaysEvent))
+                 .ReverseMap();
 
             CreateMap<ScheduleCallbackdto,TblMeetingsMaster>()
                 .ForMember(dest=>dest.MmMeetingId,opt=>opt.MapFrom(src=>src.meeting_id))

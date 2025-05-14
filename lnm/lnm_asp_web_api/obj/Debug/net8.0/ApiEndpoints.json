@@ -194,11 +194,6 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "activityId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
         "Name": "institutionId",
         "Type": "System.Int32",
         "IsRequired": false

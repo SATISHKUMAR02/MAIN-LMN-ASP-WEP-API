@@ -50,12 +50,12 @@ namespace lnm_asp_web_api.Controllers.ActivitiesController
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<AddInstitutionActivitydto>>> GetAllInstitutionActivities(int activityId,int institutionId)
+        public async Task<ActionResult<CommonResponse<AddInstitutionActivitydto>>> GetAllInstitutionActivities(int institutionId)
         {
             try
 
             {
-                var activities = await _activityService.GetAllInstitutionActivityAsync(activityId,institutionId);
+                var activities = await _activityService.GetAllInstitutionActivityAsync(institutionId);
 
                 return StatusCode(activities.StatusCode, activities);
             }

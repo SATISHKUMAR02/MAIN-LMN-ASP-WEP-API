@@ -19,7 +19,7 @@ namespace services.Application_Services.ActivityServices
 
         Task<CommonResponse<object>> DeleteActivityAsync(int activityId);
 
-        Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int institutionId, int activityId);
+        Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int activityId);
 
         Task<CommonResponse<List<TblActivityMaster>>> GetAllActivityAsync(); // this is from the activity master
 
