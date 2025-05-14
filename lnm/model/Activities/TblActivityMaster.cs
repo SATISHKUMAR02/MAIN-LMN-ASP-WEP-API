@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using model.Institution;
 
 namespace model.Activities
 {
@@ -13,5 +14,7 @@ namespace model.Activities
         public int AmActivityId { get; set; }
 
         public string? AmActivityName { get; set; }
+
+        public ICollection<TblInstitutionActivity> TblActivities { get; set; }
     }
 }

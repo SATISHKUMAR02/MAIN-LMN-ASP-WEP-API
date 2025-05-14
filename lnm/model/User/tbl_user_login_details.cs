@@ -21,6 +21,8 @@ namespace model.User
         public int? uld_updated_by { get; set; }
         public DateTime? uld_created_date { get; set; }
         public DateTime? uld_updated_date { get; set; }
+
+        public tbl_employee_master Employee {  get; set; }  // establishing bw login and employee with employeeId
      
     }
 }

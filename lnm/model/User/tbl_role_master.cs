@@ -18,6 +18,7 @@ namespace model.User
         public int? rm_updated_by { get; set; }
         public DateTime? rm_created_date { get; set; }
         public DateTime? rm_updated_date { get; set; }
+        public ICollection<tbl_employee_master> Employees {  get; set; } // foreign key relation  with employee_master
      
     }
 }

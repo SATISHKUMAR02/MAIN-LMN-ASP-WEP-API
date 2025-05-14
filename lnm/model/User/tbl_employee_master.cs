@@ -24,10 +24,14 @@ namespace model.User
         public int? em_updated_by { get; set; }
         public DateTime? em_created_date { get; set; }
         public DateTime? em_updated_date { get; set; }
-
         public string em_gender { get; set; }
-
         public DateOnly dob { get; set; }
+
+        public tbl_role_master Role_Master { get; set; } // for assigning roles (1 emp == 1 role)
+        public tbl_user_login_details Login_Details { get; set; } // for employee and user login details
+
+
+
 
         
     }

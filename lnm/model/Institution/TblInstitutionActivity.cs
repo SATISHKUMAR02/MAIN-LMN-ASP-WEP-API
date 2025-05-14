@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using model.Activities;
 
 namespace model.Institution
 {
@@ -24,5 +25,7 @@ namespace model.Institution
         public int NoOfDaysEvent { get; set; }
         public string? ImEventVenue { get; set; }
         public bool ImIsCompleted { get; set; }
+        public TblInstitutionMaster InstitutionMaster {  get; set; } // relation between institution and Activity
+        public TblActivityMaster ActivityMaster { get; set; }
     }
 }
