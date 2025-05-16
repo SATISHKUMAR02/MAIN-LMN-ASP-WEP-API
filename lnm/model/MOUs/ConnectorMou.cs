@@ -12,7 +12,7 @@ namespace model.MOUs
         [Key]
         public int CmouMouNo { get; set; }
 
-        public int? CmouMouId { get; set; }
+        public float? CmouMouId { get; set; }
 
         public int? CmouRoleId { get; set; }  // this is the connector Id which will be linked with the tbl_employee_master
 

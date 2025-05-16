@@ -58,10 +58,10 @@ namespace services.Application_Services.ActivityServices
             institutionActivity.ImCreatedDate = DateTime.Now;
             institutionActivity.ImUpdatedDate = DateTime.Now;
             institutionActivity.ImInstitutionAddress = data.ImInstitutionAddress;
-            institutionActivity.ImCreatedBy = 1;
+            institutionActivity.ImCreatedBy = 1;// ==============================================this will be changed
             institutionActivity.ImInstitutionName = data.ImInstitutionName;
             institutionActivity.ImInstitutionId = data.ImInstitutionId;
-            institutionActivity.ImUpdatedBy = 1;
+            institutionActivity.ImUpdatedBy = 1; //  =====================================this will be changed
             institutionActivity.ImInstitutionType = data.ImInstitutionType;
             institutionActivity.ImAssignConnector = data.ImAssignConnector;
             institutionActivity.ImUpdatedDate = DateTime.Now;
@@ -118,7 +118,7 @@ namespace services.Application_Services.ActivityServices
 
         public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int institutionId)
         {
-            //=========================================================================== below code needs to be changed ===================
+            //=========================================================================== below code needs to be changed =================== corrected
             var activities = await _repository.GetAllByAnyAsync(u=> u.ImInstitutionId==institutionId);
 
             var data = _mapper.Map<List<AddInstitutionActivitydto>>(activities);

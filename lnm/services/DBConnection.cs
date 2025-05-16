@@ -23,6 +23,9 @@ namespace services
             //.OnDelete(DeleteBehavior.Restrict);
 
 
+            // between connector mou and mou
+
+
 
             // institution activity and activitymaster on activity ID ====/
             modelBuilder.Entity<TblInstitutionActivity>()
