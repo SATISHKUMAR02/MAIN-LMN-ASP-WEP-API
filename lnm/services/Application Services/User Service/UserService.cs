@@ -57,7 +57,7 @@ namespace services.Application_Services.User_Service
 
                 //return new CommonResponse<UserDetails>(true, "valid_otp", 200, null);
 
-                var rolename = "3";// default for Admins admin=3 <====================================================================================================================== need to write a LINQ here
+               // var rolename = "3";// default for Admins admin=3 <====================================================================================================================== need to write a LINQ here
 
                  var roleId = (from a in _context.tbl_user_login_details 
                                join b in _context.tbl_employee_master on a.uld_employee_id equals b.em_id

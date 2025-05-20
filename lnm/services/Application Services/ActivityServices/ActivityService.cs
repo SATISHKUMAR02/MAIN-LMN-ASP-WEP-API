@@ -58,7 +58,7 @@ namespace services.Application_Services.ActivityServices
             institutionActivity.ImCreatedDate = DateTime.Now;
             institutionActivity.ImUpdatedDate = DateTime.Now;
             institutionActivity.ImInstitutionAddress = data.ImInstitutionAddress;
-            institutionActivity.ImCreatedBy = 1;// ==============================================this will be changed
+            institutionActivity.ImCreatedBy =  1;// ==============================================this will be changed
             institutionActivity.ImInstitutionName = data.ImInstitutionName;
             institutionActivity.ImInstitutionId = data.ImInstitutionId;
             institutionActivity.ImUpdatedBy = 1; //  =====================================this will be changed

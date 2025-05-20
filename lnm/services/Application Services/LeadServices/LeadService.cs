@@ -45,7 +45,7 @@ namespace services.Application_Services.LeadServices
             institution.ImMouStatus = "pending";
             
             var data =  await _repository.CreateAsync(institution);
-            
+             
             var response = _mapper.Map<LeadDto>(dto);
             
             return new CommonResponse<LeadDto>(true, "Lead created successfully", 200, response);
