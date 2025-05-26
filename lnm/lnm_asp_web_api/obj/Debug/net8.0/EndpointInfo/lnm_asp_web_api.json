@@ -5912,6 +5912,13 @@
           "amActivityName": {
             "type": "string",
             "nullable": true
+          },
+          "tblActivities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TblInstitutionActivity"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6011,6 +6018,12 @@
           },
           "imIsCompleted": {
             "type": "boolean"
+          },
+          "institutionMaster": {
+            "$ref": "#/components/schemas/TblInstitutionMaster"
+          },
+          "activityMaster": {
+            "$ref": "#/components/schemas/TblActivityMaster"
           }
         },
         "additionalProperties": false
@@ -6031,6 +6044,174 @@
           },
           "data": {
             "$ref": "#/components/schemas/TblInstitutionActivity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TblInstitutionMaster": {
+        "type": "object",
+        "properties": {
+          "imInstitutionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imInstitutionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "imInstitutionAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "imInstitutionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "imStudentStrength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imInstitutionStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "imPrincipalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "imPrincipalContact": {
+            "type": "string",
+            "nullable": true
+          },
+          "imPrincipalEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "imOtherName": {
+            "type": "string",
+            "nullable": true
+          },
+          "imOtherDesignation": {
+            "type": "string",
+            "nullable": true
+          },
+          "imOtherEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "imOtherContact": {
+            "type": "string",
+            "nullable": true
+          },
+          "imAssignConnector": {
+            "type": "string",
+            "nullable": true
+          },
+          "imCreatedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imUpdatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "imCreatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imUpdatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "imMouStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "imIsDeleted": {
+            "type": "boolean"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/TblInstitutionActivity"
+          },
+          "meeting": {
+            "$ref": "#/components/schemas/TblMeetingsMaster"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TblMeetingsMaster": {
+        "type": "object",
+        "properties": {
+          "mmMeetingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mmInstitutionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mmMeetingDescritpion": {
+            "type": "string",
+            "nullable": true
+          },
+          "mmCreatedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mmCreatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mmMeetingScheduleDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "mmUpdatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mmInstitutionResponded": {
+            "type": "string",
+            "nullable": true
+          },
+          "mmUpdatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "mmInstitutionAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mmMeetingTime": {
+            "type": "string",
+            "format": "time",
+            "nullable": true
+          },
+          "mmMeetingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "mmMeetingStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "mmMeetingConducted": {
+            "type": "boolean"
+          },
+          "mmmeetingOutcome": {
+            "type": "string",
+            "nullable": true
+          },
+          "mmIsDeleted": {
+            "type": "boolean"
+          },
+          "institutionMaster": {
+            "$ref": "#/components/schemas/TblInstitutionMaster"
           }
         },
         "additionalProperties": false

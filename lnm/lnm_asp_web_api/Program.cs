@@ -123,7 +123,7 @@ try
     {
         options.AddPolicy(lmn_specification, policy =>
         {
-            policy.WithOrigins("http://localhost:7150/")
+            policy.WithOrigins("http://localhost:3000")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
                                 

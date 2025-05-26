@@ -68,7 +68,7 @@ namespace services.Application_Services.User_Service
                                  
                                
                 var token = CreateJwtSecurityToken(valid_otp.uld_id.ToString(),roleId.ToString());
-
+                // writing LINQ using SQL like queries 
                 var response = (from a in _context.tbl_user_login_details
                                 join b in _context.tbl_employee_master on a.uld_employee_id equals b.em_id
                                 join c in _context.tbl_role_master on b.em_role_id equals c.rm_id
@@ -96,6 +96,7 @@ namespace services.Application_Services.User_Service
             {
                 Console.WriteLine("checking valid user");
                 var valid_user = await _context.tbl_user_login_details
+                    // writing LINQ using Lambda exporessions
                     .FirstOrDefaultAsync(x => x.uld_contact_number == registered_mnumber);
                 Console.WriteLine("checked valid user");
 
@@ -107,16 +108,24 @@ namespace services.Application_Services.User_Service
 
 
 
-                valid_user.uld_otp = "1234";
+                valid_user.uld_otp = GenerateOtp();
                 valid_user.uld_otp_time = DateTime.Now;
 
                 await _context.SaveChangesAsync();
-                return new CommonResponse<object>(true, "OTP sent successfully", 200);
+                return new CommonResponse<object>(true, "OTP sent successfully", 200, valid_user.uld_otp);
             }catch(Exception ex)
             {
                 return new CommonResponse<object>(false, $"Internal error: {ex.Message}", 500, null);
 
             }
+        }
+
+        public string GenerateOtp() // =========================================== a simple method to generate otp 
+        {
+            Random rnd= new Random();
+                          //   in    excluded 4 digit
+            int otp = rnd.Next(1000,10000);
+            return otp.ToString();
         }
 
         public string CreateJwtSecurityToken(string post_id,string role_id)
