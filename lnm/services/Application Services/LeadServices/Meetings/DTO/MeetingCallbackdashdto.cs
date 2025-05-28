@@ -10,6 +10,10 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
     {
         public int status_id {  get; set; }  // this is for the dashboard so we keep a common name as statusId
 
+        public int institutionId { get; set; }
+
+        public string institutionName {  get; set; }
+
         public DateOnly date {  get; set; }
 
         public TimeOnly time { get; set; }

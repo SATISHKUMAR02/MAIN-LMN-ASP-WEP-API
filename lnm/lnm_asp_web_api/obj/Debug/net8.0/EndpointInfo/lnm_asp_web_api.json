@@ -5246,7 +5246,7 @@
           },
           "dateOfbirth": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "phonenumber": {
             "type": "string",
@@ -5586,6 +5586,14 @@
           "status_id": {
             "type": "integer",
             "format": "int32"
+          },
+          "institutionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "institutionName": {
+            "type": "string",
+            "nullable": true
           },
           "date": {
             "type": "string",

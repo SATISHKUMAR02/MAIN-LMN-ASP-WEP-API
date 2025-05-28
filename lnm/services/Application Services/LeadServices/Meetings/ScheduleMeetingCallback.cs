@@ -143,8 +143,12 @@ namespace services.Application_Services.LeadServices.Meetings
         public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetMeetingAsync()
         {
             var meetings = await _repository.GetAllAsync();
+            
            
             var data = _mapper.Map<List<MeetingCallbackdashdto>>(meetings);
+            
+            
+            
             
             return new CommonResponse<List<MeetingCallbackdashdto>>(true,"data fetched successfully",200,data);
         }
@@ -199,6 +203,7 @@ namespace services.Application_Services.LeadServices.Meetings
             var events = await _repository.GetAllAsync();
             
             var data= _mapper.Map<List<MeetingCallbackdashdto>>(events);
+
             
             return new CommonResponse<List<MeetingCallbackdashdto>>(true, "all events fetched successfully", 200, data);
 

@@ -147,6 +147,7 @@ namespace services.Mapping
 
             CreateMap<TblMeetingsMaster, MeetingCallbackdashdto>()
                  .ForMember(dest => dest.date, opt => opt.MapFrom(src => src.MmMeetingScheduleDate))
+                 .ForMember(dest => dest.institutionId, opt => opt.MapFrom(src => src.MmInstitutionId))
                  .ForMember(dest => dest.time, opt => opt.MapFrom(src => src.MmMeetingTime))
                  .ForMember(dest => dest.type, opt => opt.MapFrom(src => src.MmMeetingType))
                  .ForMember(dest => dest.meeting_conducted, opt => opt.MapFrom(src => src.MmMeetingConducted))
@@ -164,7 +165,19 @@ namespace services.Mapping
             
 
             CreateMap<InstitutionMou, connectorDtocs>().ReverseMap();
-            CreateMap<tbl_employee_master, AllUserdto>();
+            CreateMap<tbl_employee_master, AllUserdto>()
+                .ForMember(dest=>dest.employee_id,opt=>opt.MapFrom(src=>src.em_id))
+                .ForMember(dest=>dest.Firstname,opt=>opt.MapFrom(src=>src.em_name_e))
+                .ForMember(dest=>dest.Lastname,opt=>opt.MapFrom(src=>src.em_name_k))
+                .ForMember(dest=>dest.gender,opt=>opt.MapFrom(src=>src.em_gender))
+                .ForMember(dest=>dest.dateOfbirth,opt=>opt.MapFrom(src=>src.dob))
+                .ForMember(dest=>dest.phonenumber,opt=>opt.MapFrom(src=>src.em_contact_number))
+                .ForMember(dest=>dest.Email,opt=>opt.MapFrom(src=>src.em_email_address))
+                .ForMember(dest=>dest.hireDate,opt=>opt.MapFrom(src=>src.em_joining_date))
+                .ForMember(dest=>dest.role,opt=>opt.MapFrom(src=>src.em_role_id.ToString()))
+                //.ForMember(dest=>dest.ViewMou,opt=>opt.MapFrom(src=>src.v))
+                //.ForMember(dest=>dest.employee_id,opt=>opt.MapFrom(src=>src.em_id))
+                ;
 
 
 

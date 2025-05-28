@@ -210,4 +210,5 @@ catch (Exception ex)
     builder.Services.AddTransient<IHistoryServices, HistoryServices>();
     builder.Services.AddTransient<IScheduleMeetingCallback,ScheduleMeetingCallback>();
     builder.Services.AddTransient<IAllUser,AllUser>();
+
 }

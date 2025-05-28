@@ -13,13 +13,12 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.AllUsers
     [Authorize]
     public class AllUserController : ControllerBase
     {
-        private readonly AllUser _user;
-        public AllUserController(AllUser user)
+        private readonly IAllUser _user;
+        public AllUserController(IAllUser user)
         {
             _user = user;
         }
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Connector")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]

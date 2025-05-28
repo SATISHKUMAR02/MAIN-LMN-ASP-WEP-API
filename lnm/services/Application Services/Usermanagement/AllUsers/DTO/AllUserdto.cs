@@ -16,7 +16,7 @@ namespace services.Application_Services.Usermanagement.AllUsers.DTO
 
         public string gender { get; set; }
 
-        public DateTime dateOfbirth { get; set; }
+        public DateOnly dateOfbirth { get; set; }
 
         public string phonenumber { get; set; }
 
