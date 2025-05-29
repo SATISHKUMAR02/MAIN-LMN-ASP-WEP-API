@@ -12,7 +12,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
 {
     public interface IAddTelecaller
     {
-        Task<CommonResponse<AddTelecallerdto>> CreateTelecallerAsync(AddTelecallerdto dto);
+        Task<CommonResponse<AddTelecallerdto>> CreateTelecallerAsync(AddTelecallerdto dto,int id);
 
         Task<CommonResponse<List<Telecallerdto>>> GetAllTelecallerAsync();
 

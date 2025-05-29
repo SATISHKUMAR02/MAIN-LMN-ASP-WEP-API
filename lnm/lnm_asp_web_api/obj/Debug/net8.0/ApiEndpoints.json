@@ -482,6 +482,11 @@
         "Name": "dto",
         "Type": "services.Application_Services.Usermanagement.AddUsers.Connectors.DTO.AddConnectordto",
         "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2274,6 +2279,11 @@
         "Name": "dto",
         "Type": "services.Application_Services.Usermanagement.AddUsers.TelecallersServices.DTO.AddTelecallerdto",
         "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

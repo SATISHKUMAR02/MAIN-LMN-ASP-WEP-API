@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lnm_asp_web_api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6b085aa155fbd15ebf844dd4c258e82d69dd4be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+443dfa3605658695a83cb38ce8366280837e3526")]
 [assembly: System.Reflection.AssemblyProductAttribute("lnm_asp_web_api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lnm_asp_web_api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

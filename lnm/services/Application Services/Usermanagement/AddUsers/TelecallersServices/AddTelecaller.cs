@@ -26,7 +26,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
             _mapper = mapper;
             _loginrepository = loginrepository;
         }
-        public async Task<CommonResponse<AddTelecallerdto>> CreateTelecallerAsync(AddTelecallerdto dto)
+        public async Task<CommonResponse<AddTelecallerdto>> CreateTelecallerAsync(AddTelecallerdto dto,int id)
         {
             if (dto == null)
             {
@@ -35,7 +35,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
                 return new CommonResponse<AddTelecallerdto>(false, "Error", 404, null);
 
             }
-            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == dto.telecaller_id || u.em_role_id == 2 ||
+            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == dto.telecaller_id && u.em_role_id == 2 &&
             u.em_contact_number == dto.phonenumber);
             if (existingTelecaller != null)
             {
@@ -55,6 +55,8 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
                 em_joining_date = dto.hireDate,
                 em_email_address = dto.Email,
                 em_updated_date = DateTime.Now,
+                em_created_by=id,
+                
 
             };
       

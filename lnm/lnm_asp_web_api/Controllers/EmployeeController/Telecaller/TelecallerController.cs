@@ -27,11 +27,11 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Telecaller
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<AddTelecallerdto>>> CreateUser([FromBody] AddTelecallerdto dto)
+        public async Task<ActionResult<CommonResponse<AddTelecallerdto>>> CreateUser([FromBody] AddTelecallerdto dto,int id)
         {
             try
             {
-                var connector = await _addTelecaller.CreateTelecallerAsync(dto);
+                var connector = await _addTelecaller.CreateTelecallerAsync(dto,id);
 
                 return StatusCode(connector.StatusCode, connector);
 

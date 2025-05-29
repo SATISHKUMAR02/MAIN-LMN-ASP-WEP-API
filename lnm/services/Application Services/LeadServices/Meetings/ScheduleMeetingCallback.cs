@@ -48,6 +48,7 @@ namespace services.Application_Services.LeadServices.Meetings
             }
             TblMeetingsMaster meeting = _mapper.Map<TblMeetingsMaster>(dto);
             
+            
             meeting.MmMeetingStatus = "open";
             meeting.MmmeetingOutcome = "pending";
             meeting.MmCreatedDate = DateTime.Now;

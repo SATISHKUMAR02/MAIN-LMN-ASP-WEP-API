@@ -25,5 +25,8 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
         public DateTime hireDate { get; set; }
 
         public DateTime updated_date { get; set; }
+
+        public int created_by { get; set; }
+
     }
 }

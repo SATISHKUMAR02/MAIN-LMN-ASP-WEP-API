@@ -94,7 +94,7 @@ namespace services.Mapping
              .ForMember(dest => dest.hireDate, opt => opt.MapFrom(src => src.em_joining_date))
              .ForMember(dest => dest.updated_date, opt => opt.MapFrom(src => src.em_updated_date))
              .ForMember(dest => dest.gender, opt => opt.MapFrom(src => src.em_gender))
-             .ForMember(dest => dest.dateOfbirth, opt => opt.MapFrom(src => src.dob));
+             .ForMember(dest => dest.dateOfbirth, opt => opt.MapFrom(src => src.dob)).ReverseMap();
 
             CreateMap<AddConnectordto, tbl_employee_master>()
                 .ForMember(dest => dest.em_id, opt => opt.MapFrom(src => src.connector_id))
@@ -104,6 +104,7 @@ namespace services.Mapping
                 .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.hireDate))
                 .ForMember(dest => dest.em_updated_date, opt => opt.MapFrom(src => src.updated_date))
                 .ForMember(dest => dest.em_gender, opt => opt.MapFrom(src => src.gender))
+
                 .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
 
             CreateMap<AddSubConnectordto, tbl_employee_master>()

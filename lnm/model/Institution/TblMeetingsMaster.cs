@@ -12,6 +12,7 @@ namespace model.Institution
         [Key]
         public int MmMeetingId { get; set; }
         public int MmInstitutionId { get; set; }
+
         public string? MmMeetingDescritpion { get; set; }
         public int MmCreatedBy { get; set; }
         public DateTime? MmCreatedDate { get; set; }
@@ -28,6 +29,7 @@ namespace model.Institution
         public bool MmMeetingConducted { get; set; }
         public string MmmeetingOutcome {get;set;}
         public bool MmIsDeleted { get; set; }
+        public string MmInstitutionName { get; set; }
         public TblInstitutionMaster institutionMaster { get; set; } // relation between instittuion and meeting
 
 

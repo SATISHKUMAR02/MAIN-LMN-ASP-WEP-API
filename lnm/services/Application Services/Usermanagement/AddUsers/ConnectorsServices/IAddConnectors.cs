@@ -14,7 +14,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 {
     public interface IAddConnectors
     {
-        Task<CommonResponse<AddConnectordto>> CreateConnectorAsync(AddConnectordto dto);
+        Task<CommonResponse<AddConnectordto>> CreateConnectorAsync(AddConnectordto dto,int id);
 
         Task<CommonResponse<List<Connectordto>>> GetAllConnectorAsync();
 

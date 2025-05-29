@@ -29,11 +29,11 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(403)]
-        public async Task<ActionResult<CommonResponse<AddConnectordto>>> CreateUser([FromBody] AddConnectordto dto)
+        public async Task<ActionResult<CommonResponse<AddConnectordto>>> CreateUser([FromBody] AddConnectordto dto,int id)
         {
             try
             {
-                var connector = await _addConnectors.CreateConnectorAsync(dto);
+                var connector = await _addConnectors.CreateConnectorAsync(dto,id);
                 return StatusCode(connector.StatusCode, connector);
             }
             catch (Exception ex)

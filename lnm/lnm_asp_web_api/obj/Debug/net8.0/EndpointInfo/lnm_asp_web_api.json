@@ -876,6 +876,16 @@
         "tags": [
           "Connector"
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -4314,6 +4324,16 @@
         "tags": [
           "Telecaller"
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -5201,6 +5221,10 @@
           "updated_date": {
             "type": "string",
             "format": "date-time"
+          },
+          "created_by": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -5764,6 +5788,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "institutionName": {
+            "type": "string",
+            "nullable": true
+          },
           "date": {
             "type": "string",
             "format": "date"
@@ -6217,6 +6245,10 @@
           },
           "mmIsDeleted": {
             "type": "boolean"
+          },
+          "mmInstitutionName": {
+            "type": "string",
+            "nullable": true
           },
           "institutionMaster": {
             "$ref": "#/components/schemas/TblInstitutionMaster"

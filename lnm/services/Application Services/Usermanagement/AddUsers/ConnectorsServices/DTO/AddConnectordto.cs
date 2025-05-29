@@ -24,7 +24,6 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors.DTO
         
         public DateTime hireDate  { get; set; }
         
-
         public DateTime updated_date { get; set; }  
 
         public string? ViewMou { get; set; }

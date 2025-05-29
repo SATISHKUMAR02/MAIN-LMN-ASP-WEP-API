@@ -11,6 +11,8 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
         public int meeting_id {  get; set; }
 
         public int institution_id {  get; set; }
+
+        public string institutionName {  get; set; }
         
         public DateOnly date {  get; set; }
 

@@ -31,7 +31,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             _mapper = mapper;
             _loginrepository = loginrepository;
         }
-        public async Task<CommonResponse<AddConnectordto>> CreateConnectorAsync(AddConnectordto dto)
+        public async Task<CommonResponse<AddConnectordto>> CreateConnectorAsync(AddConnectordto dto,int id)
         {
             if (dto == null)
             {
@@ -57,7 +57,8 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 //dob = DateOnly.FromDateTime(dto.dateOfbirth),
                 em_created_date = DateTime.Now,
                 em_role_id = 1,
-                em_is_active = true
+                em_is_active = true,
+                em_created_by=id,
             };
 
             await _repository.CreateAsync(user);
@@ -159,7 +160,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
 
         public async Task<CommonResponse<List<Connectordto>>> GetAllConnectorAsync()
         {
-            var connectors = await _repository.GetAllByAnyAsync(u=>u.em_is_active==true && u.em_role_id == 1);
+            var connectors = await _repository.GetAllByAnyAsync(u=>u.em_is_active==true && u.em_role_id == 1 );
             var data = _mapper.Map<List<Connectordto>>(connectors);
             return new CommonResponse<List<Connectordto>>(true, "connectors fetched successfully", 200, data);
 
