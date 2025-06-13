@@ -25,11 +25,11 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<AddSubConnectordto>>> CreateSubConnector([FromBody] AddSubConnectordto dto)
+        public async Task<ActionResult<CommonResponse<AddSubConnectordto>>> CreateSubConnector([FromBody] AddSubConnectordto dto,int userId)
         {
             try
             {
-                var subconnector = await _addConnectors.CreateSubConnectorAsync(dto);
+                var subconnector = await _addConnectors.CreateSubConnectorAsync(dto,userId);
 
                 return StatusCode(subconnector.StatusCode, subconnector);
             }
@@ -47,15 +47,15 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<AddSubConnectordto>>> UpdateSubConnector(int id, [FromBody] AddSubConnectordto dto)
+        public async Task<ActionResult<CommonResponse<AddSubConnectordto>>> UpdateSubConnector(int id, [FromBody] AddSubConnectordto dto,int userId)
         {
             try
             {
-                if (dto == null || dto.employee_id != id)
+                if (dto == null)
                 {
                     return BadRequest(new CommonResponse<AddSubConnectordto>(false, "invalid input credentials", 400, null));
                 }
-                var subconnector = await _addConnectors.UpdateSubConnectorAsync(dto);
+                var subconnector = await _addConnectors.UpdateSubConnectorAsync(dto,id,userId);
 
                 return StatusCode(subconnector.StatusCode, subconnector);
             }
@@ -73,7 +73,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<object>>> DeleteSubConnector(int id)
+        public async Task<ActionResult<CommonResponse<object>>> DeleteSubConnector(int id,int userId)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
                 {
                     return BadRequest(new CommonResponse<object>(false,"invalid input details",400,null));
                 }
-                var subconnector = await _addConnectors.DeleteSubConnectorAsync(id);
+                var subconnector = await _addConnectors.DeleteSubConnectorAsync(id,userId);
                
                 return StatusCode(subconnector.StatusCode,subconnector);
             }
@@ -102,7 +102,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         [ProducesResponseType(403)]
         [ProducesResponseType(404)]
 
-        public async Task<ActionResult<CommonResponse<object>>> DeleteTempSubConnector(int id)
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempSubConnector(int id, int userId)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
                 {
                     return BadRequest(new CommonResponse<object>(false, "invalild id of sub connector", 404, null));
                 }
-                var connector = await _addConnectors.DeleteTempSubConnectorAsync(id);
+                var connector = await _addConnectors.DeleteTempSubConnectorAsync(id,userId);
                 return StatusCode(connector.StatusCode, connector);
             }
             catch (Exception ex)
@@ -129,11 +129,11 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<SubConnectordto>>> GetAllSubConnector()
+        public async Task<ActionResult<CommonResponse<SubConnectordto>>> GetAllSubConnector(int userId)
         {
             try
             {
-                var subconnectors = await _addConnectors.GetAllSubConnectorsAsync();
+                var subconnectors = await _addConnectors.GetAllSubConnectorsAsync(userId);
                
                 return StatusCode(subconnectors.StatusCode,subconnectors);
             }
@@ -150,11 +150,11 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.SubConnector
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<AddSubConnectordto>>> GetSubConnectorById(int id)
+        public async Task<ActionResult<CommonResponse<AddSubConnectordto>>> GetSubConnectorById(int id, int userId)
         {
             try
             {
-                var subconnector = await _addConnectors.GetSubConnectorAsync(id);
+                var subconnector = await _addConnectors.GetSubConnectorAsync(id,userId);
 
                 return StatusCode(subconnector.StatusCode, subconnector);
             }

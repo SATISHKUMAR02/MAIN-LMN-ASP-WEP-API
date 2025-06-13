@@ -23,10 +23,10 @@ namespace services.Application_Services.LeadServices.History
             _mapper = mapper;
         }
 
-        public async Task<CommonResponse<List<Historydto>>> GetAllHistoryAsync()
+        public async Task<CommonResponse<List<Historydto>>> GetAllHistoryAsync(int id)
         {
-            var events = await _repository.GetAllAsync();
-
+            var events = await _repository.GetAllByAnyAsync(u=>u.MmInstitutionId == id);
+            
             var data = _mapper.Map<List<Historydto>>(events);
             
             return new CommonResponse<List<Historydto>>(true,"events fetched successfully",200,data);

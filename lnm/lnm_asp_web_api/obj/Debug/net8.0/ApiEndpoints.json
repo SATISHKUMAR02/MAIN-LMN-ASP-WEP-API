@@ -29,6 +29,21 @@
         "Name": "dto",
         "Type": "services.Application_Services.ActivityServices.DTO.AddInstitutionActivitydto",
         "IsRequired": true
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "institutionid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "activityid",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -246,15 +261,25 @@
   {
     "ContainingType": "lnm_asp_web_api.Controllers.ActivitiesController.ActivityController",
     "Method": "UpdateSchoolActivity",
-    "RelativePath": "api/Activity/updateSchoolActivity/{id}",
+    "RelativePath": "api/Activity/updateSchoolActivity",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "activityid",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "institutionid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
       },
       {
         "Name": "dto",
@@ -1018,11 +1043,17 @@
   {
     "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.History.HistoryController",
     "Method": "GetAllLeads",
-    "RelativePath": "api/History/GetAllHistory",
+    "RelativePath": "api/History/GetAllHistoryByInstitution",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.Historydto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -1226,6 +1257,11 @@
         "Name": "dto",
         "Type": "services.Application_Services.LeadServices.DTO.LeadDto",
         "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1337,6 +1373,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1391,6 +1432,64 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.DTO.DashboardLeadDto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.LeadController",
+    "Method": "GetAllLeadsByUsers",
+    "RelativePath": "api/Lead/GetAllLeadsByUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.DTO.DashboardLeadDto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -1568,6 +1667,11 @@
         "Name": "dto",
         "Type": "services.Application_Services.LeadServices.DTO.LeadDto",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1626,6 +1730,16 @@
         "Name": "dto",
         "Type": "services.Application_Services.LeadServices.Meetings.DTO.StatusUpdatedto",
         "IsRequired": true
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "institutitonId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1742,6 +1856,11 @@
         "Name": "meetingid",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1785,12 +1904,18 @@
   },
   {
     "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.MeetingController.MeetingController",
-    "Method": "GetAllMeetingCallback",
-    "RelativePath": "api/Meeting/GetAllScheduledMeetingsAndCallback",
+    "Method": "GetMeetingandCallbackByInstitution",
+    "RelativePath": "api/Meeting/GetAllInstitutionMeetingsandCallaback",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "institutionid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "model.CommonResponse\u00601[[System.Collections.Generic.List\u00601[[services.Application_Services.LeadServices.Meetings.DTO.MeetingCallbackdashdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1799,7 +1924,7 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 201
+        "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -1842,6 +1967,16 @@
         "Name": "dto",
         "Type": "services.Application_Services.LeadServices.Meetings.DTO.ScheduleMeetingdto",
         "IsRequired": true
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "institutionid",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -1886,25 +2021,35 @@
   {
     "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.MeetingController.MeetingController",
     "Method": "UpdateScheduleMeeting",
-    "RelativePath": "api/Meeting/UpdateScheduledMeeting/{id}",
+    "RelativePath": "api/Meeting/UpdateScheduledMeeting",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "institutionid",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
         "Name": "dto",
-        "Type": "services.Application_Services.LeadServices.Meetings.DTO.ScheduleMeetingdto",
+        "Type": "services.Application_Services.LeadServices.Meetings.DTO.UpdateMeetingdto",
         "IsRequired": true
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "meetingid",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.ScheduleMeetingdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.UpdateMeetingdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1953,6 +2098,11 @@
         "Name": "dto",
         "Type": "services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO.AddSubConnectordto",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2006,6 +2156,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2059,6 +2214,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2116,7 +2276,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "model.CommonResponse\u00601[[services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO.SubConnectordto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -2168,6 +2334,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2226,6 +2397,11 @@
         "Name": "dto",
         "Type": "services.Application_Services.Usermanagement.AddUsers.ConnectorsServices.DTO.AddSubConnectordto",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

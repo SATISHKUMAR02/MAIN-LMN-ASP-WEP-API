@@ -23,7 +23,7 @@ namespace model.Institution
         public string ImOtherDesignation { get; set; } = null!;
         public string? ImOtherEmail { get; set; }
         public string? ImOtherContact { get; set; }
-        public string? ImAssignConnector { get; set; }
+        public int? ImAssignConnector { get; set; }
         public int ImCreatedBy { get; set; }
         public int? ImUpdatedBy { get; set; }
         public DateTime ImCreatedDate { get; set; }
@@ -31,8 +31,8 @@ namespace model.Institution
         public string? ImMouStatus { get; set; } // pending approved rejected
         public bool ImIsDeleted { get; set; }
 
-        public TblInstitutionActivity Activity  { get; set; }
-        public TblMeetingsMaster Meeting { get; set; }
+        public ICollection<TblInstitutionActivity>? Activities  { get; set; }
+        public TblMeetingsMaster? Meeting { get; set; }
 
     }
 }

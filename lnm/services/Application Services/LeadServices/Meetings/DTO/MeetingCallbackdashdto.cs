@@ -8,7 +8,7 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 {
     public class MeetingCallbackdashdto
     {
-        public int status_id {  get; set; }  // this is for the dashboard so we keep a common name as statusId
+        public int meeting_id {  get; set; }  // this is for the dashboard so we keep a common name as statusId
 
         public int institutionId { get; set; }
 

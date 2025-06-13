@@ -13,26 +13,29 @@ namespace services.Application_Services.LeadServices.Meetings
     {
         // for meetings only CRUD
 
-        Task<CommonResponse<ScheduleMeetingdto>> CreateMeetingAsync(ScheduleMeetingdto dto);
+        Task<CommonResponse<ScheduleMeetingdto>> CreateMeetingAsync(ScheduleMeetingdto dto,int userid,int institutionid);
 
         Task<CommonResponse<List<MeetingCallbackdashdto>>> GetMeetingAsync();
 
+        Task<CommonResponse<List<MeetingCallbackdashdto>>> GetMeetingsByInstitutionId(int institutionid);
 
-        Task<CommonResponse<ScheduleMeetingdto>> UpdateMeetingAsync(ScheduleMeetingdto dto);
+        //Task<CommonResponse<>>
+
+        Task<CommonResponse<UpdateMeetingdto>> UpdateMeetingAsync(UpdateMeetingdto dto,int userid,int institutionid,int meetingid);
 
         Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id, int institution_id);
 
-        Task<CommonResponse<object>> DeleteTempMeetingAsync(int meeting_id, int institution_id);
+        Task<CommonResponse<object>> DeleteTempMeetingAsync(int meeting_id, int institution_id,int userid);
 
-        // this is common  for history dashboard  only get operation
+        // ======================================================= this is common  for history dashboard  only get operation
 
         Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync();
 
         Task<CommonResponse<ScheduleMeetingdto>> GetMeetingByIdAsync(int id);
 
-        Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto);
+        Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto,int id,int institutionId);
 
-        // for callbacks only CRUD
+        // =================================================================== for callbacks only CRUD
         Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto);
 
         Task<CommonResponse<ScheduleCallbackdto>> GetCallbackAsync();

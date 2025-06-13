@@ -10,7 +10,7 @@ namespace services.Application_Services.LeadServices.History
 {
     public interface IHistoryServices
     {
-        Task<CommonResponse<List<Historydto>>> GetAllHistoryAsync();
+        Task<CommonResponse<List<Historydto>>> GetAllHistoryAsync(int id);
 
     }
 }

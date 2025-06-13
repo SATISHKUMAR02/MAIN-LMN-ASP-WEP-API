@@ -19,21 +19,23 @@ namespace services.Application_Services.ActivityServices
         private readonly IApplicationRepository<TblInstitutionActivity> _repository;
         private readonly IApplicationRepository<TblInstitutionMaster> _institution;
         private readonly IApplicationRepository<TblActivityMaster> _activity;
+        private readonly DBConnection _context;
 
         private readonly IMapper _mapper;
         public ActivityService(IApplicationRepository<TblInstitutionActivity> repository, IMapper mapper, IApplicationRepository<TblActivityMaster> activity,
-            IApplicationRepository<TblInstitutionMaster> institution
+            IApplicationRepository<TblInstitutionMaster> institution,DBConnection context
             )
         {
             _repository = repository;
             _mapper = mapper;
             _activity = activity;
+            _context = context;
             _institution = institution;
 
         }
 
 
-        public async Task<CommonResponse<AddInstitutionActivitydto>> CreateNewActivityAsync(AddInstitutionActivitydto dto)
+        public async Task<CommonResponse<AddInstitutionActivitydto>> CreateNewActivityAsync(AddInstitutionActivitydto dto,int userid,int institutionid,int activityid)
         {
             if (dto == null)
             {
@@ -41,14 +43,14 @@ namespace services.Application_Services.ActivityServices
             }
 
             var existingActivity = await _repository.GetSingleAsync(u =>
-                u.ImInstitutionId==dto.InstitutionId && u.ImActivityId == dto.ActivityId);
+                u.ImInstitutionId==institutionid && u.ImActivityId == activityid);
 
             if (existingActivity != null)
             {
                 return new CommonResponse<AddInstitutionActivitydto>(false, "Activity already exists", 409, null);
             }
 
-            var data = await _institution.GetSingleAsync(u => u.ImInstitutionId==dto.InstitutionId);
+            var data = await _institution.GetSingleAsync(u => u.ImInstitutionId==institutionid);
 
             if (data == null)
             {
@@ -56,12 +58,14 @@ namespace services.Application_Services.ActivityServices
             }
             TblInstitutionActivity institutionActivity = _mapper.Map<TblInstitutionActivity>(dto);
             institutionActivity.ImCreatedDate = DateTime.Now;
+            institutionActivity.ImActivityId = activityid;
+            institutionActivity.ImActivityName = (from a in _context.activityMaster where a.AmActivityId == activityid select a.AmActivityName).FirstOrDefault();
+            institutionActivity.ImInstitutionId = institutionid;
             institutionActivity.ImUpdatedDate = DateTime.Now;
             institutionActivity.ImInstitutionAddress = data.ImInstitutionAddress;
-            institutionActivity.ImCreatedBy =  1;// ==============================================this will be changed
+            institutionActivity.ImCreatedBy =  userid;// ==============================================this will be changed
             institutionActivity.ImInstitutionName = data.ImInstitutionName;
             institutionActivity.ImInstitutionId = data.ImInstitutionId;
-            institutionActivity.ImUpdatedBy = 1; //  =====================================this will be changed
             institutionActivity.ImInstitutionType = data.ImInstitutionType;
             institutionActivity.ImAssignConnector = data.ImAssignConnector;
             institutionActivity.ImUpdatedDate = DateTime.Now;
@@ -73,13 +77,13 @@ namespace services.Application_Services.ActivityServices
             return new CommonResponse<AddInstitutionActivitydto>(true, "Activity created successfully", 201, response);
         }
 
-        public async Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(int id, AddInstitutionActivitydto dto)
+        public async Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(int userid, int institutionid, int activityid,AddInstitutionActivitydto dto)
         {
-            if (dto == null || dto.ActivityId != id)
+            if (dto == null)
             {
                 return new CommonResponse<AddInstitutionActivitydto>(false, "invalid input credentials", 404, null);
             }
-            var existingActivity = await _repository.GetSingleAsync(u => u.ImActivityId.Equals(dto.ActivityId));
+            var existingActivity = await _repository.GetSingleAsync(u => u.ImActivityId.Equals(activityid));
 
             if (existingActivity == null)
             {
@@ -116,14 +120,14 @@ namespace services.Application_Services.ActivityServices
         }
 
 
-        public async Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int institutionId)
+        public async Task<CommonResponse<List<InstitutionActivitydto>>> GetAllInstitutionActivityAsync(int institutionId)
         {
             //=========================================================================== below code needs to be changed =================== corrected
             var activities = await _repository.GetAllByAnyAsync(u=> u.ImInstitutionId==institutionId);
 
-            var data = _mapper.Map<List<AddInstitutionActivitydto>>(activities);
+            var data = _mapper.Map<List<InstitutionActivitydto>>(activities);
 
-            return new CommonResponse<List<AddInstitutionActivitydto>>(true, "Institution activities fetched successfully", 200, data);
+            return new CommonResponse<List<InstitutionActivitydto>>(true, "Institution activities fetched successfully", 200, data);
         }
 
 

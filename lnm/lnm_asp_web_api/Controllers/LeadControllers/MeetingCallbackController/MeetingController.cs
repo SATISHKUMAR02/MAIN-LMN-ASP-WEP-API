@@ -25,7 +25,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
 
-        public async Task<ActionResult<CommonResponse<StatusUpdatedto>>> CreateNewStatusUpdate([FromBody] StatusUpdatedto dto)
+        public async Task<ActionResult<CommonResponse<StatusUpdatedto>>> CreateNewStatusUpdate([FromBody] StatusUpdatedto dto, int userid,int institutitonId)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
                 {
                     return BadRequest(new CommonResponse<StatusUpdatedto>(false, "invalid input credentials", 404, null));
                 }
-                var status = await _services.CreateStatusUpdateAsync(dto);
+                var status = await _services.CreateStatusUpdateAsync(dto,userid,institutitonId);
 
                 return StatusCode(status.StatusCode, status);
             }
@@ -45,13 +45,38 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
         }
 
 
+        [HttpGet]
+        [Route("GetAllInstitutionMeetingsandCallaback")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<CommonResponse<List<MeetingCallbackdashdto>>>> GetMeetingandCallbackByInstitution(int institutionid)
+        {
+            try
+            {
+                if (institutionid < 0)
+                {
+                    return BadRequest(new CommonResponse<List<MeetingCallbackdashdto>>(false, "invalid credentials", 400, null)); ;
+                }
+                var meetings = await _services.GetMeetingsByInstitutionId(institutionid);
+                return StatusCode(meetings.StatusCode, meetings);
+            }
+
+           
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<List<MeetingCallbackdashdto>>(false, ex.Message, 404, null));
+            }
+        }
+
         [HttpPost]
         [Route("ScheduleNewMeeting")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<ScheduleMeetingdto>>> ScheduleNewMeeting([FromBody] ScheduleMeetingdto dto)
+        public async Task<ActionResult<CommonResponse<ScheduleMeetingdto>>> ScheduleNewMeeting([FromBody] ScheduleMeetingdto dto,int userid,int institutionid)
         {
             try
             {
@@ -59,7 +84,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
                 {
                     return BadRequest(new CommonResponse<ScheduleMeetingdto>(false, "invalid credentials", 404, null));
                 }
-                var existingMeeting = await _services.CreateMeetingAsync(dto);
+                var existingMeeting = await _services.CreateMeetingAsync(dto,userid,institutionid);
 
                 return StatusCode(existingMeeting.StatusCode, existingMeeting);
             }
@@ -71,52 +96,52 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
         }
 
         [HttpPut]
-        [Route("UpdateScheduledMeeting/{id:int}")]
+        [Route("UpdateScheduledMeeting")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<ScheduleMeetingdto>>> UpdateScheduleMeeting(int id, [FromBody] ScheduleMeetingdto dto)
+        public async Task<ActionResult<CommonResponse<UpdateMeetingdto>>> UpdateScheduleMeeting(int institutionid, [FromBody] UpdateMeetingdto dto,int userid, int meetingid)
         {
             try
             {
-                if (id < 0 || dto.institution_id == id)
+                if (institutionid < 0)
                 {
-                    return NotFound(new CommonResponse<ScheduleMeetingdto>(false, "invalid Credentials", 404, null));
+                    return NotFound(new CommonResponse<UpdateMeetingdto>(false, "invalid Credentials", 404, null));
                 }
-                var existingMeeting = await _services.UpdateMeetingAsync(dto);
+                var existingMeeting = await _services.UpdateMeetingAsync(dto,userid,institutionid,meetingid);
                 return StatusCode(existingMeeting.StatusCode, existingMeeting);
             }
             catch (Exception ex)
             {
-                return NotFound(new CommonResponse<ScheduleMeetingdto>(false, ex.Message, 404, null));
+                return NotFound(new CommonResponse<UpdateMeetingdto>(false, ex.Message, 404, null));
 
             }
 
         }
 
-        [HttpGet]
-        [Route("GetAllScheduledMeetingsAndCallback")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(401)]
-        [ProducesResponseType(404)]
+        //[HttpGet]
+        //[Route("GetAllScheduledMeetingsAndCallback")]
+        //[ProducesResponseType(201)]
+        //[ProducesResponseType(400)]
+        //[ProducesResponseType(401)]
+        //[ProducesResponseType(404)]
 
-        public async Task<ActionResult<CommonResponse<List<MeetingCallbackdashdto>>>> GetAllMeetingCallback()
-        {
-            try
-            {
-                var events = await _services.GetAllMeetingCallbackAsync();
-                return StatusCode(events.StatusCode, events);
+        //public async Task<ActionResult<CommonResponse<List<MeetingCallbackdashdto>>>> GetAllMeetingCallback()
+        //{
+        //    try
+        //    {
+        //        var events = await _services.GetAllMeetingCallbackAsync();
+        //        return StatusCode(events.StatusCode, events);
 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new CommonResponse<List<MeetingCallbackdashdto>>(false, ex.Message, 404, null));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(new CommonResponse<List<MeetingCallbackdashdto>>(false, ex.Message, 404, null));
 
-            }
+        //    }
 
-        }
+        //}
 
         [HttpDelete]
         [Route("DeleteTempmeeting")]
@@ -125,7 +150,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
 
-        public async Task<ActionResult<CommonResponse<object>>> DeleteTempMeeting(int institutionid,int meetingid)
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempMeeting(int institutionid,int meetingid, int userid)
         {
             try
             {
@@ -133,7 +158,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
                 {
                     return BadRequest(new CommonResponse<object>(false, "invalild input credentials", 404, null));
                 }
-                var meeting = await _services.DeleteTempMeetingAsync(institutionid,meetingid);
+                var meeting = await _services.DeleteTempMeetingAsync(meetingid,institutionid,userid);
                 return StatusCode(meeting.StatusCode, meeting);
             }
             catch (Exception ex)

@@ -29,9 +29,20 @@ namespace services.Application_Services.LeadServices.Meetings
             
         }
 
-        public async Task<CommonResponse<ScheduleMeetingdto>> CreateMeetingAsync(ScheduleMeetingdto dto)
+        public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetMeetingsByInstitutionId(int institutionid)
         {
-            if (dto==null)
+            if (institutionid < 0)
+            {
+                return new CommonResponse<List<MeetingCallbackdashdto>>(false, "institution does not exist", 400, null);
+            }
+            var meetings = await _repository.GetAllByAnyAsync(u=>u.MmInstitutionId == institutionid); 
+            var data = _mapper.Map<List<MeetingCallbackdashdto>>(meetings);
+            return new CommonResponse<List<MeetingCallbackdashdto>>(true, "Meetings of institution Fetched successfully", 200, data);
+
+        }
+        public async Task<CommonResponse<ScheduleMeetingdto>> CreateMeetingAsync(ScheduleMeetingdto dto,int userid,int institutionid)
+        {
+            if (dto==null )
             {
                 return new CommonResponse<ScheduleMeetingdto>(false, "meeting fields are empty", 404, null);
             }
@@ -39,7 +50,7 @@ namespace services.Application_Services.LeadServices.Meetings
             //var institutionid = await (from a in _context.institutionMaster join b in _context.meetingsMaster on a.ImInstitutionId equals b.MmInstitutionId 
             //                                                                   select a.ImInstitutionId).FirstOrDefaultAsync();
 
-            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == dto.institution_id && u.MmMeetingConducted == false);
+            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == institutionid && u.MmMeetingConducted == false && u.MmmeetingOutcome != "not-interested" );
 
             if (existingMeeting != null)
             {
@@ -50,10 +61,14 @@ namespace services.Application_Services.LeadServices.Meetings
             
             
             meeting.MmMeetingStatus = "open";
-            meeting.MmmeetingOutcome = "pending";
+            meeting.MmCreatedBy = userid;
+            meeting.MmInstitutionId = institutionid;
+            meeting.MmInstitutionName = (from a in _context.institutionMaster where a.ImInstitutionId == institutionid select a.ImInstitutionName).FirstOrDefault();
+            meeting.MmmeetingOutcome = "pending"; // this can be interested not interested pending and discussions
             meeting.MmCreatedDate = DateTime.Now;
             meeting.MmInstitutionResponded = "yes";
             meeting.MmIsDeleted = false;
+            meeting.MmMeetingType = "Meeting";
             meeting.MmMeetingConducted = false;
             await _repository.CreateAsync(meeting);
 
@@ -63,7 +78,7 @@ namespace services.Application_Services.LeadServices.Meetings
         }
 
       // ===============================================================================DELETED FFROM UI NOT FROM DB
-        public async Task<CommonResponse<object>> DeleteTempMeetingAsync(int meeting_id,int institution_id) // temperary deleted 
+        public async Task<CommonResponse<object>> DeleteTempMeetingAsync(int meeting_id,int institution_id,int userid) // temperary deleted 
         {
             if(meeting_id==0 && institution_id == 0)
             {
@@ -77,9 +92,10 @@ namespace services.Application_Services.LeadServices.Meetings
 
             }
             existingMeeting.MmMeetingStatus = "close";
-            
+            existingMeeting.MmUpdatedBy = userid;
+            existingMeeting.MmIsDeleted = true;
             existingMeeting.MmMeetingConducted = false;
-            
+            existingMeeting.MmMeetingType = "Meeting";
             existingMeeting.MmmeetingOutcome = "pending";
             await _repository.UpdateAsync(existingMeeting);
             
@@ -106,6 +122,7 @@ namespace services.Application_Services.LeadServices.Meetings
             //existingMeeting.MmMeetingConducted = false;
 
             //existingMeeting.MmmeetingOutcome = "pending";
+
             await _repository.DeleteAsync(existingMeeting);
 
             return new CommonResponse<object>(true, "meeting deleted successfully", 200, null);
@@ -114,29 +131,40 @@ namespace services.Application_Services.LeadServices.Meetings
 
 
 
-        public async Task<CommonResponse<ScheduleMeetingdto>> UpdateMeetingAsync(ScheduleMeetingdto dto)
+        public async Task<CommonResponse<UpdateMeetingdto>> UpdateMeetingAsync(UpdateMeetingdto dto,int userid,int institutionid,int meetingid)
         {
             if(dto == null)
             {
-                return new CommonResponse<ScheduleMeetingdto>(false, "meeting fields are empty", 404, null);
+                return new CommonResponse<UpdateMeetingdto>(false, "meeting fields are empty", 404, null);
 
             }
-            var existingMeeting = await _repository.GetSingleAsync(u=> u.MmInstitutionId == dto.institution_id && u.MmMeetingId == dto.meeting_id && u.MmMeetingConducted == false);
+            var existingMeeting = await _repository.GetSingleAsync(u=> u.MmInstitutionId == institutionid && u.MmMeetingId == meetingid && u.MmMeetingConducted == false);
            
             if(existingMeeting == null)
             {
-                return new CommonResponse<ScheduleMeetingdto>(false, "meeting does not exist", 404, null);
+                return new CommonResponse<UpdateMeetingdto>(false, "meeting does not exist", 404, null);
             }
 
             _mapper.Map(dto, existingMeeting);
-
             existingMeeting.MmUpdatedDate = DateTime.Now;
+            existingMeeting.MmUpdatedBy = userid;
+            existingMeeting.MmInstitutionId = institutionid;
+
+            var temp= dto.meeting_conducted;
+            if(temp == true)
+            {
+                existingMeeting.MmMeetingStatus = "close";
+            }
+            else
+            {
+                existingMeeting.MmMeetingStatus = "expired";
+            }
 
             await _repository.UpdateAsync(existingMeeting);
 
-            var response = _mapper.Map<ScheduleMeetingdto>(existingMeeting);
+            var response = _mapper.Map<UpdateMeetingdto>(existingMeeting);
             
-            return new CommonResponse<ScheduleMeetingdto>(true, "meeting updated successfully", 200, response);
+            return new CommonResponse<UpdateMeetingdto>(true, "meeting updated successfully", 200, response);
 
 
 
@@ -157,7 +185,7 @@ namespace services.Application_Services.LeadServices.Meetings
         //===================================================================== for adding new  status update 
 
 
-        public async Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto)
+        public async Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto,int id,int institutionId)
         {
             if(dto == null)
             {
@@ -167,7 +195,9 @@ namespace services.Application_Services.LeadServices.Meetings
             TblMeetingsMaster statusUpdate = _mapper.Map<TblMeetingsMaster>(dto);
             
             statusUpdate.MmCreatedDate = DateTime.Now;
-            
+            statusUpdate.MmInstitutionId = institutionId;
+            statusUpdate.MmInstitutionName = (from a in _context.institutionMaster where a.ImInstitutionId == institutionId select a.ImInstitutionName).FirstOrDefault();
+            statusUpdate.MmCreatedBy = id;
             statusUpdate.MmUpdatedDate = DateTime.Now;
             
             await _repository.CreateAsync(statusUpdate);

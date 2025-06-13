@@ -29,17 +29,17 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
         Task<CommonResponse<object>> GetConnectorMouByIdAsync(float version);
         // =============================================================================== Sub Connector CRUD operations for Connector
 
-        Task<CommonResponse<AddSubConnectordto>> CreateSubConnectorAsync(AddSubConnectordto dto);
+        Task<CommonResponse<AddSubConnectordto>> CreateSubConnectorAsync(AddSubConnectordto dto, int userId);
 
-        Task<CommonResponse<AddSubConnectordto>> UpdateSubConnectorAsync(AddSubConnectordto dto);
+        Task<CommonResponse<AddSubConnectordto>> UpdateSubConnectorAsync(AddSubConnectordto dto,int id, int userId);
 
-        Task<CommonResponse<AddSubConnectordto>> DeleteSubConnectorAsync(int id);
+        Task<CommonResponse<AddSubConnectordto>> DeleteSubConnectorAsync(int id,int userId);
 
-        Task<CommonResponse<object>> DeleteTempSubConnectorAsync(int id);
+        Task<CommonResponse<object>> DeleteTempSubConnectorAsync(int id, int userId);
 
-        Task<CommonResponse<List<SubConnectordto>>> GetAllSubConnectorsAsync(); ///for displaying in dashboard
+        Task<CommonResponse<List<SubConnectordto>>> GetAllSubConnectorsAsync(int userId); ///for displaying in dashboard
 
-        Task<CommonResponse<AddSubConnectordto>> GetSubConnectorAsync(int id); 
+        Task<CommonResponse<AddSubConnectordto>> GetSubConnectorAsync(int id,int userId); 
 
 
         

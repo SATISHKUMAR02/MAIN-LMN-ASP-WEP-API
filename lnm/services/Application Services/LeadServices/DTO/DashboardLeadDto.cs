@@ -11,10 +11,10 @@ namespace services.Application_Services.LeadServices.DTO
         public int institutiton_id { get; set; }
 
         public string institutiton_name { get; set; }
-
+         
         public string institution_type { get; set; }
 
-        public string assign_connector { get; set; }
+        public int assign_connector { get; set; }
 
         public string institution_status { get; set; }
 

@@ -8,11 +8,9 @@ namespace services.Application_Services.ActivityServices.DTO
 {
     public class AddInstitutionActivitydto
     {
-        public int ActivityId { get; set; }
+      
 
-        public int InstitutionId { get; set; }
-
-        public string ActivityName { get; set; }
+        
 
         public int studentStrrength { get; set; }
 

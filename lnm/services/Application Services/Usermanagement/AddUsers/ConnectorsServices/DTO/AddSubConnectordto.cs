@@ -8,7 +8,6 @@ namespace services.Application_Services.Usermanagement.AddUsers.ConnectorsServic
 {
     public class AddSubConnectordto
     {
-        public int employee_id {  get; set; }
 
         public string FirstName { get; set; }
 
@@ -18,14 +17,13 @@ namespace services.Application_Services.Usermanagement.AddUsers.ConnectorsServic
 
         public string Gender { get; set; } 
 
-        public DateOnly HireDate { get; set; }
+        public DateTime HireDate { get; set; }
 
         public string phoneNo { get; set; }
 
+        public DateOnly dob { get; set; } 
 
-        public int created_by { get; set; } // by which connector the sub connector works 
 
-        public DateTime updated_date { get; set; } // updated date and time
 
         //public int created_emp_id { get; set; } // and the connector's emp_id
     }

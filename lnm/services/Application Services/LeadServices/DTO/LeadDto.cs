@@ -22,8 +22,7 @@ namespace services.Application_Services.LeadServices.DTO
         public string other_contact { get; set; }
         public string other_email { get; set; }
         //public string mou_status { get; set; }  // pending approved rejected
-        public string assigned_connector { get; set; } // storing all the sub connectors here
-        public string created_by { get; set; }
+        public int assigned_connector { get; set; } // storing all the sub connectors here
 
     }
 }

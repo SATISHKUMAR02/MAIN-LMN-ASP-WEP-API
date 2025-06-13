@@ -10,9 +10,9 @@ namespace services.Application_Services.LeadServices
 {
     public interface ILeadService
     {
-        Task<CommonResponse<LeadDto>> CreateLeadAsync(LeadDto dto);
+        Task<CommonResponse<LeadDto>> CreateLeadAsync(LeadDto dto, int id);
 
-        Task<CommonResponse<LeadDto>> UpdateLeadAsync(LeadDto dto);
+        Task<CommonResponse<LeadDto>> UpdateLeadAsync(LeadDto dto,int id);
 
         Task<CommonResponse<List<DashboardLeadDto>>> GetAllLeadAsync(); // dto is different here and in its implementation
 
@@ -20,11 +20,13 @@ namespace services.Application_Services.LeadServices
 
         Task<CommonResponse<LeadDto>> GetLeadByIdAsync(int id);
 
+        Task<CommonResponse<List<DashboardLeadDto>>> GetLeadByUserIdAsync(int id);
+
         Task<CommonResponse<LeadDto>> GetLeadByNameAsync(string institutionName);
 
         Task<CommonResponse<object>> DeleteLeadAdminAsync(int id);
 
-        Task<CommonResponse<object>> DeleteLeadTempByIdAsync(int id);
+        Task<CommonResponse<object>> DeleteLeadTempByIdAsync(int id,int userId);
 
         //Task<CommonResponse<Meetingdto>> GetAllMeetingsBySchoolIdAsync(int id);
 

@@ -15,7 +15,7 @@ namespace model.Institution
         public string? ImInstitutionName { get; set; }
         public int ImStudentStrength { get; set; }
         public string? ImActivityName { get; set; }
-        public string? ImAssignConnector { get; set; }
+        public int? ImAssignConnector { get; set; }
         public int ImCreatedBy { get; set; }
         public int? ImUpdatedBy { get; set; }
         public DateTime ImCreatedDate { get; set; }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.Storage;
 using model;
 using model.Institution;
 using services.Application_Services.LeadServices.DTO;
@@ -24,7 +25,7 @@ namespace services.Application_Services.LeadServices
             _mapper = mapper;
         }
 
-        public async Task<CommonResponse<LeadDto>> CreateLeadAsync(LeadDto dto)
+        public async Task<CommonResponse<LeadDto>> CreateLeadAsync(LeadDto dto, int id)
         {
             if (dto == null)
             {
@@ -43,6 +44,7 @@ namespace services.Application_Services.LeadServices
             institution.ImUpdatedDate = DateTime.Now;
             institution.ImInstitutionStatus = "pending";
             institution.ImMouStatus = "pending";
+            institution.ImCreatedBy = id;
             
             var data =  await _repository.CreateAsync(institution);
              
@@ -52,7 +54,7 @@ namespace services.Application_Services.LeadServices
 
         }
 
-        public async Task<CommonResponse<LeadDto>> UpdateLeadAsync(LeadDto dto)
+        public async Task<CommonResponse<LeadDto>> UpdateLeadAsync(LeadDto dto, int id)
         {
             if (dto == null)
             {
@@ -67,6 +69,7 @@ namespace services.Application_Services.LeadServices
             var LeadtoUpdate = _mapper.Map<TblInstitutionMaster>(dto);
             
             LeadtoUpdate.ImUpdatedDate = DateTime.Now;
+            LeadtoUpdate.ImUpdatedBy = id;
             
             await _repository.UpdateAsync(LeadtoUpdate);
             
@@ -75,12 +78,22 @@ namespace services.Application_Services.LeadServices
         }
         // ====================================================================================================
         // DashBoardLeadDto is being used here 
-        public async Task<CommonResponse<List<DashboardLeadDto>>> GetAllLeadAsync()
+       
+        public async Task<CommonResponse<List<DashboardLeadDto>>> GetAllLeadAsync() // ==> THIS IS ONLY FOR ADMINS 
         {
             var leads = await _repository.GetAllByAnyAsync(u=>u.ImIsDeleted==false);
             
             var data = _mapper.Map<List<DashboardLeadDto>>(leads);
             
+            return new CommonResponse<List<DashboardLeadDto>>(true, "leads fetched successfully", 200, data);
+        }
+        // ================================================================= to display leads based on who added
+        public async Task<CommonResponse<List<DashboardLeadDto>>> GetLeadByUserIdAsync(int id) 
+        {
+            var leads = await _repository.GetAllByAnyAsync(u => u.ImIsDeleted == false && u.ImCreatedBy == id || u.ImAssignConnector ==id);
+
+            var data = _mapper.Map<List<DashboardLeadDto>>(leads);
+
             return new CommonResponse<List<DashboardLeadDto>>(true, "leads fetched successfully", 200, data);
         }
 
@@ -140,7 +153,7 @@ namespace services.Application_Services.LeadServices
             return new CommonResponse<object>(true,"lead deleted successfully",200,null);
         }
 
-        public async Task<CommonResponse<object>> DeleteLeadTempByIdAsync(int id) //============================================ this is for Others ,  ImIsDeleted flag = true
+        public async Task<CommonResponse<object>> DeleteLeadTempByIdAsync(int id,int userId) //============================================ this is for Others ,  ImIsDeleted flag = true
         {
 
             if (id == 0)
@@ -153,6 +166,7 @@ namespace services.Application_Services.LeadServices
                 return new CommonResponse<object>(false, "lead does not exist", 404, null);
             }
             lead.ImIsDeleted = true;
+            lead.ImUpdatedBy = userId;
             await _repository.UpdateAsync(lead);
             return new CommonResponse<object>(true, "lead deleted successfully", 200, null);
         }

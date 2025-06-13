@@ -19,18 +19,18 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.History
             _historyServices = historyServices;
         }
         [HttpGet]
-        [Route("GetAllHistory")]
+        [Route("GetAllHistoryByInstitution")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<Historydto>>> GetAllLeads()
+        public async Task<ActionResult<CommonResponse<Historydto>>> GetAllLeads(int id)
         {
             try
 
             {
-                var leads = await _historyServices.GetAllHistoryAsync();
+                var leads = await _historyServices.GetAllHistoryAsync(id);
 
                 return StatusCode(leads.StatusCode, leads);
             }

@@ -13,13 +13,13 @@ namespace services.Application_Services.ActivityServices
 {
     public interface IActivityService
     {
-        Task<CommonResponse<AddInstitutionActivitydto>> CreateNewActivityAsync(AddInstitutionActivitydto dto);
+        Task<CommonResponse<AddInstitutionActivitydto>> CreateNewActivityAsync(AddInstitutionActivitydto dto,int userid,int institutionid,int activityid);
 
-        Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(int id, AddInstitutionActivitydto dto);
+        Task<CommonResponse<AddInstitutionActivitydto>> UpdateActivityAsync(int userid,int institutionid,int activityid ,AddInstitutionActivitydto dto);
 
         Task<CommonResponse<object>> DeleteActivityAsync(int activityId);
 
-        Task<CommonResponse<List<AddInstitutionActivitydto>>> GetAllInstitutionActivityAsync(int activityId);
+        Task<CommonResponse<List<InstitutionActivitydto>>> GetAllInstitutionActivityAsync(int activityId);
 
         Task<CommonResponse<List<TblActivityMaster>>> GetAllActivityAsync(); // this is from the activity master
 

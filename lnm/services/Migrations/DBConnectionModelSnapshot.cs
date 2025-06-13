@@ -52,8 +52,8 @@ namespace services.Migrations
                     b.Property<string>("ImActivityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImAssignConnector")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ImAssignConnector")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImCreatedBy")
                         .HasColumnType("int");
@@ -115,8 +115,8 @@ namespace services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImInstitutionId"));
 
-                    b.Property<string>("ImAssignConnector")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ImAssignConnector")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImCreatedBy")
                         .HasColumnType("int");

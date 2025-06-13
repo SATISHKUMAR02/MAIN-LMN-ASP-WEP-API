@@ -12,8 +12,8 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    [Migration("20250514062803_with institutionAtivity")]
-    partial class withinstitutionAtivity
+    [Migration("20250603060055_changed assign connector")]
+    partial class changedassignconnector
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,8 +55,8 @@ namespace services.Migrations
                     b.Property<string>("ImActivityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImAssignConnector")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ImAssignConnector")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImCreatedBy")
                         .HasColumnType("int");
@@ -102,6 +102,11 @@ namespace services.Migrations
 
                     b.HasKey("ImSlno");
 
+                    b.HasIndex("ImActivityId");
+
+                    b.HasIndex("ImInstitutionId")
+                        .IsUnique();
+
                     b.ToTable("institutionActivity");
                 });
 
@@ -113,8 +118,8 @@ namespace services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImInstitutionId"));
 
-                    b.Property<string>("ImAssignConnector")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ImAssignConnector")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImCreatedBy")
                         .HasColumnType("int");
@@ -203,6 +208,10 @@ namespace services.Migrations
                     b.Property<int>("MmInstitutionId")
                         .HasColumnType("int");
 
+                    b.Property<string>("MmInstitutionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MmInstitutionResponded")
                         .HasColumnType("nvarchar(max)");
 
@@ -239,6 +248,9 @@ namespace services.Migrations
 
                     b.HasKey("MmMeetingId");
 
+                    b.HasIndex("MmInstitutionId")
+                        .IsUnique();
+
                     b.ToTable("meetingsMaster");
                 });
 
@@ -259,8 +271,8 @@ namespace services.Migrations
                     b.Property<string>("CmouMouDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CmouMouId")
-                        .HasColumnType("int");
+                    b.Property<float?>("CmouMouId")
+                        .HasColumnType("real");
 
                     b.Property<string>("CmouMouPath")
                         .HasColumnType("nvarchar(max)");
@@ -305,8 +317,8 @@ namespace services.Migrations
                     b.Property<string>("ImoMouDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ImoMouId")
-                        .HasColumnType("int");
+                    b.Property<float?>("ImoMouId")
+                        .HasColumnType("real");
 
                     b.Property<string>("ImoMouPath")
                         .HasColumnType("nvarchar(max)");
@@ -330,11 +342,12 @@ namespace services.Migrations
 
             modelBuilder.Entity("model.MOUs.MouMaster", b =>
                 {
-                    b.Property<int>("MoumMouId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<float>("MoumMouId")
+                        .HasColumnType("real");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MoumMouId"));
+                    b.Property<string>("MouMouType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MoumCreatedBy")
                         .HasColumnType("int");
@@ -357,7 +370,17 @@ namespace services.Migrations
                     b.Property<DateTime?>("MoumUpdatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("connectorMousCmouMouNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("institutionMousImoMouNo")
+                        .HasColumnType("int");
+
                     b.HasKey("MoumMouId");
+
+                    b.HasIndex("connectorMousCmouMouNo");
+
+                    b.HasIndex("institutionMousImoMouNo");
 
                     b.ToTable("mouMaster");
                 });
@@ -417,6 +440,8 @@ namespace services.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("em_id");
+
+                    b.HasIndex("em_role_id");
 
                     b.ToTable("tbl_employee_master");
                 });
@@ -495,7 +520,109 @@ namespace services.Migrations
 
                     b.HasKey("uld_id");
 
+                    b.HasIndex("uld_employee_id")
+                        .IsUnique()
+                        .HasFilter("[uld_employee_id] IS NOT NULL");
+
                     b.ToTable("tbl_user_login_details");
+                });
+
+            modelBuilder.Entity("model.Institution.TblInstitutionActivity", b =>
+                {
+                    b.HasOne("model.Activities.TblActivityMaster", "ActivityMaster")
+                        .WithMany("TblActivities")
+                        .HasForeignKey("ImActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_InstitutionActivity_Activitymaster");
+
+                    b.HasOne("model.Institution.TblInstitutionMaster", "InstitutionMaster")
+                        .WithOne("Activity")
+                        .HasForeignKey("model.Institution.TblInstitutionActivity", "ImInstitutionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ActivityMaster");
+
+                    b.Navigation("InstitutionMaster");
+                });
+
+            modelBuilder.Entity("model.Institution.TblMeetingsMaster", b =>
+                {
+                    b.HasOne("model.Institution.TblInstitutionMaster", "institutionMaster")
+                        .WithOne("Meeting")
+                        .HasForeignKey("model.Institution.TblMeetingsMaster", "MmInstitutionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_MeetingMaster_Institutionmaster");
+
+                    b.Navigation("institutionMaster");
+                });
+
+            modelBuilder.Entity("model.MOUs.MouMaster", b =>
+                {
+                    b.HasOne("model.MOUs.ConnectorMou", "connectorMous")
+                        .WithMany()
+                        .HasForeignKey("connectorMousCmouMouNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("model.MOUs.InstitutionMou", "institutionMous")
+                        .WithMany()
+                        .HasForeignKey("institutionMousImoMouNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("connectorMous");
+
+                    b.Navigation("institutionMous");
+                });
+
+            modelBuilder.Entity("model.User.tbl_employee_master", b =>
+                {
+                    b.HasOne("model.User.tbl_role_master", "Role_Master")
+                        .WithMany("Employees")
+                        .HasForeignKey("em_role_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK_employeemaster_Roles");
+
+                    b.Navigation("Role_Master");
+                });
+
+            modelBuilder.Entity("model.User.tbl_user_login_details", b =>
+                {
+                    b.HasOne("model.User.tbl_employee_master", "Employee")
+                        .WithOne("Login_Details")
+                        .HasForeignKey("model.User.tbl_user_login_details", "uld_employee_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK_tbluserlogindetails_EmployeeMaster");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("model.Activities.TblActivityMaster", b =>
+                {
+                    b.Navigation("TblActivities");
+                });
+
+            modelBuilder.Entity("model.Institution.TblInstitutionMaster", b =>
+                {
+                    b.Navigation("Activity")
+                        .IsRequired();
+
+                    b.Navigation("Meeting")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("model.User.tbl_employee_master", b =>
+                {
+                    b.Navigation("Login_Details")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("model.User.tbl_role_master", b =>
+                {
+                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

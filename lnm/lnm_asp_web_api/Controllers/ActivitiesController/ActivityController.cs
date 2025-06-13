@@ -73,11 +73,11 @@ namespace lnm_asp_web_api.Controllers.ActivitiesController
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<TblInstitutionActivity>>> CreateNewSchoolActivity([FromBody] AddInstitutionActivitydto dto)
+        public async Task<ActionResult<CommonResponse<TblInstitutionActivity>>> CreateNewSchoolActivity([FromBody] AddInstitutionActivitydto dto,int userid,int institutionid , int activityid)
         {
             try
             {
-                var activity = await _activityService.CreateNewActivityAsync(dto);
+                var activity = await _activityService.CreateNewActivityAsync(dto,userid,institutionid,activityid);
                 return StatusCode(activity.StatusCode, activity);
             }
             catch (Exception ex) {
@@ -87,17 +87,17 @@ namespace lnm_asp_web_api.Controllers.ActivitiesController
         }
 
         [HttpPut]
-        [Route("updateSchoolActivity/{id:int}")]
+        [Route("updateSchoolActivity")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<TblInstitutionActivity>>> UpdateSchoolActivity(int id,[FromBody] AddInstitutionActivitydto dto)
+        public async Task<ActionResult<CommonResponse<TblInstitutionActivity>>> UpdateSchoolActivity(int activityid,int institutionid ,int userid ,[FromBody] AddInstitutionActivitydto dto)
         {
             try
             {
-                var activity = await _activityService.UpdateActivityAsync(id,dto);
+                var activity = await _activityService.UpdateActivityAsync(userid,institutionid,activityid,dto);
 
                 return StatusCode(activity.StatusCode, activity);
             }

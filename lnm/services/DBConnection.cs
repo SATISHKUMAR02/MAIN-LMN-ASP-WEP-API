@@ -34,6 +34,7 @@ namespace services
                 .HasForeignKey(c => c.ImActivityId)
                 .HasConstraintName("FK_InstitutionActivity_Activitymaster")
                 .OnDelete(DeleteBehavior.Cascade);
+                
 
 
 
@@ -49,8 +50,9 @@ namespace services
             // institution master and institution Activity 
             modelBuilder.Entity<TblInstitutionActivity>()
                 .HasOne(c => c.InstitutionMaster)
-                .WithOne(p=>p.Activity)
-                .HasForeignKey<TblInstitutionActivity>(c=>c.ImInstitutionId)
+                
+                .WithMany(p=>p.Activities)
+                .HasForeignKey(c=>c.ImInstitutionId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // one employee having only one role , multiple users can have different but  only one role id

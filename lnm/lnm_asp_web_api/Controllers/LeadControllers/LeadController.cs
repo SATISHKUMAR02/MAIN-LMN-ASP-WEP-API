@@ -26,11 +26,11 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<LeadDto>>> CreateLead([FromBody] LeadDto dto)
+        public async Task<ActionResult<CommonResponse<LeadDto>>> CreateLead([FromBody] LeadDto dto, int id)
         {
             try
             {
-                var lead = await _leadService.CreateLeadAsync(dto);
+                var lead = await _leadService.CreateLeadAsync(dto,id);
 
                 return StatusCode(lead.StatusCode, lead);
 
@@ -44,6 +44,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
 
         [HttpGet]
         [Route("GetAllLeads")]
+        [Authorize]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -59,6 +60,29 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
                 return StatusCode(leads.StatusCode, leads);
             }
             catch (Exception ex) {
+
+                return BadRequest(new CommonResponse<DashboardLeadDto>(false, ex.Message, 400, null));
+            }
+        }
+
+        [HttpGet]
+        [Route("GetAllLeadsByUsers")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<CommonResponse<DashboardLeadDto>>> GetAllLeadsByUsers(int id)
+        {
+            try
+
+            {
+                var leads = await _leadService.GetLeadByUserIdAsync(id);
+
+                return StatusCode(leads.StatusCode, leads);
+            }
+            catch (Exception ex)
+            {
 
                 return BadRequest(new CommonResponse<DashboardLeadDto>(false, ex.Message, 400, null));
             }
@@ -150,7 +174,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
 
-        public async Task<ActionResult<CommonResponse<object>>> DeleteTempLeadById(int id)
+        public async Task<ActionResult<CommonResponse<object>>> DeleteTempLeadById(int id,int userId)
         {
             try
             {
@@ -161,7 +185,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
                 var lead = await _leadService.GetLeadByIdAsync(id);
 
 
-                var result = await _leadService.DeleteLeadTempByIdAsync(id);
+                var result = await _leadService.DeleteLeadTempByIdAsync(id,userId);
                 return StatusCode(lead.StatusCode, id);
 
             }
@@ -181,7 +205,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<CommonResponse<LeadDto>>> UpdateLead(int id,[FromBody] LeadDto dto)
+        public async Task<ActionResult<CommonResponse<LeadDto>>> UpdateLead(int id,[FromBody] LeadDto dto,int userId)
         {
             try
             {
@@ -189,7 +213,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers
                 {
                     return BadRequest(new CommonResponse<LeadDto>(false, "invalid input credentials", 400, null));
                 }
-                var existingLead = await _leadService.UpdateLeadAsync(dto);
+                var existingLead = await _leadService.UpdateLeadAsync(dto,userId);
                 
                 return StatusCode(existingLead.StatusCode, existingLead);
 
