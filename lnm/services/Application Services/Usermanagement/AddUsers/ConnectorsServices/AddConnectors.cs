@@ -48,13 +48,14 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             tbl_employee_master user = new tbl_employee_master
             {
                 em_id = dto.connector_id,
-                em_name_e = dto.Firstname + " " + dto.Lastname,
+                em_name_e = dto.Firstname,
+                em_name_k=dto.Lastname,
                 em_contact_number = dto.phonenumber,
                 em_email_address = dto.Email,
                 em_joining_date = dto.hireDate,
                 em_updated_date = dto.updated_date,
                 em_gender = dto.gender,
-                //dob = DateOnly.FromDateTime(dto.dateOfbirth),
+                dob =dto.dateOfbirth,
                 em_created_date = DateTime.Now,
                 em_role_id = 1,
                 em_is_active = true,
@@ -173,7 +174,6 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 return new CommonResponse<AddConnectordto>(false, "invalid id", 404, null);
             }
             var existingConnector = await _repository.GetSingleAsync(u => u.em_id == id && u.em_role_id==1);
-            Console.WriteLine(JsonConvert.SerializeObject(existingConnector));
 
             if (existingConnector == null)
             {

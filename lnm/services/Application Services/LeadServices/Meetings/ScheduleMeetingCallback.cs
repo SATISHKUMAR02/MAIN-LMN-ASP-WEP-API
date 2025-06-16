@@ -16,14 +16,17 @@ namespace services.Application_Services.LeadServices.Meetings
     {
 
         private readonly IApplicationRepository<TblMeetingsMaster> _repository;
+        private readonly IApplicationRepository<TblInstitutionMaster> _institutionrepository;
         private readonly DBConnection _context;
         private readonly IMapper _mapper;
 
         public ScheduleMeetingCallback(IApplicationRepository<TblMeetingsMaster> repository,
+            IApplicationRepository<TblInstitutionMaster> institutionrepository,
             IMapper mapper,DBConnection context
             )
         {
             _repository = repository;
+            _institutionrepository = institutionrepository;
             _mapper = mapper;
             _context = context;
             
@@ -35,7 +38,7 @@ namespace services.Application_Services.LeadServices.Meetings
             {
                 return new CommonResponse<List<MeetingCallbackdashdto>>(false, "institution does not exist", 400, null);
             }
-            var meetings = await _repository.GetAllByAnyAsync(u=>u.MmInstitutionId == institutionid); 
+            var meetings = await _repository.GetAllByAnyAsync(u=>u.MmInstitutionId == institutionid && u.MmMeetingStatus !="Status Update"); 
             var data = _mapper.Map<List<MeetingCallbackdashdto>>(meetings);
             return new CommonResponse<List<MeetingCallbackdashdto>>(true, "Meetings of institution Fetched successfully", 200, data);
 
@@ -151,16 +154,34 @@ namespace services.Application_Services.LeadServices.Meetings
             existingMeeting.MmInstitutionId = institutionid;
 
             var temp= dto.meeting_conducted;
+            var today = DateOnly.FromDateTime(DateTime.Now);
             if(temp == true)
             {
                 existingMeeting.MmMeetingStatus = "close";
             }
             else
             {
-                existingMeeting.MmMeetingStatus = "expired";
+                if(existingMeeting.MmMeetingScheduleDate > today)
+                {
+                    existingMeeting.MmMeetingStatus = "expire";
+                }
+                else
+                {
+                    existingMeeting.MmMeetingStatus = "close";
+                }
             }
-
+            var instituion = await _institutionrepository.GetSingleAsync(u => u.ImInstitutionId == institutionid);
+            if(instituion != null)
+            {
+                instituion.ImInstitutionStatus = dto.meeting_outcome;
+                instituion.ImUpdatedBy = userid;
+                await _institutionrepository.UpdateAsync(instituion);
+            }
+            
             await _repository.UpdateAsync(existingMeeting);
+          
+
+            
 
             var response = _mapper.Map<UpdateMeetingdto>(existingMeeting);
             
@@ -194,10 +215,17 @@ namespace services.Application_Services.LeadServices.Meetings
 
             TblMeetingsMaster statusUpdate = _mapper.Map<TblMeetingsMaster>(dto);
             
-            statusUpdate.MmCreatedDate = DateTime.Now;
+            //statusUpdate.MmCreatedDate = DateOnly.FromDateTime(DateTime.Now);
+            
+            statusUpdate.MmMeetingType = "Status Update";
             statusUpdate.MmInstitutionId = institutionId;
             statusUpdate.MmInstitutionName = (from a in _context.institutionMaster where a.ImInstitutionId == institutionId select a.ImInstitutionName).FirstOrDefault();
             statusUpdate.MmCreatedBy = id;
+            statusUpdate.MmUpdatedBy = id;
+            statusUpdate.MmIsDeleted = false;
+            statusUpdate.MmmeetingOutcome = "Status Update";
+            statusUpdate.MmMeetingTime = TimeOnly.FromDateTime(DateTime.Now);
+            statusUpdate.MmMeetingStatus = "Status Update";
             statusUpdate.MmUpdatedDate = DateTime.Now;
             
             await _repository.CreateAsync(statusUpdate);

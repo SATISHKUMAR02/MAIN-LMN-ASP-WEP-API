@@ -1219,7 +1219,7 @@
         }
       }
     },
-    "/api/Connector/GetConnectorById/{id}": {
+    "/api/Connector/GetConnectorById": {
       "get": {
         "tags": [
           "Connector"
@@ -1227,8 +1227,7 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -6098,14 +6097,6 @@
       "StatusUpdatedto": {
         "type": "object",
         "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "time": {
-            "type": "string",
-            "format": "time"
-          },
           "description": {
             "type": "string",
             "nullable": true

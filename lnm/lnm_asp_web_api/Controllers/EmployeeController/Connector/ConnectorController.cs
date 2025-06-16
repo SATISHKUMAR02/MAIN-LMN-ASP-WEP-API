@@ -86,7 +86,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         }
 
         [HttpGet]
-        [Route("GetConnectorById/{id:int}")]
+        [Route("GetConnectorById")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]

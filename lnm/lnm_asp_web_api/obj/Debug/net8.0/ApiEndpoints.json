@@ -727,7 +727,7 @@
   {
     "ContainingType": "lnm_asp_web_api.Controllers.EmployeeController.Connector.ConnectorController",
     "Method": "GetConnectorByIds",
-    "RelativePath": "api/Connector/GetConnectorById/{id}",
+    "RelativePath": "api/Connector/GetConnectorById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -735,7 +735,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

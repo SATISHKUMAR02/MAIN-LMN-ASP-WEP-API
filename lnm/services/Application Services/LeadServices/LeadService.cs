@@ -17,6 +17,7 @@ namespace services.Application_Services.LeadServices
     {
 
         private readonly IApplicationRepository<TblInstitutionMaster> _repository;
+        
         private readonly IMapper _mapper;
 
         public LeadService(IApplicationRepository<TblInstitutionMaster> repository,IMapper mapper)

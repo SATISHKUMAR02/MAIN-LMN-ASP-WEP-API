@@ -8,11 +8,10 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 {
     public class StatusUpdatedto
     {
-       
-        public DateOnly date {  get; set; }
 
-        public TimeOnly time { get; set; }
+    
 
-        public string description { get; set; }
+
+        public string description { get; set; } 
     }
 }
