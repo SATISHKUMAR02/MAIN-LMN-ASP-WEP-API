@@ -120,28 +120,28 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingController
 
         }
 
-        //[HttpGet]
-        //[Route("GetAllScheduledMeetingsAndCallback")]
-        //[ProducesResponseType(201)]
-        //[ProducesResponseType(400)]
-        //[ProducesResponseType(401)]
-        //[ProducesResponseType(404)]
+        [HttpGet]
+        [Route("GetAllScheduledMeetingsAndCallback")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(404)]
 
-        //public async Task<ActionResult<CommonResponse<List<MeetingCallbackdashdto>>>> GetAllMeetingCallback()
-        //{
-        //    try
-        //    {
-        //        var events = await _services.GetAllMeetingCallbackAsync();
-        //        return StatusCode(events.StatusCode, events);
+        public async Task<ActionResult<CommonResponse<List<MeetingCallbackdashdto>>>> GetAllMeetingCallback(int userid)
+        {
+            try
+            {
+                var events = await _services.GetAllMeetingCallbackAsync(userid);
+                return StatusCode(events.StatusCode, events);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(new CommonResponse<List<MeetingCallbackdashdto>>(false, ex.Message, 404, null));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse<List<MeetingCallbackdashdto>>(false, ex.Message, 404, null));
 
-        //    }
+            }
 
-        //}
+        }
 
         [HttpDelete]
         [Route("DeleteTempmeeting")]

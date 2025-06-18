@@ -396,6 +396,16 @@
         "Name": "dto",
         "Type": "services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto",
         "IsRequired": true
+      },
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "institutionid",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -439,26 +449,36 @@
   },
   {
     "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.MeetingCallbackController.CallbackController",
-    "Method": "CreateNewCallback",
-    "RelativePath": "api/Callback/UpdateCallback/{id}",
+    "Method": "UpdateCallback",
+    "RelativePath": "api/Callback/UpdateCallback",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "userid",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "institutionid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "meetingid",
+        "Type": "System.Int32",
+        "IsRequired": false
       },
       {
         "Name": "dto",
-        "Type": "services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto",
+        "Type": "services.Application_Services.LeadServices.Meetings.DTO.UpdateMeetingdto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.ScheduleCallbackdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "model.CommonResponse\u00601[[services.Application_Services.LeadServices.Meetings.DTO.UpdateMeetingdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1925,6 +1945,59 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "lnm_asp_web_api.Controllers.LeadControllers.MeetingController.MeetingController",
+    "Method": "GetAllMeetingCallback",
+    "RelativePath": "api/Meeting/GetAllScheduledMeetingsAndCallback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "model.CommonResponse\u00601[[System.Collections.Generic.List\u00601[[services.Application_Services.LeadServices.Meetings.DTO.MeetingCallbackdashdto, services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",

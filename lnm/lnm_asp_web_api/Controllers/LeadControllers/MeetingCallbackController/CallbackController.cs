@@ -23,7 +23,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingCallbackController
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<ScheduleCallbackdto>>> CreateNewCallback([FromBody] ScheduleCallbackdto dto)
+        public async Task<ActionResult<CommonResponse<ScheduleCallbackdto>>> CreateNewCallback([FromBody] ScheduleCallbackdto dto, int userid,int institutionid)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingCallbackController
                     return BadRequest(new CommonResponse<ScheduleCallbackdto>(false, "invalid inputs", 404, null));
 
                 }
-                var callback = await _services.CreateCallbackAsync(dto);
+                var callback = await _services.CreateCallbackAsync(dto,userid,institutionid);
 
                 return StatusCode(callback.StatusCode, callback);
             }
@@ -44,29 +44,29 @@ namespace lnm_asp_web_api.Controllers.LeadControllers.MeetingCallbackController
             }
         }
         [HttpPut]
-        [Route("UpdateCallback/{id:int}")]
+        [Route("UpdateCallback")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<CommonResponse<ScheduleCallbackdto>>> CreateNewCallback(int id,[FromBody] ScheduleCallbackdto dto)
+        public async Task<ActionResult<CommonResponse<UpdateMeetingdto>>> UpdateCallback(int userid,int institutionid,int meetingid,[FromBody] UpdateMeetingdto dto)
         {
             try
             {
-                if (dto == null || dto.meeting_id==id)
+                if (dto == null || meetingid<0 )
                 {
 
-                    return BadRequest(new CommonResponse<ScheduleCallbackdto>(false, "invalid inputs", 404, null));
+                    return BadRequest(new CommonResponse<UpdateMeetingdto>(false, "invalid inputs", 404, null));
 
                 }
-                var callback = await _services.UpdateCallbackAsync(dto);
+                var callback = await _services.UpdateCallbackAsync(dto,userid,institutionid,meetingid);
 
                 return StatusCode(callback.StatusCode, callback);
             }
             catch (Exception ex)
             {
 
-                return BadRequest(new CommonResponse<ScheduleCallbackdto>(false, ex.Message, 404, null));
+                return BadRequest(new CommonResponse<UpdateMeetingdto>(false, ex.Message, 404, null));
             }
         }
     }

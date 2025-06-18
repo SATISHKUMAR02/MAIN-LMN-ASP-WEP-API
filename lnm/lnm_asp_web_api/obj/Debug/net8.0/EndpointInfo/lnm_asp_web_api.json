@@ -690,6 +690,24 @@
         "tags": [
           "Callback"
         ],
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "institutionid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -793,16 +811,31 @@
         }
       }
     },
-    "/api/Callback/UpdateCallback/{id}": {
+    "/api/Callback/UpdateCallback": {
       "put": {
         "tags": [
           "Callback"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "userid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "institutionid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "meetingid",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -813,17 +846,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ScheduleCallbackdto"
+                "$ref": "#/components/schemas/UpdateMeetingdto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ScheduleCallbackdto"
+                "$ref": "#/components/schemas/UpdateMeetingdto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ScheduleCallbackdto"
+                "$ref": "#/components/schemas/UpdateMeetingdto"
               }
             }
           }
@@ -834,17 +867,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ScheduleCallbackdtoCommonResponse"
+                  "$ref": "#/components/schemas/UpdateMeetingdtoCommonResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ScheduleCallbackdtoCommonResponse"
+                  "$ref": "#/components/schemas/UpdateMeetingdtoCommonResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ScheduleCallbackdtoCommonResponse"
+                  "$ref": "#/components/schemas/UpdateMeetingdtoCommonResponse"
                 }
               }
             }
@@ -3708,6 +3741,105 @@
         }
       }
     },
+    "/api/Meeting/GetAllScheduledMeetingsAndCallback": {
+      "get": {
+        "tags": [
+          "Meeting"
+        ],
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingCallbackdashdtoListCommonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingCallbackdashdtoListCommonResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingCallbackdashdtoListCommonResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Meeting/DeleteTempmeeting": {
       "delete": {
         "tags": [
@@ -5998,14 +6130,6 @@
       "ScheduleCallbackdto": {
         "type": "object",
         "properties": {
-          "meeting_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "institution_id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "date": {
             "type": "string",
             "format": "date"
@@ -6014,22 +6138,7 @@
             "type": "string",
             "format": "time"
           },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
           "descritpion": {
-            "type": "string",
-            "nullable": true
-          },
-          "created_by": {
-            "type": "string",
-            "nullable": true
-          },
-          "meeting_conducted": {
-            "type": "boolean"
-          },
-          "meeting_outcome": {
             "type": "string",
             "nullable": true
           }

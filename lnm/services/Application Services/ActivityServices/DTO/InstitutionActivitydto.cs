@@ -12,5 +12,15 @@ namespace services.Application_Services.ActivityServices.DTO
         public int ActivityId { get; set; }
         public int InstitutionId { get; set; }
         public string ActivityName { get; set; }
+
+        public int  studentStrength { get; set; }
+
+        public DateOnly DateOfEvent { get; set; }
+
+        public string eventVenue { get; set; }
+
+        public int studentParticipating { get; set; }
+
+        public int NoOfDaysEvent { get; set; }
     }
 }

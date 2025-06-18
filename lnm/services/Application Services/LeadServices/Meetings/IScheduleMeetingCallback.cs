@@ -21,7 +21,7 @@ namespace services.Application_Services.LeadServices.Meetings
 
         //Task<CommonResponse<>>
 
-        Task<CommonResponse<UpdateMeetingdto>> UpdateMeetingAsync(UpdateMeetingdto dto,int userid,int institutionid,int meetingid);
+        Task<CommonResponse<UpdateMeetingdto>> UpdateMeetingAsync(UpdateMeetingdto dto,int userid,int institutionid,int callid);
 
         Task<CommonResponse<object>> DeleteMeetingAsync(int meeting_id, int institution_id);
 
@@ -29,18 +29,18 @@ namespace services.Application_Services.LeadServices.Meetings
 
         // ======================================================= this is common  for history dashboard  only get operation
 
-        Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync();
+        Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync(int userid);
 
         Task<CommonResponse<ScheduleMeetingdto>> GetMeetingByIdAsync(int id);
 
         Task<CommonResponse<StatusUpdatedto>> CreateStatusUpdateAsync(StatusUpdatedto dto,int id,int institutionId);
 
         // =================================================================== for callbacks only CRUD
-        Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto);
+        Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto,int userid,int institutionid);
 
         Task<CommonResponse<ScheduleCallbackdto>> GetCallbackAsync();
 
-        Task<CommonResponse<ScheduleCallbackdto>> UpdateCallbackAsync(ScheduleCallbackdto dto);
+        Task<CommonResponse<UpdateMeetingdto>> UpdateCallbackAsync(UpdateMeetingdto dto,int userid,int meetingid,int institutionid);
 
         Task<CommonResponse<object>> DeleteCallbackAsync(int id);
 

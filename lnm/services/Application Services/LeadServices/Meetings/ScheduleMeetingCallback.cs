@@ -53,7 +53,7 @@ namespace services.Application_Services.LeadServices.Meetings
             //var institutionid = await (from a in _context.institutionMaster join b in _context.meetingsMaster on a.ImInstitutionId equals b.MmInstitutionId 
             //                                                                   select a.ImInstitutionId).FirstOrDefaultAsync();
 
-            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == institutionid && u.MmMeetingConducted == false && u.MmmeetingOutcome != "not-interested" );
+            var existingMeeting = await _repository.GetSingleAsync(u => u.MmInstitutionId == institutionid && u.MmMeetingConducted == false && u.MmMeetingStatus !="not-intrested" && u.MmMeetingType =="Meeting");
 
             if (existingMeeting != null)
             {
@@ -164,6 +164,7 @@ namespace services.Application_Services.LeadServices.Meetings
                 if(existingMeeting.MmMeetingScheduleDate > today)
                 {
                     existingMeeting.MmMeetingStatus = "expire";
+                    existingMeeting.MmMeetingConducted = true;
                 }
                 else
                 {
@@ -257,14 +258,14 @@ namespace services.Application_Services.LeadServices.Meetings
 
         }
 
-        public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync() //=====for meeting and callback dashboard
+        public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync(int userid) //=====for meeting and callback dashboard
         {
-            var events = await _repository.GetAllAsync();
+            var events = await _repository.GetAllByAnyAsync(u=>u.MmCreatedBy == userid);
             
             var data= _mapper.Map<List<MeetingCallbackdashdto>>(events);
 
             
-            return new CommonResponse<List<MeetingCallbackdashdto>>(true, "all events fetched successfully", 200, data);
+            return new CommonResponse<List<MeetingCallbackdashdto>>(true, "all meetings and calls fetched successfully", 200, data);
 
         }
 
@@ -273,7 +274,7 @@ namespace services.Application_Services.LeadServices.Meetings
 
         //=============================================================================///======================== for callbacks
 
-        public async Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto)
+        public async Task<CommonResponse<ScheduleCallbackdto>> CreateCallbackAsync(ScheduleCallbackdto dto,int userid,int institutionid)
         {
             if (dto == null)
             {
@@ -281,7 +282,7 @@ namespace services.Application_Services.LeadServices.Meetings
             }
 
             var existingCallback = await _repository.GetSingleAsync(u =>
-                u.MmInstitutionId == dto.institution_id && u.MmMeetingConducted == false && u.MmMeetingType =="Callback" );
+                u.MmInstitutionId == institutionid && u.MmMeetingConducted == false && u.MmMeetingType =="Callback" );
 
             if (existingCallback != null)
             {
@@ -292,9 +293,13 @@ namespace services.Application_Services.LeadServices.Meetings
             
             callback.MmMeetingStatus = "open";
             callback.MmInstitutionResponded = "yes";
+            callback.MmInstitutionName = (from a in _context.institutionMaster where a.ImInstitutionId == institutionid select a.ImInstitutionName).FirstOrDefault();
             callback.MmCreatedDate = DateTime.Now;
+            callback.MmCreatedBy = userid;
+            callback.MmInstitutionId = institutionid;
             callback.MmIsDeleted = false;
             callback.MmMeetingConducted = false;
+            callback.MmUpdatedBy = userid;
             callback.MmmeetingOutcome = "pending";
             callback.MmMeetingType = "Callback";
 
@@ -359,25 +364,40 @@ namespace services.Application_Services.LeadServices.Meetings
         }
 
 
-        public async Task<CommonResponse<ScheduleCallbackdto>> UpdateCallbackAsync(ScheduleCallbackdto dto)
+        public async Task<CommonResponse<UpdateMeetingdto>> UpdateCallbackAsync(UpdateMeetingdto dto,int userid,int institutionid,int callid)
         {
             if(dto == null)
             {
-                return new CommonResponse<ScheduleCallbackdto>(false,"callback credentials empty",400,null);
+                return new CommonResponse<UpdateMeetingdto>(false,"callback credentials empty",400,null);
             }
-            var existingCallback = await _repository.GetSingleAsync(u=>u.MmMeetingId == dto.meeting_id);
+            var existingCallback = await _repository.GetSingleAsync(u=>u.MmMeetingId == callid);
 
             if (existingCallback == null)
             {
-                return new CommonResponse<ScheduleCallbackdto>(false, "callback does not exist", 404);
+                return new CommonResponse<UpdateMeetingdto>(false, "callback does not exist", 404);
             }
+            _mapper.Map(dto, existingCallback);
+            existingCallback.MmUpdatedBy = userid;
             existingCallback.MmUpdatedDate = DateTime.Now;
+            if (existingCallback.MmMeetingConducted == true)
+            {
+                existingCallback.MmMeetingStatus = "close";
+            }
+            else
+            {
+                if(existingCallback.MmCreatedDate > DateTime.Now){
+                    existingCallback.MmMeetingStatus = "expire";
+                }
+                existingCallback.MmMeetingStatus = "open";
+            }
+
+
 
             await _repository.UpdateAsync(existingCallback);
 
-            var response = _mapper.Map<ScheduleCallbackdto>(existingCallback);
+            var response = _mapper.Map<UpdateMeetingdto>(existingCallback);
 
-            return new CommonResponse<ScheduleCallbackdto>(true, "callback updated successfully", 200, response);
+            return new CommonResponse<UpdateMeetingdto>(true, "callback updated successfully", 200, response);
 
         }
 
