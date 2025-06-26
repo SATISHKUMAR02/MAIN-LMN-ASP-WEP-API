@@ -29,5 +29,7 @@ namespace model.MOUs
         public string? CmouMouPath { get; set; }
 
         public string? CmouMouDescription { get; set; }
+
+       
     }
 }

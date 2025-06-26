@@ -83,13 +83,14 @@ namespace services.Application_Services.ActivityServices
             {
                 return new CommonResponse<AddInstitutionActivitydto>(false, "invalid input credentials", 404, null);
             }
-            var existingActivity = await _repository.GetSingleAsync(u => u.ImActivityId.Equals(activityid));
+            var existingActivity = await _repository.GetSingleAsync(u => u.ImActivityId == activityid && u.ImInstitutionId == institutionid);
 
             if (existingActivity == null)
             {
                 return new CommonResponse<AddInstitutionActivitydto>(false, "activity not found", 404, null);
             }
             _mapper.Map(dto, existingActivity);
+            existingActivity.ImUpdatedBy = userid;
 
             existingActivity.ImUpdatedDate = DateTime.Now;
 

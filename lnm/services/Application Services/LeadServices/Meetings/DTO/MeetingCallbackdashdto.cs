@@ -26,6 +26,10 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public string meeting_outcome { get; set; }
 
+        public int assignedto { get; set; }
+
 
     }
 }
+
+//DROP INDEX IX_meetingsMaster_MmInstitutionId ON dbo.meetingsMaster;

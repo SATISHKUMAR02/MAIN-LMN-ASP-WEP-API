@@ -8,11 +8,8 @@ namespace services.Application_Services.ActivityServices.DTO
 {
     public class AddInstitutionActivitydto
     {
-      
-
-        
-
-        public int studentStrrength { get; set; }
+     
+        public int studentStrength { get; set; }
 
         public DateOnly DateOfEvent { get; set; }
 

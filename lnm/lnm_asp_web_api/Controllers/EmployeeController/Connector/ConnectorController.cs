@@ -44,6 +44,9 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
         [HttpGet]
         [Route("GetAllConnectors")]
+        [Authorize(Roles = "3")]
+        [ProducesResponseType(403)]
+
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -66,6 +69,8 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
         [HttpGet]
         [Route("GetConnectorMOU/{mouid:int}")]
+        [Authorize(Roles = "3")]
+
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -87,8 +92,12 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
 
         [HttpGet]
         [Route("GetConnectorById")]
+        [Authorize(Roles = "3")]
+
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
+        [ProducesResponseType(403)]
+
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<CommonResponse<AddConnectordto>>> GetConnectorByIds(int id)
@@ -132,6 +141,8 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+
         [ProducesResponseType(404)]
 
         public async Task<ActionResult<CommonResponse<AddConnectordto>>> UpdateConnector(int id, [FromBody] AddConnectordto dto)
@@ -153,6 +164,7 @@ namespace lnm_asp_web_api.Controllers.EmployeeController.Connector
         }
         // deleted from UI and DB
         [HttpDelete]
+
         [Route("DeleteConnector/{id:int}")]
         [Authorize(Roles ="3")]
         [ProducesResponseType(200)]

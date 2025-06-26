@@ -38,7 +38,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
                 return new CommonResponse<AddConnectordto>(false, "Error", 404, null);
             }
 
-            var existingConnector = await _repository.GetSingleAsync(u => u.em_id == dto.connector_id || u.em_contact_number == dto.phonenumber);
+            var existingConnector = await _repository.GetSingleAsync(u => u.em_contact_number == dto.phonenumber);
             if (existingConnector != null)
             {
                 return new CommonResponse<AddConnectordto>(false, "user already exist", 400, null);
@@ -47,19 +47,19 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors
             // Manual mapping
             tbl_employee_master user = new tbl_employee_master
             {
-                em_id = dto.connector_id,
+
                 em_name_e = dto.Firstname,
-                em_name_k=dto.Lastname,
+                em_name_k = dto.Lastname,
                 em_contact_number = dto.phonenumber,
                 em_email_address = dto.Email,
                 em_joining_date = dto.hireDate,
-                em_updated_date = dto.updated_date,
                 em_gender = dto.gender,
-                dob =dto.dateOfbirth,
+                dob = dto.dateOfbirth,
                 em_created_date = DateTime.Now,
                 em_role_id = 1,
                 em_is_active = true,
-                em_created_by=id,
+                em_created_by = id,
+                em_end_date = dto.hireDate.AddYears(3)
             };
 
             await _repository.CreateAsync(user);

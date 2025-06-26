@@ -22,11 +22,13 @@ namespace services.Application_Services.Usermanagement.AddUsers.Connectors.DTO
         
         public string Email { get; set; }
         
-        public DateTime hireDate  { get; set; }
+        public DateOnly hireDate  { get; set; }
         
-        public DateTime updated_date { get; set; }  
+        public DateOnly updated_date { get; set; }  
 
         public string? ViewMou { get; set; }
+
+        public int role { get; set; } = 1;
 
        
 

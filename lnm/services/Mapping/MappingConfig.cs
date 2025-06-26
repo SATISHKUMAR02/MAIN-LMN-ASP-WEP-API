@@ -40,7 +40,7 @@ namespace services.Mapping
 
             CreateMap<TblInstitutionActivity, AddInstitutionActivitydto>()
                  
-                 .ForMember(dest => dest.studentStrrength, opt => opt.MapFrom(src => src.ImStudentStrength))
+                 .ForMember(dest => dest.studentStrength, opt => opt.MapFrom(src => src.ImStudentStrength))
                  .ForMember(dest => dest.DateOfEvent, opt => opt.MapFrom(src => src.ImScheduleDate))
                  .ForMember(dest => dest.eventVenue, opt => opt.MapFrom(src => src.ImEventVenue))
                  .ForMember(dest => dest.studentParticipating, opt => opt.MapFrom(src => src.ImStudentParticipating))
@@ -87,7 +87,11 @@ namespace services.Mapping
                 .ForMember(dest => dest.phone_number, opt => opt.MapFrom(src => src.em_contact_number))
                 .ForMember(dest => dest.email, opt => opt.MapFrom(src => src.em_email_address))
                 .ForMember(dest => dest.status, opt => opt.MapFrom(src => src.em_is_active))
-                .ReverseMap();
+                .ForMember(dest => dest.endDate, opt => opt.MapFrom(src => src.em_end_date))
+                .ForMember(dest => dest.createdBy, opt => opt.MapFrom(src => src.em_created_by));
+
+
+
             CreateMap<tbl_employee_master, Telecallerdto>()
                .ForMember(dest => dest.telecallerId, opt => opt.MapFrom(src => src.em_id))
                .ForMember(dest => dest.telecallerName, opt => opt.MapFrom(src => src.em_name_e))
@@ -104,7 +108,7 @@ namespace services.Mapping
              .ForMember(dest => dest.phonenumber, opt => opt.MapFrom(src => src.em_contact_number))
              .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.em_email_address))
              .ForMember(dest => dest.hireDate, opt => opt.MapFrom(src => src.em_joining_date))
-             .ForMember(dest => dest.updated_date, opt => opt.MapFrom(src => src.em_updated_date))
+             //.ForMember(dest => dest.updated_date, opt => opt.MapFrom(src => src.em_updated_date))
              .ForMember(dest => dest.gender, opt => opt.MapFrom(src => src.em_gender))
              .ForMember(dest => dest.dateOfbirth, opt => opt.MapFrom(src => src.dob)).ReverseMap();
 
@@ -127,7 +131,6 @@ namespace services.Mapping
                .ForMember(dest => dest.em_contact_number, opt => opt.MapFrom(src => src.phoneNo))
                .ForMember(dest => dest.em_email_address, opt => opt.MapFrom(src => src.Email))
                .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.HireDate))
-               
                .ForMember(dest => dest.em_gender, opt => opt.MapFrom(src => src.Gender))
                .ForMember(dest => dest.em_is_active, opt => opt.MapFrom(src => true)).ReverseMap();
 
@@ -137,11 +140,14 @@ namespace services.Mapping
               .ForMember(dest => dest.em_contact_number, opt => opt.MapFrom(src => src.Contact))
               .ForMember(dest => dest.em_email_address, opt => opt.MapFrom(src => src.email))
               .ForMember(dest => dest.em_joining_date, opt => opt.MapFrom(src => src.hire_Date))
+              .ForMember(dest => dest.em_created_by, opt => opt.MapFrom(src => src.createdby))
              .ReverseMap();
 
             CreateMap<TblMeetingsMaster, ScheduleMeetingdto>()
                  
                  .ForMember(dest => dest.date, opt => opt.MapFrom(src => src.MmMeetingScheduleDate))
+                 .ForMember(dest => dest.assignedto, opt => opt.MapFrom(src => src.MmAssignedTo))
+                 
                  .ForMember(dest => dest.time, opt => opt.MapFrom(src => src.MmMeetingTime))
                  .ForMember(dest => dest.descritpion, opt => opt.MapFrom(src => src.MmMeetingDescritpion))
                 
@@ -152,6 +158,8 @@ namespace services.Mapping
       
                  .ForMember(dest => dest.date, opt => opt.MapFrom(src => src.MmMeetingScheduleDate))
                  .ForMember(dest => dest.time, opt => opt.MapFrom(src => src.MmMeetingTime))
+                                  .ForMember(dest => dest.assignedto, opt => opt.MapFrom(src => src.MmAssignedTo))
+
                  .ForMember(dest => dest.descritpion, opt => opt.MapFrom(src => src.MmMeetingDescritpion))
                 .ReverseMap();
 
@@ -165,6 +173,7 @@ namespace services.Mapping
                  .ForMember(dest => dest.meeting_conducted, opt => opt.MapFrom(src => src.MmMeetingConducted))
                  .ForMember(dest => dest.meeting_outcome, opt => opt.MapFrom(src => src.MmmeetingOutcome))
                  .ForMember(dest => dest.status, opt => opt.MapFrom(src => src.MmMeetingStatus))
+                 .ForMember(dest => dest.assignedto, opt => opt.MapFrom(src => src.MmAssignedTo))
                  .ReverseMap(); 
                  
             CreateMap<TblMeetingsMaster,Historydto>()

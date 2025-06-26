@@ -12,11 +12,15 @@ namespace services.Application_Services.Usermanagement.AddUsers.ConnectorsServic
 
         public string sub_connector_name { get; set; }
 
-        public DateTime hire_Date { get; set; }
+        public DateOnly hire_Date { get; set; }
 
         public string Contact {  get; set; }
-
+        
         public string email { get; set; }
+
+        public int role { get; set; } = 4;
+
+        public int createdby { get; set; } 
 
 
     }

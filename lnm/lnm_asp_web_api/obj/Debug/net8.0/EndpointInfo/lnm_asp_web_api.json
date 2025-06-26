@@ -1069,6 +1069,26 @@
           "Connector"
         ],
         "responses": {
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "200": {
             "description": "OK",
             "content": {
@@ -1308,6 +1328,26 @@
               }
             }
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "401": {
             "description": "Unauthorized",
             "content": {
@@ -1429,6 +1469,26 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "text/plain": {
                 "schema": {
@@ -3741,7 +3801,7 @@
         }
       }
     },
-    "/api/Meeting/GetAllScheduledMeetingsAndCallback": {
+    "/api/Meeting/GetAllScheduledMeetingsAndCallbackByUser": {
       "get": {
         "tags": [
           "Meeting"
@@ -3755,6 +3815,95 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingCallbackdashdtoListCommonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingCallbackdashdtoListCommonResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingCallbackdashdtoListCommonResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Meeting/GetAllScheduledMeetingsAndCallback": {
+      "get": {
+        "tags": [
+          "Meeting"
         ],
         "responses": {
           "201": {
@@ -5461,15 +5610,19 @@
           },
           "hireDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "updated_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "viewMou": {
             "type": "string",
             "nullable": true
+          },
+          "role": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -5497,7 +5650,7 @@
       "AddInstitutionActivitydto": {
         "type": "object",
         "properties": {
-          "studentStrrength": {
+          "studentStrength": {
             "type": "integer",
             "format": "int32"
           },
@@ -5627,11 +5780,7 @@
           },
           "hireDate": {
             "type": "string",
-            "format": "date-time"
-          },
-          "updated_date": {
-            "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "created_by": {
             "type": "integer",
@@ -5743,7 +5892,7 @@
           },
           "joining_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "phone_number": {
             "type": "string",
@@ -5759,6 +5908,18 @@
           "view": {
             "type": "string",
             "nullable": true
+          },
+          "role": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
           }
         },
         "additionalProperties": false
@@ -6052,6 +6213,10 @@
           "meeting_outcome": {
             "type": "string",
             "nullable": true
+          },
+          "assignedto": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -6138,6 +6303,10 @@
             "type": "string",
             "format": "time"
           },
+          "assignedto": {
+            "type": "integer",
+            "format": "int32"
+          },
           "descritpion": {
             "type": "string",
             "nullable": true
@@ -6175,6 +6344,10 @@
           "time": {
             "type": "string",
             "format": "time"
+          },
+          "assignedto": {
+            "type": "integer",
+            "format": "int32"
           },
           "descritpion": {
             "type": "string",
@@ -6246,7 +6419,7 @@
           },
           "hire_Date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "contact": {
             "type": "string",
@@ -6255,6 +6428,14 @@
           "email": {
             "type": "string",
             "nullable": true
+          },
+          "role": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdby": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -6599,6 +6780,10 @@
           },
           "institutionMaster": {
             "$ref": "#/components/schemas/TblInstitutionMaster"
+          },
+          "mmAssignedTo": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

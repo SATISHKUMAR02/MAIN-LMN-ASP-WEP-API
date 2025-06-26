@@ -87,7 +87,7 @@ namespace services.Application_Services.LeadServices.Meetings
             {
                 return new CommonResponse<object>(false,"invalid inputs",404,null);
             } 
-            var existingMeeting = await _repository.GetSingleAsync(u=>u.MmMeetingId == meeting_id && u.MmInstitutionId == institution_id );
+            var existingMeeting = await _repository.GetSingleAsync(u=>u.MmMeetingId == meeting_id && u.MmInstitutionId == institution_id && (u.MmAssignedTo == userid || u.MmCreatedBy == userid));
             
             if(existingMeeting == null)
             {
@@ -141,7 +141,7 @@ namespace services.Application_Services.LeadServices.Meetings
                 return new CommonResponse<UpdateMeetingdto>(false, "meeting fields are empty", 404, null);
 
             }
-            var existingMeeting = await _repository.GetSingleAsync(u=> u.MmInstitutionId == institutionid && u.MmMeetingId == meetingid && u.MmMeetingConducted == false);
+            var existingMeeting = await _repository.GetSingleAsync(u=> u.MmInstitutionId == institutionid && u.MmMeetingId == meetingid && u.MmMeetingConducted == false && u.MmAssignedTo == userid);
            
             if(existingMeeting == null)
             {
@@ -155,22 +155,33 @@ namespace services.Application_Services.LeadServices.Meetings
 
             var temp= dto.meeting_conducted;
             var today = DateOnly.FromDateTime(DateTime.Now);
-            if(temp == true)
+            //if(temp == true)
+            //{
+            //    existingMeeting.MmMeetingStatus = "close";
+            //}
+            //else
+            //{
+            //    if(existingMeeting.MmMeetingScheduleDate > today)
+            //    {
+            //        existingMeeting.MmMeetingStatus = "expire";
+            //        existingMeeting.MmMeetingConducted = true;
+            //    }
+            //    else
+            //    {
+            //        existingMeeting.MmMeetingStatus = "close";
+            //    }
+            //}
+            if(existingMeeting.MmMeetingScheduleDate > today)
             {
-                existingMeeting.MmMeetingStatus = "close";
+                existingMeeting.MmMeetingStatus = "expire";
+                //existingMeeting.MmMeetingConducted = ;false
             }
             else
             {
-                if(existingMeeting.MmMeetingScheduleDate > today)
-                {
-                    existingMeeting.MmMeetingStatus = "expire";
-                    existingMeeting.MmMeetingConducted = true;
-                }
-                else
-                {
-                    existingMeeting.MmMeetingStatus = "close";
-                }
+                existingMeeting.MmMeetingStatus = "close";
+
             }
+
             var instituion = await _institutionrepository.GetSingleAsync(u => u.ImInstitutionId == institutionid);
             if(instituion != null)
             {
@@ -181,9 +192,6 @@ namespace services.Application_Services.LeadServices.Meetings
             
             await _repository.UpdateAsync(existingMeeting);
           
-
-            
-
             var response = _mapper.Map<UpdateMeetingdto>(existingMeeting);
             
             return new CommonResponse<UpdateMeetingdto>(true, "meeting updated successfully", 200, response);
@@ -193,13 +201,9 @@ namespace services.Application_Services.LeadServices.Meetings
         }
         public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetMeetingAsync()
         {
-            var meetings = await _repository.GetAllAsync();
-            
+            var meetings = await _repository.GetAllAsync();            
            
             var data = _mapper.Map<List<MeetingCallbackdashdto>>(meetings);
-            
-            
-            
             
             return new CommonResponse<List<MeetingCallbackdashdto>>(true,"data fetched successfully",200,data);
         }
@@ -260,7 +264,7 @@ namespace services.Application_Services.LeadServices.Meetings
 
         public async Task<CommonResponse<List<MeetingCallbackdashdto>>> GetAllMeetingCallbackAsync(int userid) //=====for meeting and callback dashboard
         {
-            var events = await _repository.GetAllByAnyAsync(u=>u.MmCreatedBy == userid);
+            var events = await _repository.GetAllByAnyAsync(u=>u.MmCreatedBy == userid || u.MmAssignedTo == userid);
             
             var data= _mapper.Map<List<MeetingCallbackdashdto>>(events);
 

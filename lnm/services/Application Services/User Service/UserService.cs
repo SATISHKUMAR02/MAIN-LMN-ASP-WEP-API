@@ -50,9 +50,13 @@ namespace services.Application_Services.User_Service
                 .FirstOrDefaultAsync(x => x.uld_id == userId && x.uld_is_active == true && x.uld_otp == otp);
 
 
-                if (valid_otp == null)
+                if (valid_otp == null )
                 {
                     return new CommonResponse<UserDetails>(false, "Invalid OTP", 404);
+                }
+                if (valid_otp.uld_otp_time < DateTime.Now)
+                {
+                    return new CommonResponse<UserDetails>(false, "OTP Expired", 400);
                 }
 
                 //return new CommonResponse<UserDetails>(true, "valid_otp", 200, null);
@@ -109,7 +113,7 @@ namespace services.Application_Services.User_Service
 
 
                 valid_user.uld_otp = GenerateOtp();
-                valid_user.uld_otp_time = DateTime.Now;
+                valid_user.uld_otp_time = DateTime.Now.AddSeconds(120);// valid upto 120 seconds not more than that
 
                 await _context.SaveChangesAsync();
                 return new CommonResponse<object>(true, "OTP sent successfully", 200, valid_user.uld_otp);

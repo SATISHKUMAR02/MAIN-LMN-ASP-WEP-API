@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace services.Migrations
 {
     /// <inheritdoc />
-    public partial class changedassignconnector : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -180,7 +180,8 @@ namespace services.Migrations
                     MmMeetingConducted = table.Column<bool>(type: "bit", nullable: false),
                     MmmeetingOutcome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MmIsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    MmInstitutionName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MmInstitutionName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MmAssignedTo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -295,8 +296,7 @@ namespace services.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_institutionActivity_ImInstitutionId",
                 table: "institutionActivity",
-                column: "ImInstitutionId",
-                unique: true);
+                column: "ImInstitutionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_meetingsMaster_MmInstitutionId",

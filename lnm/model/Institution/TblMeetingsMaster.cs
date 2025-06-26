@@ -30,8 +30,9 @@ namespace model.Institution
         public string MmmeetingOutcome {get;set;}
         public bool MmIsDeleted { get; set; }
         public string MmInstitutionName { get; set; }
+        
         public TblInstitutionMaster institutionMaster { get; set; } // relation between instittuion and meeting
-
+        public int MmAssignedTo { get; set; }
 
     }
 }

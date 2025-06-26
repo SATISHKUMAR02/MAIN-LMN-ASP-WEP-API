@@ -14,6 +14,8 @@ namespace services.Application_Services.LeadServices.Meetings.DTO
 
         public TimeOnly time { get; set; }
 
+        public int assignedto { get; set; }
+
         public string descritpion { get; set; }
 
         

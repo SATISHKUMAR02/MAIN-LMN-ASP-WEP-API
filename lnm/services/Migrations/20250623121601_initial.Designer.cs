@@ -12,8 +12,8 @@ using services;
 namespace services.Migrations
 {
     [DbContext(typeof(DBConnection))]
-    [Migration("20250603060055_changed assign connector")]
-    partial class changedassignconnector
+    [Migration("20250623121601_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,8 +104,7 @@ namespace services.Migrations
 
                     b.HasIndex("ImActivityId");
 
-                    b.HasIndex("ImInstitutionId")
-                        .IsUnique();
+                    b.HasIndex("ImInstitutionId");
 
                     b.ToTable("institutionActivity");
                 });
@@ -195,6 +194,9 @@ namespace services.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MmMeetingId"));
+
+                    b.Property<int>("MmAssignedTo")
+                        .HasColumnType("int");
 
                     b.Property<int>("MmCreatedBy")
                         .HasColumnType("int");
@@ -537,8 +539,8 @@ namespace services.Migrations
                         .HasConstraintName("FK_InstitutionActivity_Activitymaster");
 
                     b.HasOne("model.Institution.TblInstitutionMaster", "InstitutionMaster")
-                        .WithOne("Activity")
-                        .HasForeignKey("model.Institution.TblInstitutionActivity", "ImInstitutionId")
+                        .WithMany("Activities")
+                        .HasForeignKey("ImInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -607,11 +609,9 @@ namespace services.Migrations
 
             modelBuilder.Entity("model.Institution.TblInstitutionMaster", b =>
                 {
-                    b.Navigation("Activity")
-                        .IsRequired();
+                    b.Navigation("Activities");
 
-                    b.Navigation("Meeting")
-                        .IsRequired();
+                    b.Navigation("Meeting");
                 });
 
             modelBuilder.Entity("model.User.tbl_employee_master", b =>
