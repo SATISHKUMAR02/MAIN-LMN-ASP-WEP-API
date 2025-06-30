@@ -5781,10 +5781,6 @@
           "hireDate": {
             "type": "string",
             "format": "date"
-          },
-          "created_by": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -5842,11 +5838,12 @@
           },
           "hireDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date",
+            "nullable": true
           },
           "role": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "updated_date": {
             "type": "string",
@@ -6801,7 +6798,7 @@
           },
           "joining_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "phonenumber": {
             "type": "string",
@@ -6813,6 +6810,10 @@
           },
           "status": {
             "type": "boolean"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

@@ -35,8 +35,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
                 return new CommonResponse<AddTelecallerdto>(false, "Error", 404, null);
 
             }
-            var existingTelecaller = await _repository.GetSingleAsync(u => u.em_id == dto.telecaller_id && u.em_role_id == 2 &&
-            u.em_contact_number == dto.phonenumber);
+            var existingTelecaller = await _repository.GetSingleAsync(u=>u.em_contact_number == dto.phonenumber && u.em_role_id == 2);
             if (existingTelecaller != null)
             {
                 return new CommonResponse<AddTelecallerdto>(false, "user already exist", 400, null);
@@ -44,7 +43,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
             }
             tbl_employee_master user = new tbl_employee_master
             {
-                em_id = dto.telecaller_id,
+               
                 em_name_e = dto.Firstname,
                 em_name_k = dto.Lastname,
                 em_contact_number = dto.phonenumber,
@@ -68,7 +67,6 @@ namespace services.Application_Services.Usermanagement.AddUsers.TelecallersServi
                 uld_created_date = DateTime.Now,
                 uld_employee_id = user.em_id,
                 uld_is_active=true,
-                uld_otp = "9876",
                 uld_otp_time = DateTime.Now.AddSeconds(300),
 
             };

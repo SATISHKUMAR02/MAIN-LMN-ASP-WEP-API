@@ -17,7 +17,7 @@ namespace services.Application_Services.Usermanagement.AddUsers.ConnectorsServic
 
         public string Gender { get; set; } 
 
-        public DateTime HireDate { get; set; }
+        public DateOnly HireDate { get; set; }
 
         public string phoneNo { get; set; }
 

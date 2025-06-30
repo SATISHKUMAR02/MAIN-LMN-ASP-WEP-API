@@ -22,9 +22,9 @@ namespace services.Application_Services.Usermanagement.AllUsers.DTO
 
         public string Email { get; set; }
 
-        public DateTime hireDate { get; set; }
+        public DateOnly? hireDate { get; set; }
 
-        public string role { get; set; } = "";
+        public int role { get; set; } 
 
         public DateTime updated_date { get; set; } 
 

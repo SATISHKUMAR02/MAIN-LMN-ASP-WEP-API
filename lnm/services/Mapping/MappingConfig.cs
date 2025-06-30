@@ -99,10 +99,10 @@ namespace services.Mapping
                .ForMember(dest => dest.phonenumber, opt => opt.MapFrom(src => src.em_contact_number))
                .ForMember(dest => dest.email, opt => opt.MapFrom(src => src.em_email_address))
                .ForMember(dest => dest.status, opt => opt.MapFrom(src => src.em_is_active))
+               .ForMember(dest => dest.createdBy, opt => opt.MapFrom(src => src.em_created_by))
                .ReverseMap();
 
             CreateMap<tbl_employee_master, AddTelecallerdto>()
-             .ForMember(dest => dest.telecaller_id, opt => opt.MapFrom(src => src.em_id))
              .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.em_name_e))
              .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => src.em_name_k))
              .ForMember(dest => dest.phonenumber, opt => opt.MapFrom(src => src.em_contact_number))
@@ -202,7 +202,7 @@ namespace services.Mapping
                 .ForMember(dest=>dest.phonenumber,opt=>opt.MapFrom(src=>src.em_contact_number))
                 .ForMember(dest=>dest.Email,opt=>opt.MapFrom(src=>src.em_email_address))
                 .ForMember(dest=>dest.hireDate,opt=>opt.MapFrom(src=>src.em_joining_date))
-                .ForMember(dest=>dest.role,opt=>opt.MapFrom(src=>src.em_role_id.ToString()))
+                .ForMember(dest=>dest.role,opt=>opt.MapFrom(src=>src.em_role_id))
                 //.ForMember(dest=>dest.ViewMou,opt=>opt.MapFrom(src=>src.v))
                 //.ForMember(dest=>dest.employee_id,opt=>opt.MapFrom(src=>src.em_id))
                 ;
